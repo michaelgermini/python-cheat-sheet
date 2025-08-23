@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance & Optimization (Profiling, Memory, Async Basics) - Professional Python Cheat Sheet</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-python me-2"></i>
+                Python Cheat Sheet
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-home me-1"></i>
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5 class="text-warning mb-3">
+                        <i class="fas fa-list me-2"></i>
+                        Complete Navigation
+                    </h5>
+                    
+                    <!-- Search in sidebar -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control search-box" id="sidebarSearch" 
+                               placeholder="🔍 Search sections...">
+                    </div>
+
+                    <!-- Main Sections -->
+                    <div class="accordion" id="sidebarAccordion">
+                        <!-- Getting Started -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="gettingStarted">
+                                <button class="accordion-button collapsed" type="button" id="btnGettingStarted" data-bs-toggle="collapse" data-bs-target="#collapseGettingStarted">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Getting Started
+                                </button>
+                            </h2>
+                            <div id="collapseGettingStarted" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="00-intro.html">
+                                            <i class="fas fa-play-circle me-2"></i>
+                                            00 - Python Introduction
+                                        </a>
+                                        <a class="nav-link" href="01-basics.html">
+                                            <i class="fas fa-cube me-2"></i>
+                                            01 - Variables & Data Types
+                                        </a>
+                                        <a class="nav-link" href="02-control.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            02 - Control Structures
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Programming -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="coreProgramming">
+                                <button class="accordion-button collapsed" type="button" id="btnCoreProgramming" data-bs-toggle="collapse" data-bs-target="#collapseCoreProgramming">
+                                    <i class="fas fa-code me-2"></i>
+                                    Core Programming
+                                </button>
+                            </h2>
+                            <div id="collapseCoreProgramming" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="03-functions.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            03 - Functions & Decorators
+                                        </a>
+                                        <a class="nav-link" href="04-oop.html">
+                                            <i class="fas fa-cubes me-2"></i>
+                                            04 - Classes & OOP
+                                        </a>
+                                        <a class="nav-link" href="05-libraries.html">
+                                            <i class="fas fa-boxes me-2"></i>
+                                            05 - Popular Libraries
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File & Web Development -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="fileWeb">
+                                <button class="accordion-button collapsed" type="button" id="btnFileWeb" data-bs-toggle="collapse" data-bs-target="#collapseFileWeb">
+                                    <i class="fas fa-file-code me-2"></i>
+                                    File & Web Development
+                                </button>
+                            </h2>
+                            <div id="collapseFileWeb" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="06-files.html">
+                                            <i class="fas fa-file-alt me-2"></i>
+                                            06 - File Handling
+                                        </a>
+                                        <a class="nav-link" href="07-web.html">
+                                            <i class="fas fa-globe me-2"></i>
+                                            07 - Web Development
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testing & Debugging -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="testingDebugging">
+                                <button class="accordion-button collapsed" type="button" id="btnTestingDebugging" data-bs-toggle="collapse" data-bs-target="#collapseTestingDebugging">
+                                    <i class="fas fa-bug me-2"></i>
+                                    Testing & Debugging
+                                </button>
+                            </h2>
+                            <div id="collapseTestingDebugging" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="08-testing.html">
+                                            <i class="fas fa-vial me-2"></i>
+                                            08 - Testing
+                                        </a>
+                                        <a class="nav-link" href="09-debugging.html">
+                                            <i class="fas fa-search me-2"></i>
+                                            09 - Debugging
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance & Best Practices -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="performanceBestPractices">
+                                <button class="accordion-button collapsed" type="button" id="btnPerformanceBestPractices" data-bs-toggle="collapse" data-bs-target="#collapsePerformanceBestPractices">
+                                    <i class="fas fa-tachometer-alt me-2"></i>
+                                    Performance & Best Practices
+                                </button>
+                            </h2>
+                            <div id="collapsePerformanceBestPractices" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="10-performance.html">
+                                            <i class="fas fa-bolt me-2"></i>
+                                            10 - Performance
+                                        </a>
+                                        <a class="nav-link" href="11-bestpractices.html">
+                                            <i class="fas fa-star me-2"></i>
+                                            11 - Best Practices
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Topics -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="advancedTopics">
+                                <button class="accordion-button collapsed" type="button" id="btnAdvancedTopics" data-bs-toggle="collapse" data-bs-target="#collapseAdvancedTopics">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Advanced Topics
+                                </button>
+                            </h2>
+                            <div id="collapseAdvancedTopics" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="12-advanced.html">
+                                            <i class="fas fa-magic me-2"></i>
+                                            12 - Advanced Python
+                                        </a>
+                                        <a class="nav-link" href="13-concurrency.html">
+                                            <i class="fas fa-sync-alt me-2"></i>
+                                            13 - Concurrency
+                                        </a>
+                                        <a class="nav-link" href="14-datascience.html">
+                                            <i class="fas fa-chart-bar me-2"></i>
+                                            14 - Data Science
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deployment & Security -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="deploymentSecurity">
+                                <button class="accordion-button collapsed" type="button" id="btnDeploymentSecurity" data-bs-toggle="collapse" data-bs-target="#collapseDeploymentSecurity">
+                                    <i class="fas fa-shield-alt me-2"></i>
+                                    Deployment & Security
+                                </button>
+                            </h2>
+                            <div id="collapseDeploymentSecurity" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="15-deployment.html">
+                                            <i class="fas fa-cloud me-2"></i>
+                                            15 - Deployment
+                                        </a>
+                                        <a class="nav-link" href="16-security.html">
+                                            <i class="fas fa-lock me-2"></i>
+                                            16 - Security
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Reference -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="quickReference">
+                                <button class="accordion-button collapsed" type="button" id="btnQuickReference" data-bs-toggle="collapse" data-bs-target="#collapseQuickReference">
+                                    <i class="fas fa-bookmark me-2"></i>
+                                    Quick Reference
+                                </button>
+                            </h2>
+                            <div id="collapseQuickReference" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="cheatsheet.html">
+                                            <i class="fas fa-clipboard-list me-2"></i>
+                                            Complete Cheat Sheet
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="mt-4 p-3 bg-dark rounded">
+                        <h6 class="text-warning mb-2">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Project Stats
+                        </h6>
+                        <div class="small text-muted">
+                            <div><i class="fas fa-file-code me-1"></i> 18 HTML Pages</div>
+                            <div><i class="fas fa-code me-1"></i> 16+ Python Topics</div>
+                            <div><i class="fas fa-comments me-1"></i> Detailed Comments</div>
+                            <div><i class="fas fa-mobile-alt me-1"></i> Mobile Responsive</div>
+                            <div class="text-success mt-2"><i class="fas fa-circle me-1"></i> Online !</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Page Navigation -->
+                <div class="mb-4">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="02-control.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="11-bestpractices.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Content Placeholder -->
+                
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-book me-2"></i>
+                            Performance & Optimization (Profiling, Memory, Async Basics)
+                        </div>
+                        <div class="card-body">
+                            <h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Performance & Optimization (Profiling, Memory, Async Basics)</h1>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Profiling and Performance Analysis</h2>
+
+<h3 class="text-primary mt-3">Using cProfile for Function Profiling</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import cProfile  # Import cProfile for function-level profiling
+import pstats    # Import pstats for statistics analysis
+import io        # Import io for string buffer operations<p>def profile_function(func, *args, **kwargs):
+    """Profile a function and return detailed statistics about execution time."""
+    profiler = cProfile.Profile()  # Create profiler instance
+    profiler.enable()  # Start profiling
+    
+    result = func(*args, **kwargs)  # Execute the function to be profiled
+    
+    profiler.disable()  # Stop profiling
+    
+    # Create stats object: analyze profiling results
+    s = io.StringIO()  # Create string buffer for output capture
+    ps = pstats.Stats(profiler, stream=s).sort_stats('cumulative')  # Sort by cumulative time
+    ps.print_stats(20)  # Show top 20 functions by execution time
+    
+    print(s.getvalue())  # Print profiling results
+    return result  # Return original function result</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Example usage: demonstrate profiling with a slow function</h1>
+def slow_function():
+    result = 0  # Initialize result variable
+    for i in range(1000000):  # Large loop for demonstration
+        result += i  # Accumulate sum
+    return result  # Return final sum<p>profile_function(slow_function)  # Profile the slow function</code></pre>
+</div></p><h3 class="text-primary mt-3">Line-by-Line Profiling with line_profiler</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Install: pip install line_profiler</h1>
+from line_profiler import LineProfiler  # Import line profiler for line-by-line analysis<p>def expensive_function():
+    result = []  # Initialize empty result list
+    for i in range(10000):  # Outer loop
+        # Expensive operation: create list comprehension
+        data = [j * 2 for j in range(100)]  # Create list of doubled values
+        result.extend(data)  # Extend result list with data
+    return result  # Return accumulated result</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Profile the function: set up line-by-line profiling</h1>
+profiler = LineProfiler()  # Create line profiler instance
+profiler.add_function(expensive_function)  # Add function to be profiled
+profiler.enable_by_count()  # Enable profiling for function calls
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Run the function: execute the expensive function</h1>
+result = expensive_function()  # This will be profiled line by line
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Print results: display detailed line-by-line statistics</h1>
+profiler.print_stats()  # Show execution time for each line</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Memory Profiling with tracemalloc</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import tracemalloc  # Import tracemalloc for memory tracking
+import gc          # Import gc for garbage collection control<p>def profile_memory():
+    """Profile memory usage of a function with detailed memory analysis."""
+    tracemalloc.start()  # Start memory tracking
+    
+    # Your code here: execute code to be memory profiled
+    data = [i for i in range(1000000)]  # Create large list for demonstration
+    
+    # Take snapshot: capture current memory state
+    snapshot = tracemalloc.take_snapshot()  # Create memory snapshot
+    
+    # Show top memory users: analyze memory usage by line
+    top_stats = snapshot.statistics('lineno')  # Group by line number
+    print("Top 10 memory users:")  # Print header
+    for stat in top_stats[:10]:  # Iterate through top 10 memory users
+        print(stat)  # Print memory statistics for each line
+    
+    # Get current memory usage: retrieve memory statistics
+    current, peak = tracemalloc.get_traced_memory()  # Get current and peak memory usage
+    print(f"Current memory usage: {current / 1024 / 1024:.1f} MB")  # Convert to MB
+    print(f"Peak memory usage: {peak / 1024 / 1024:.1f} MB")  # Convert to MB
+    
+    tracemalloc.stop()  # Stop memory tracking</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate memory profiling</h1>
+profile_memory()  # Profile memory usage of the function</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Performance Timing with timeit</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import timeit  # Import timeit for accurate timing measurements
+import time    # Import time for simple timing operations
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Simple timing: measure function execution time</h1>
+def measure_time(func, *args, **kwargs):
+    """Measure execution time of a function using time module."""
+    start_time = time.time()  # Record start time
+    result = func(*args, **kwargs)  # Execute the function
+    end_time = time.time()  # Record end time
+    
+    print(f"{func.__name__} took {end_time - start_time:.4f} seconds")  # Print execution time
+    return result  # Return original function result
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Using timeit module for more accurate measurements: compare different approaches</h1>
+def compare_performance():
+    """Compare performance of different approaches for creating lists."""
+    
+    # Method 1: List comprehension (most Pythonic)
+    list_comp = timeit.timeit(
+        '[x * 2 for x in range(1000)]',  # List comprehension approach
+        number=10000  # Number of iterations for averaging
+    )
+    
+    # Method 2: For loop (traditional approach)
+    for_loop = timeit.timeit(
+        '''
+result = []
+for x in range(1000):
+    result.append(x * 2)
+        ''',  # For loop approach
+        number=10000  # Number of iterations for averaging
+    )
+    
+    # Method 3: Map function (functional approach)
+    map_func = timeit.timeit(
+        'list(map(lambda x: x * 2, range(1000)))',  # Map function approach
+        number=10000  # Number of iterations for averaging
+    )
+    
+    print(f"List comprehension: {list_comp:.4f} seconds")  # Print list comprehension time
+    print(f"For loop: {for_loop:.4f} seconds")  # Print for loop time
+    print(f"Map function: {map_func:.4f} seconds")  # Print map function time
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate performance comparison</h1>
+compare_performance()  # Compare different list creation methods</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Optimization Techniques</h2>
+
+<h3 class="text-primary mt-3">List vs Generator Performance</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import sys   # Import sys for memory size operations
+import time  # Import time for timing measurements<p>def compare_list_vs_generator():
+    """Compare memory and performance of lists vs generators for large datasets."""
+    
+    # List approach: create full list in memory
+    start_time = time.time()  # Record start time
+    start_memory = sys.getsizeof([])  # Get initial memory usage
+    
+    numbers_list = [i for i in range(10000000)]  # Create full list of 10M numbers
+    
+    end_time = time.time()  # Record end time
+    end_memory = sys.getsizeof(numbers_list)  # Get final memory usage
+    
+    list_time = end_time - start_time  # Calculate creation time
+    list_memory = end_memory - start_memory  # Calculate memory increase
+    
+    # Generator approach: create generator object (lazy evaluation)
+    start_time = time.time()  # Record start time
+    start_memory = sys.getsizeof([])  # Get initial memory usage
+    
+    numbers_gen = (i for i in range(10000000))  # Create generator (no values stored yet)
+    
+    end_time = time.time()  # Record end time
+    end_memory = sys.getsizeof(numbers_gen)  # Get final memory usage
+    
+    gen_time = end_time - start_time  # Calculate creation time
+    gen_memory = end_memory - start_memory  # Calculate memory increase
+    
+    print(f"List creation: {list_time:.4f}s, Memory: {list_memory} bytes")  # Print list metrics
+    print(f"Generator creation: {gen_time:.4f}s, Memory: {gen_memory} bytes")  # Print generator metrics
+    
+    # Memory usage when iterating: demonstrate actual memory consumption
+    list_sum = sum(numbers_list)  # Sum all values (list already in memory)
+    gen_sum = sum(numbers_gen)  # Sum all values (generator creates values on demand)
+    
+    print(f"List sum: {list_sum}")  # Print list sum result
+    print(f"Generator sum: {gen_sum}")  # Print generator sum result</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate memory and performance comparison</h1>
+compare_list_vs_generator()  # Compare list vs generator approaches</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Caching and Memoization</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import functools  # Import functools for decorator utilities
+import time      # Import time for timing operations
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Simple memoization decorator: cache function results</h1>
+def memoize(func):
+    """Simple memoization decorator that caches function results."""
+    cache = {}  # Dictionary to store cached results
+    
+    @functools.wraps(func)  # Preserve function metadata
+    def wrapper(*args):  # Wrapper function that accepts any arguments
+        if args not in cache:  # Check if result is not cached
+            cache[args] = func(*args)  # Compute and cache the result
+        return cache[args]  # Return cached result
+    
+    return wrapper  # Return the wrapper function
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Using functools.lru_cache (Python 3.2+): built-in caching decorator</h1>
+@functools.lru_cache(maxsize=128)  # Cache up to 128 results
+def fibonacci(n):
+    """Calculate Fibonacci number with automatic caching."""
+    if n < 2:  # Base cases
+        return n  # Return n for 0 and 1
+    return fibonacci(n-1) + fibonacci(n-2)  # Recursive calculation with caching
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Custom cache with TTL (Time To Live): cache with expiration</h1>
+class TTLCache:
+    """Cache with time-based expiration for temporary data."""
+    def __init__(self, ttl_seconds=300):  # Default 5 minutes TTL
+        self.cache = {}  # Dictionary to store cached items
+        self.ttl = ttl_seconds  # Time to live in seconds
+    
+    def get(self, key):  # Retrieve item from cache
+        if key in self.cache:  # Check if key exists
+            value, timestamp = self.cache[key]  # Get value and timestamp
+            if time.time() - timestamp < self.ttl:  # Check if not expired
+                return value  # Return cached value
+            else:
+                del self.cache[key]  # Remove expired item
+        return None  # Return None if not found or expired
+    
+    def set(self, key, value):  # Store item in cache
+        self.cache[key] = (value, time.time())  # Store value with current timestamp
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate caching benefits</h1>
+@memoize  # Apply custom memoization decorator
+def expensive_calculation(n):
+    time.sleep(1)  # Simulate expensive operation (1 second delay)
+    return n * n  # Return square of input
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>First call is slow: demonstrate caching effect</h1>
+start = time.time()  # Record start time
+result1 = expensive_calculation(5)  # First call (slow)
+print(f"First call: {time.time() - start:.4f}s")  # Print execution time
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Second call is fast (cached): demonstrate cache hit</h1>
+start = time.time()  # Record start time
+result2 = expensive_calculation(5)  # Second call (fast - cached)
+print(f"Second call: {time.time() - start:.4f}s")  # Print execution time</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">String Concatenation Optimization</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import time  # Import time for timing measurements<p>def compare_string_methods():
+    """Compare different string concatenation methods for performance analysis."""
+    n = 10000  # Number of iterations for testing
+    
+    # Method 1: + operator (inefficient for many concatenations)
+    start = time.time()  # Record start time
+    result1 = ""  # Initialize empty string
+    for i in range(n):  # Loop through numbers
+        result1 += str(i)  # Concatenate strings (creates new string each time)
+    time1 = time.time() - start  # Calculate execution time
+    
+    # Method 2: join with list (more efficient)
+    start = time.time()  # Record start time
+    parts = []  # Initialize empty list
+    for i in range(n):  # Loop through numbers
+        parts.append(str(i))  # Append strings to list
+    result2 = "".join(parts)  # Join all parts at once
+    time2 = time.time() - start  # Calculate execution time
+    
+    # Method 3: join with generator (memory efficient)
+    start = time.time()  # Record start time
+    result3 = "".join(str(i) for i in range(n))  # Generator expression with join
+    time3 = time.time() - start  # Calculate execution time
+    
+    # Method 4: f-strings (Python 3.6+) (modern and readable)
+    start = time.time()  # Record start time
+    result4 = "".join(f"{i}" for i in range(n))  # F-string generator with join
+    time4 = time.time() - start  # Calculate execution time
+    
+    print(f"+ operator: {time1:.4f}s")  # Print + operator performance
+    print(f"join with list: {time2:.4f}s")  # Print list join performance
+    print(f"join with generator: {time3:.4f}s")  # Print generator join performance
+    print(f"f-strings: {time4:.4f}s")  # Print f-string performance</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate string concatenation performance comparison</h1>
+compare_string_methods()  # Compare different string concatenation methods</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">NumPy Vectorization</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import numpy as np
+import time<p>def compare_vectorization():
+    """Compare Python loops vs NumPy vectorization"""
+    size = 1000000
+    
+    # Python loop
+    start = time.time()
+    python_result = []
+    for i in range(size):
+        python_result.append(i * 2 + 1)
+    python_time = time.time() - start
+    
+    # NumPy vectorization
+    start = time.time()
+    numpy_result = np.arange(size) * 2 + 1
+    numpy_time = time.time() - start
+    
+    print(f"Python loop: {python_time:.4f}s")
+    print(f"NumPy vectorization: {numpy_time:.4f}s")
+    print(f"Speedup: {python_time / numpy_time:.1f}x")</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+compare_vectorization()</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Memory Management</h2>
+
+<h3 class="text-primary mt-3">Garbage Collection</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import gc
+import sys
+import weakref<p>def memory_management_examples():
+    """Examples of memory management techniques"""
+    
+    # Force garbage collection
+    gc.collect()
+    
+    # Get garbage collection statistics
+    stats = gc.get_stats()
+    print("Garbage collection stats:", stats)
+    
+    # Check reference counts
+    obj = [1, 2, 3]
+    print(f"Reference count: {sys.getrefcount(obj)}")
+    
+    # Using weak references to avoid circular references
+    class Cache:
+        def __init__(self):
+            self._cache = weakref.WeakValueDictionary()
+        
+        def get(self, key):
+            return self._cache.get(key)
+        
+        def set(self, key, value):
+            self._cache[key] = value
+    
+    cache = Cache()
+    cache.set("key", "value")
+    print(f"Cache size: {len(cache._cache)}")</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+memory_management_examples()</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Memory-Efficient Iteration</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def memory_efficient_processing():
+    """Examples of memory-efficient data processing"""
+    
+    # Reading large files line by line
+    def process_large_file(filename):
+        with open(filename, 'r') as f:
+            for line in f:  # Memory efficient - one line at a time
+                yield line.strip()
+    
+    # Processing large datasets in chunks
+    def process_in_chunks(data, chunk_size=1000):
+        for i in range(0, len(data), chunk_size):
+            chunk = data[i:i + chunk_size]
+            yield chunk
+    
+    # Using itertools for memory-efficient operations
+    from itertools import islice, chain
+    
+    def memory_efficient_operations():
+        # Slice without creating a copy
+        large_list = list(range(1000000))
+        first_100 = list(islice(large_list, 100))
+        
+        # Chain iterables without creating intermediate lists
+        combined = chain(range(10), range(20, 30), range(40, 50))
+        return list(combined)
+    
+    return process_large_file, process_in_chunks, memory_efficient_operations
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+process_large_file, process_in_chunks, memory_efficient_operations = memory_efficient_processing()</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Async Programming Basics</h2>
+
+<h3 class="text-primary mt-3">Basic Async/Await</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import asyncio
+import time<p>async def async_function():
+    """Basic async function"""
+    print("Starting async function")
+    await asyncio.sleep(1)  # Non-blocking sleep
+    print("Async function completed")
+    return "Async result"</p>async def multiple_async_tasks():
+    """Run multiple async tasks concurrently"""
+    # Create multiple tasks
+    tasks = [
+        async_function(),
+        async_function(),
+        async_function()
+    ]
+    
+    # Run all tasks concurrently
+    results = await asyncio.gather(*tasks)
+    print(f"All tasks completed: {results}")
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Run async functions</h1>
+async def main():
+    print("Running single async function:")
+    result = await async_function()
+    print(f"Result: {result}")
+    
+    print("\nRunning multiple async tasks:")
+    await multiple_async_tasks()
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+asyncio.run(main())</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Async with aiohttp</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import aiohttp
+import asyncio
+import time<p>async def fetch_url(session, url):
+    """Fetch a single URL asynchronously"""
+    async with session.get(url) as response:
+        return await response.text()</p>async def fetch_multiple_urls(urls):
+    """Fetch multiple URLs concurrently"""
+    async with aiohttp.ClientSession() as session:
+        tasks = [fetch_url(session, url) for url in urls]
+        results = await asyncio.gather(*tasks)
+        return results<p>async def compare_sync_vs_async():
+    """Compare synchronous vs asynchronous HTTP requests"""
+    urls = [
+        'https://httpbin.org/delay/1',
+        'https://httpbin.org/delay/1',
+        'https://httpbin.org/delay/1'
+    ]
+    
+    # Async approach
+    start_time = time.time()
+    results = await fetch_multiple_urls(urls)
+    async_time = time.time() - start_time
+    
+    print(f"Async requests took: {async_time:.2f} seconds")
+    print(f"Retrieved {len(results)} responses")</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+asyncio.run(compare_sync_vs_async())</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Async Context Managers</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import asyncio
+import aiofiles<p>async def async_file_operations():
+    """Example of async file operations"""
+    
+    # Async file reading
+    async with aiofiles.open('example.txt', 'r') as f:
+        content = await f.read()
+    
+    # Async file writing
+    async with aiofiles.open('output.txt', 'w') as f:
+        await f.write(content.upper())
+    
+    return content</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Custom async context manager</h1>
+class AsyncResource:
+    async def __aenter__(self):
+        print("Acquiring async resource")
+        await asyncio.sleep(0.1)  # Simulate async setup
+        return self
+    
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        print("Releasing async resource")
+        await asyncio.sleep(0.1)  # Simulate async cleanup<p>async def use_async_context_manager():
+    async with AsyncResource() as resource:
+        print("Using async resource")
+        await asyncio.sleep(0.5)</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+async def main():
+    await use_async_context_manager()<p>asyncio.run(main())</code></pre>
+</div></p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Performance Best Practices</h2>
+
+<h3 class="text-primary mt-3">Optimization Checklist</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def performance_checklist():
+    """Performance optimization checklist"""
+    
+    checklist = {
+        "Use appropriate data structures": {
+            "Lists": "For ordered collections, indexing",
+            "Sets": "For membership testing, unique items",
+            "Dictionaries": "For key-value lookups",
+            "Tuples": "For immutable sequences"
+        },
+        
+        "Avoid common performance pitfalls": {
+            "String concatenation": "Use join() instead of + in loops",
+            "List comprehensions": "Prefer over for loops when possible",
+            "Generator expressions": "Use for memory efficiency",
+            "Local variables": "Access local variables faster than global"
+        },
+        
+        "Use built-in functions": {
+            "sum()": "Faster than manual loops",
+            "map()": "For applying functions to iterables",
+            "filter()": "For filtering iterables",
+            "any()/all()": "For boolean operations"
+        },
+        
+        "Profile before optimizing": {
+            "cProfile": "For function-level profiling",
+            "line_profiler": "For line-by-line profiling",
+            "memory_profiler": "For memory usage analysis",
+            "timeit": "For timing comparisons"
+        }
+    }
+    
+    return checklist
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+checklist = performance_checklist()
+for category, items in checklist.items():
+    print(f"\n{category}:")
+    for item, description in items.items():
+        print(f"  - {item}: {description}")</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Performance Monitoring</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import time
+import functools
+import logging<p>def performance_monitor(func):
+    """Decorator to monitor function performance"""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        start_memory = 0  # Could use tracemalloc here
+        
+        try:
+            result = func(*args, **kwargs)
+            return result
+        finally:
+            end_time = time.time()
+            execution_time = end_time - start_time
+            
+            logger = logging.getLogger(__name__)
+            logger.info(f"{func.__name__} took {execution_time:.4f} seconds")
+    
+    return wrapper</p>@performance_monitor
+def monitored_function():
+    time.sleep(1)
+    return "Done"
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+monitored_function()</code></pre>
+</div><p>---</p><a href="09-debugging.md" target="_blank" class="text-warning">Previous Chapter</a> | <a href="11-bestpractices.md" target="_blank" class="text-warning">Next Chapter</a>
+
+                        </div>
+                    </div>
+
+
+                <!-- Quick Access -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <i class="fas fa-bolt me-2"></i>
+                        Quick Access
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <a href="cheatsheet.html" class="btn btn-outline-warning w-100">
+                                    <i class="fas fa-clipboard-list me-1"></i>
+                                    Complete Cheat Sheet
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="11-bestpractices.html" class="btn btn-outline-info w-100">
+                                    <i class="fas fa-star me-1"></i>
+                                    Best Practices
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="16-security.html" class="btn btn-outline-danger w-100">
+                                    <i class="fas fa-shield-alt me-1"></i>
+                                    Security Guide
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 mb-2">
+                                <a href="08-testing.html" class="btn btn-outline-success w-100">
+                                    <i class="fas fa-vial me-1"></i>
+                                    Testing Guide
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="10-performance.html" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-bolt me-1"></i>
+                                    Performance Tips
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="15-deployment.html" class="btn btn-outline-secondary w-100">
+                                    <i class="fas fa-cloud me-1"></i>
+                                    Deployment Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Navigation (Bottom) -->
+                <div class="mt-5">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="02-control.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="11-bestpractices.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fab fa-python me-2"></i>
+                Professional Python Cheat Sheet - Created with ❤️ for Python Developers
+            </p>
+            <small class="text-muted">
+                Enhanced with comprehensive English comments and modern web design
+            </small>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object-Oriented Programming (OOP) - Professional Python Cheat Sheet</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-python me-2"></i>
+                Python Cheat Sheet
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-home me-1"></i>
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5 class="text-warning mb-3">
+                        <i class="fas fa-list me-2"></i>
+                        Complete Navigation
+                    </h5>
+                    
+                    <!-- Search in sidebar -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control search-box" id="sidebarSearch" 
+                               placeholder="🔍 Search sections...">
+                    </div>
+
+                    <!-- Main Sections -->
+                    <div class="accordion" id="sidebarAccordion">
+                        <!-- Getting Started -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="gettingStarted">
+                                <button class="accordion-button collapsed" type="button" id="btnGettingStarted" data-bs-toggle="collapse" data-bs-target="#collapseGettingStarted">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Getting Started
+                                </button>
+                            </h2>
+                            <div id="collapseGettingStarted" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="00-intro.html">
+                                            <i class="fas fa-play-circle me-2"></i>
+                                            00 - Python Introduction
+                                        </a>
+                                        <a class="nav-link" href="01-basics.html">
+                                            <i class="fas fa-cube me-2"></i>
+                                            01 - Variables & Data Types
+                                        </a>
+                                        <a class="nav-link" href="02-control.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            02 - Control Structures
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Programming -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="coreProgramming">
+                                <button class="accordion-button collapsed" type="button" id="btnCoreProgramming" data-bs-toggle="collapse" data-bs-target="#collapseCoreProgramming">
+                                    <i class="fas fa-code me-2"></i>
+                                    Core Programming
+                                </button>
+                            </h2>
+                            <div id="collapseCoreProgramming" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="03-functions.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            03 - Functions & Decorators
+                                        </a>
+                                        <a class="nav-link" href="04-oop.html">
+                                            <i class="fas fa-cubes me-2"></i>
+                                            04 - Classes & OOP
+                                        </a>
+                                        <a class="nav-link" href="05-libraries.html">
+                                            <i class="fas fa-boxes me-2"></i>
+                                            05 - Popular Libraries
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File & Web Development -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="fileWeb">
+                                <button class="accordion-button collapsed" type="button" id="btnFileWeb" data-bs-toggle="collapse" data-bs-target="#collapseFileWeb">
+                                    <i class="fas fa-file-code me-2"></i>
+                                    File & Web Development
+                                </button>
+                            </h2>
+                            <div id="collapseFileWeb" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="06-files.html">
+                                            <i class="fas fa-file-alt me-2"></i>
+                                            06 - File Handling
+                                        </a>
+                                        <a class="nav-link" href="07-web.html">
+                                            <i class="fas fa-globe me-2"></i>
+                                            07 - Web Development
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testing & Debugging -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="testingDebugging">
+                                <button class="accordion-button collapsed" type="button" id="btnTestingDebugging" data-bs-toggle="collapse" data-bs-target="#collapseTestingDebugging">
+                                    <i class="fas fa-bug me-2"></i>
+                                    Testing & Debugging
+                                </button>
+                            </h2>
+                            <div id="collapseTestingDebugging" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="08-testing.html">
+                                            <i class="fas fa-vial me-2"></i>
+                                            08 - Testing
+                                        </a>
+                                        <a class="nav-link" href="09-debugging.html">
+                                            <i class="fas fa-search me-2"></i>
+                                            09 - Debugging
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance & Best Practices -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="performanceBestPractices">
+                                <button class="accordion-button collapsed" type="button" id="btnPerformanceBestPractices" data-bs-toggle="collapse" data-bs-target="#collapsePerformanceBestPractices">
+                                    <i class="fas fa-tachometer-alt me-2"></i>
+                                    Performance & Best Practices
+                                </button>
+                            </h2>
+                            <div id="collapsePerformanceBestPractices" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="10-performance.html">
+                                            <i class="fas fa-bolt me-2"></i>
+                                            10 - Performance
+                                        </a>
+                                        <a class="nav-link" href="11-bestpractices.html">
+                                            <i class="fas fa-star me-2"></i>
+                                            11 - Best Practices
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Topics -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="advancedTopics">
+                                <button class="accordion-button collapsed" type="button" id="btnAdvancedTopics" data-bs-toggle="collapse" data-bs-target="#collapseAdvancedTopics">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Advanced Topics
+                                </button>
+                            </h2>
+                            <div id="collapseAdvancedTopics" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="12-advanced.html">
+                                            <i class="fas fa-magic me-2"></i>
+                                            12 - Advanced Python
+                                        </a>
+                                        <a class="nav-link" href="13-concurrency.html">
+                                            <i class="fas fa-sync-alt me-2"></i>
+                                            13 - Concurrency
+                                        </a>
+                                        <a class="nav-link" href="14-datascience.html">
+                                            <i class="fas fa-chart-bar me-2"></i>
+                                            14 - Data Science
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deployment & Security -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="deploymentSecurity">
+                                <button class="accordion-button collapsed" type="button" id="btnDeploymentSecurity" data-bs-toggle="collapse" data-bs-target="#collapseDeploymentSecurity">
+                                    <i class="fas fa-shield-alt me-2"></i>
+                                    Deployment & Security
+                                </button>
+                            </h2>
+                            <div id="collapseDeploymentSecurity" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="15-deployment.html">
+                                            <i class="fas fa-cloud me-2"></i>
+                                            15 - Deployment
+                                        </a>
+                                        <a class="nav-link" href="16-security.html">
+                                            <i class="fas fa-lock me-2"></i>
+                                            16 - Security
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Reference -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="quickReference">
+                                <button class="accordion-button collapsed" type="button" id="btnQuickReference" data-bs-toggle="collapse" data-bs-target="#collapseQuickReference">
+                                    <i class="fas fa-bookmark me-2"></i>
+                                    Quick Reference
+                                </button>
+                            </h2>
+                            <div id="collapseQuickReference" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="cheatsheet.html">
+                                            <i class="fas fa-clipboard-list me-2"></i>
+                                            Complete Cheat Sheet
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="mt-4 p-3 bg-dark rounded">
+                        <h6 class="text-warning mb-2">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Project Stats
+                        </h6>
+                        <div class="small text-muted">
+                            <div><i class="fas fa-file-code me-1"></i> 18 HTML Pages</div>
+                            <div><i class="fas fa-code me-1"></i> 16+ Python Topics</div>
+                            <div><i class="fas fa-comments me-1"></i> Detailed Comments</div>
+                            <div><i class="fas fa-mobile-alt me-1"></i> Mobile Responsive</div>
+                            <div class="text-success mt-2"><i class="fas fa-circle me-1"></i> Online !</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Page Navigation -->
+                <div class="mb-4">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="03-functions.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="05-libraries.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Content Placeholder -->
+                
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-book me-2"></i>
+                            Object-Oriented Programming (OOP)
+                        </div>
+                        <div class="card-body">
+                            <h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Object-Oriented Programming (OOP)</h1>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Class Definition</h2>
+
+<h3 class="text-primary mt-3">Basic Class</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Basic class definition: blueprint for creating objects</h1>
+class Person:  # Class definition with class name
+    def __init__(self, name, age):  # Constructor method: called when creating new instance
+        self.name = name            # Instance attribute: unique to each object
+        self.age = age              # Instance attribute: unique to each object
+    
+    def greet(self):                # Instance method: behavior of the object
+        return f"Hello, my name is {self.name}"  # Use instance attribute in method
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating an instance (object) of the Person class</h1>
+person = Person("Alice", 30)        # Instantiate with arguments for constructor
+print(person.greet())               # Call instance method: "Hello, my name is Alice"</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Class with Methods</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Class with method chaining: methods return self for fluent interface</h1>
+class Calculator:  # Calculator class for mathematical operations
+    def __init__(self):
+        self.result = 0  # Initialize result to zero
+    
+    def add(self, x):    # Method to add value to result
+        self.result += x # Modify instance attribute
+        return self      # Return self for method chaining
+    
+    def subtract(self, x):  # Method to subtract value from result
+        self.result -= x    # Modify instance attribute
+        return self         # Return self for method chaining
+    
+    def get_result(self):   # Method to retrieve current result
+        return self.result  # Return the current value
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Using method chaining for fluent interface</h1>
+calc = Calculator()                           # Create calculator instance
+result = calc.add(5).subtract(2).get_result() # Chain method calls
+print(result)                                 # Output: 3</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Class Attributes vs Instance Attributes</h2>
+
+<h3 class="text-primary mt-3">Class Attributes</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Class attributes: shared by all instances of the class</h1>
+class Dog:  # Dog class with both class and instance attributes
+    species = "Canis familiaris"  # Class attribute: shared by all Dog instances
+    
+    def __init__(self, name, age):
+        self.name = name  # Instance attribute: unique to each Dog object
+        self.age = age    # Instance attribute: unique to each Dog object
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating multiple instances of the Dog class</h1>
+dog1 = Dog("Buddy", 3)  # First dog instance
+dog2 = Dog("Max", 5)    # Second dog instance
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Accessing class attribute (same for all instances)</h1>
+print(dog1.species)  # Output: Canis familiaris
+print(dog2.species)  # Output: Canis familiaris
+print(Dog.species)   # Output: Canis familiaris (access via class)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Instance Attributes</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Instance attributes: unique to each object instance</h1>
+class Car:  # Car class with instance attributes and methods
+    def __init__(self, brand, model, year):
+        self.brand = brand      # Instance attribute: car brand
+        self.model = model      # Instance attribute: car model
+        self.year = year        # Instance attribute: manufacturing year
+        self.is_running = False # Instance attribute: default state (not running)
+    
+    def start(self):            # Method to start the car
+        self.is_running = True  # Modify instance attribute
+    
+    def stop(self):             # Method to stop the car
+        self.is_running = False # Modify instance attribute
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating and using a Car instance</h1>
+car = Car("Toyota", "Camry", 2020)  # Create car instance
+car.start()                          # Call method to start car
+print(car.is_running)                # Output: True (car is now running)</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Inheritance</h2>
+
+<h3 class="text-primary mt-3">Basic Inheritance</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class Animal:  # Parent/base class
+    def __init__(self, name):
+        self.name = name  # Common attribute for all animals
+    
+    def speak(self):      # Abstract method (placeholder)
+        pass              # Base implementation (does nothing)<p>class Dog(Animal):        # Child class inherits from Animal
+    def speak(self):      # Override parent method with specific implementation
+        return f"{self.name} says Woof!"  # Dog-specific behavior</p>class Cat(Animal):        # Child class inherits from Animal
+    def speak(self):      # Override parent method with specific implementation
+        return f"{self.name} says Meow!"  # Cat-specific behavior
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating instances of child classes</h1>
+dog = Dog("Buddy")        # Dog inherits __init__ from Animal
+cat = Cat("Whiskers")     # Cat inherits __init__ from Animal
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Demonstrating polymorphic behavior</h1>
+print(dog.speak())        # Output: Buddy says Woof!
+print(cat.speak())        # Output: Whiskers says Meow!</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Multiple Inheritance</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Multiple inheritance: class inherits from multiple parent classes</h1>
+class Flyable:  # First parent class (mixin)
+    def fly(self):
+        return "I can fly!"  # Method from first parent<p>class Swimmable:  # Second parent class (mixin)
+    def swim(self):
+        return "I can swim!"  # Method from second parent</p>class Duck(Flyable, Swimmable):  # Child inherits from both parents
+    def __init__(self, name):
+        self.name = name  # Duck-specific attribute
+    
+    def speak(self):
+        return f"{self.name} says Quack!"  # Duck-specific method
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating instance that inherits from multiple classes</h1>
+duck = Duck("Donald")  # Duck has methods from both Flyable and Swimmable
+print(duck.fly())      # Output: I can fly! (from Flyable)
+print(duck.swim())     # Output: I can swim! (from Swimmable)
+print(duck.speak())    # Output: Donald says Quack! (from Duck)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Method Resolution Order (MRO)</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Method Resolution Order (MRO): determines which method to call in multiple inheritance</h1>
+class A:  # Base class
+    def method(self):
+        return "A"  # Base method implementation<p>class B(A):  # Inherits from A
+    def method(self):
+        return "B"  # Override A's method</p>class C(A):  # Also inherits from A
+    def method(self):
+        return "C"  # Override A's method<p>class D(B, C):  # Inherits from both B and C (B comes first)
+    pass        # No method override, uses B's method</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Demonstrating MRO behavior</h1>
+d = D()                    # Create instance of D
+print(d.method())          # Output: B (B's method wins due to MRO)
+print(D.__mro__)           # Shows method resolution order: (D, B, C, A, object)</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Encapsulation</h2>
+
+<h3 class="text-primary mt-3">Private Attributes</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Encapsulation: protecting data with private attributes and public methods</h1>
+class BankAccount:  # Bank account with encapsulated balance
+    def __init__(self, balance):
+        self.__balance = balance  # Private attribute: cannot be accessed directly
+    
+    def get_balance(self):        # Public method: safe way to access balance
+        return self.__balance     # Return private attribute value
+    
+    def deposit(self, amount):    # Public method: safe way to modify balance
+        if amount > 0:            # Validation: only positive amounts allowed
+            self.__balance += amount  # Modify private attribute
+            return True           # Return success status
+        return False              # Return failure status
+    
+    def withdraw(self, amount):   # Public method: safe way to modify balance
+        if 0 < amount <= self.__balance:  # Validation: amount must be positive and available
+            self.__balance -= amount      # Modify private attribute
+            return True                   # Return success status
+        return False                      # Return failure status
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Using encapsulated bank account</h1>
+account = BankAccount(1000)               # Create account with initial balance
+print(account.get_balance())              # Output: 1000 (safe access)
+account.deposit(500)                      # Safe modification through method
+print(account.get_balance())              # Output: 1500 (balance increased)
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>print(account.__balance)                # AttributeError: private attribute not accessible</h1></code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Property Decorators</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class Circle:
+    def __init__(self, radius):
+        self._radius = radius
+    
+    @property
+    def radius(self):
+        return self._radius
+    
+    @radius.setter
+    def radius(self, value):
+        if value < 0:
+            raise ValueError("Radius cannot be negative")
+        self._radius = value
+    
+    @property
+    def area(self):
+        import math
+        return math.pi * self._radius ** 2<p>circle = Circle(5)
+print(circle.radius)  # 5
+print(circle.area)    # 78.54...
+circle.radius = 10
+print(circle.area)    # 314.16...</code></pre>
+</div></p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Polymorphism</h2>
+
+<h3 class="text-primary mt-3">Method Overriding</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class Shape:
+    def area(self):
+        pass<p>class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    
+    def area(self):
+        return self.width * self.height</p>class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    
+    def area(self):
+        import math
+        return math.pi * self.radius ** 2<p>shapes = [Rectangle(4, 5), Circle(3)]
+for shape in shapes:
+    print(f"Area: {shape.area()}")</code></pre>
+</div></p><h3 class="text-primary mt-3">Duck Typing</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class Duck:
+    def swim(self):
+        return "Duck swimming"
+    
+    def fly(self):
+        return "Duck flying"<p>class Airplane:
+    def fly(self):
+        return "Airplane flying"</p>def make_it_fly(flying_object):
+    return flying_object.fly()<p>duck = Duck()
+airplane = Airplane()</p>print(make_it_fly(duck))      # Duck flying
+print(make_it_fly(airplane))  # Airplane flying</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Special Methods (Magic Methods)</h2>
+
+<h3 class="text-primary mt-3">Basic Magic Methods</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def __str__(self):
+        return f"Point({self.x}, {self.y})"
+    
+    def __repr__(self):
+        return f"Point({self.x}, {self.y})"
+    
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+    
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)<p>p1 = Point(1, 2)
+p2 = Point(3, 4)
+print(p1)           # Point(1, 2)
+print(p1 == p2)     # False
+print(p1 + p2)      # Point(4, 6)</code></pre>
+</div></p><h3 class="text-primary mt-3">Context Managers</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class FileManager:
+    def __init__(self, filename, mode):
+        self.filename = filename
+        self.mode = mode
+        self.file = None
+    
+    def __enter__(self):
+        self.file = open(self.filename, self.mode)
+        return self.file
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.file:
+            self.file.close()
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Using the context manager</h1>
+with FileManager("test.txt", "w") as f:
+    f.write("Hello, World!")</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Abstract Classes</h2>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from abc import ABC, abstractmethod<p>class Animal(ABC):
+    @abstractmethod
+    def speak(self):
+        pass
+    
+    @abstractmethod
+    def move(self):
+        pass</p>class Dog(Animal):
+    def speak(self):
+        return "Woof!"
+    
+    def move(self):
+        return "Running on four legs"
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>animal = Animal()  # TypeError: Can't instantiate abstract class</h1>
+dog = Dog()
+print(dog.speak())  # Woof!</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Class Methods and Static Methods</h2>
+
+<h3 class="text-primary mt-3">Class Methods</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class Date:
+    def __init__(self, year, month, day):
+        self.year = year
+        self.month = month
+        self.day = day
+    
+    @classmethod
+    def from_string(cls, date_string):
+        year, month, day = map(int, date_string.split('-'))
+        return cls(year, month, day)
+    
+    def __str__(self):
+        return f"{self.year}-{self.month:02d}-{self.day:02d}"<p>date = Date.from_string("2023-12-25")
+print(date)  # 2023-12-25</code></pre>
+</div></p><h3 class="text-primary mt-3">Static Methods</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class MathUtils:
+    @staticmethod
+    def add(x, y):
+        return x + y
+    
+    @staticmethod
+    def multiply(x, y):
+        return x * y
+    
+    @staticmethod
+    def is_even(n):
+        return n % 2 == 0<p>print(MathUtils.add(5, 3))      # 8
+print(MathUtils.is_even(4))     # True</code></pre>
+</div></p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Metaclasses</h2>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class Meta(type):
+    def __new__(cls, name, bases, attrs):
+        # Add a class attribute to all classes created with this metaclass
+        attrs['created_by'] = 'Meta'
+        return super().__new__(cls, name, bases, attrs)<p>class MyClass(metaclass=Meta):
+    pass</p>print(MyClass.created_by)  # Meta</code></pre>
+</div><p>---</p><a href="03-functions.md" target="_blank" class="text-warning">Previous Chapter</a> | <a href="05-libraries.md" target="_blank" class="text-warning">Next Chapter</a>
+
+                        </div>
+                    </div>
+
+
+                <!-- Quick Access -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <i class="fas fa-bolt me-2"></i>
+                        Quick Access
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <a href="cheatsheet.html" class="btn btn-outline-warning w-100">
+                                    <i class="fas fa-clipboard-list me-1"></i>
+                                    Complete Cheat Sheet
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="11-bestpractices.html" class="btn btn-outline-info w-100">
+                                    <i class="fas fa-star me-1"></i>
+                                    Best Practices
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="16-security.html" class="btn btn-outline-danger w-100">
+                                    <i class="fas fa-shield-alt me-1"></i>
+                                    Security Guide
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 mb-2">
+                                <a href="08-testing.html" class="btn btn-outline-success w-100">
+                                    <i class="fas fa-vial me-1"></i>
+                                    Testing Guide
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="10-performance.html" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-bolt me-1"></i>
+                                    Performance Tips
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="15-deployment.html" class="btn btn-outline-secondary w-100">
+                                    <i class="fas fa-cloud me-1"></i>
+                                    Deployment Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Navigation (Bottom) -->
+                <div class="mt-5">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="03-functions.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="05-libraries.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fab fa-python me-2"></i>
+                Professional Python Cheat Sheet - Created with ❤️ for Python Developers
+            </p>
+            <small class="text-muted">
+                Enhanced with comprehensive English comments and modern web design
+            </small>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

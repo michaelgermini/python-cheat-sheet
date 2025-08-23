@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Handling (Text, CSV, JSON) - Professional Python Cheat Sheet</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-python me-2"></i>
+                Python Cheat Sheet
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-home me-1"></i>
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5 class="text-warning mb-3">
+                        <i class="fas fa-list me-2"></i>
+                        Complete Navigation
+                    </h5>
+                    
+                    <!-- Search in sidebar -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control search-box" id="sidebarSearch" 
+                               placeholder="🔍 Search sections...">
+                    </div>
+
+                    <!-- Main Sections -->
+                    <div class="accordion" id="sidebarAccordion">
+                        <!-- Getting Started -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="gettingStarted">
+                                <button class="accordion-button collapsed" type="button" id="btnGettingStarted" data-bs-toggle="collapse" data-bs-target="#collapseGettingStarted">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Getting Started
+                                </button>
+                            </h2>
+                            <div id="collapseGettingStarted" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="00-intro.html">
+                                            <i class="fas fa-play-circle me-2"></i>
+                                            00 - Python Introduction
+                                        </a>
+                                        <a class="nav-link" href="01-basics.html">
+                                            <i class="fas fa-cube me-2"></i>
+                                            01 - Variables & Data Types
+                                        </a>
+                                        <a class="nav-link" href="02-control.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            02 - Control Structures
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Programming -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="coreProgramming">
+                                <button class="accordion-button collapsed" type="button" id="btnCoreProgramming" data-bs-toggle="collapse" data-bs-target="#collapseCoreProgramming">
+                                    <i class="fas fa-code me-2"></i>
+                                    Core Programming
+                                </button>
+                            </h2>
+                            <div id="collapseCoreProgramming" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="03-functions.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            03 - Functions & Decorators
+                                        </a>
+                                        <a class="nav-link" href="04-oop.html">
+                                            <i class="fas fa-cubes me-2"></i>
+                                            04 - Classes & OOP
+                                        </a>
+                                        <a class="nav-link" href="05-libraries.html">
+                                            <i class="fas fa-boxes me-2"></i>
+                                            05 - Popular Libraries
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File & Web Development -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="fileWeb">
+                                <button class="accordion-button collapsed" type="button" id="btnFileWeb" data-bs-toggle="collapse" data-bs-target="#collapseFileWeb">
+                                    <i class="fas fa-file-code me-2"></i>
+                                    File & Web Development
+                                </button>
+                            </h2>
+                            <div id="collapseFileWeb" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="06-files.html">
+                                            <i class="fas fa-file-alt me-2"></i>
+                                            06 - File Handling
+                                        </a>
+                                        <a class="nav-link" href="07-web.html">
+                                            <i class="fas fa-globe me-2"></i>
+                                            07 - Web Development
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testing & Debugging -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="testingDebugging">
+                                <button class="accordion-button collapsed" type="button" id="btnTestingDebugging" data-bs-toggle="collapse" data-bs-target="#collapseTestingDebugging">
+                                    <i class="fas fa-bug me-2"></i>
+                                    Testing & Debugging
+                                </button>
+                            </h2>
+                            <div id="collapseTestingDebugging" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="08-testing.html">
+                                            <i class="fas fa-vial me-2"></i>
+                                            08 - Testing
+                                        </a>
+                                        <a class="nav-link" href="09-debugging.html">
+                                            <i class="fas fa-search me-2"></i>
+                                            09 - Debugging
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance & Best Practices -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="performanceBestPractices">
+                                <button class="accordion-button collapsed" type="button" id="btnPerformanceBestPractices" data-bs-toggle="collapse" data-bs-target="#collapsePerformanceBestPractices">
+                                    <i class="fas fa-tachometer-alt me-2"></i>
+                                    Performance & Best Practices
+                                </button>
+                            </h2>
+                            <div id="collapsePerformanceBestPractices" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="10-performance.html">
+                                            <i class="fas fa-bolt me-2"></i>
+                                            10 - Performance
+                                        </a>
+                                        <a class="nav-link" href="11-bestpractices.html">
+                                            <i class="fas fa-star me-2"></i>
+                                            11 - Best Practices
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Topics -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="advancedTopics">
+                                <button class="accordion-button collapsed" type="button" id="btnAdvancedTopics" data-bs-toggle="collapse" data-bs-target="#collapseAdvancedTopics">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Advanced Topics
+                                </button>
+                            </h2>
+                            <div id="collapseAdvancedTopics" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="12-advanced.html">
+                                            <i class="fas fa-magic me-2"></i>
+                                            12 - Advanced Python
+                                        </a>
+                                        <a class="nav-link" href="13-concurrency.html">
+                                            <i class="fas fa-sync-alt me-2"></i>
+                                            13 - Concurrency
+                                        </a>
+                                        <a class="nav-link" href="14-datascience.html">
+                                            <i class="fas fa-chart-bar me-2"></i>
+                                            14 - Data Science
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deployment & Security -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="deploymentSecurity">
+                                <button class="accordion-button collapsed" type="button" id="btnDeploymentSecurity" data-bs-toggle="collapse" data-bs-target="#collapseDeploymentSecurity">
+                                    <i class="fas fa-shield-alt me-2"></i>
+                                    Deployment & Security
+                                </button>
+                            </h2>
+                            <div id="collapseDeploymentSecurity" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="15-deployment.html">
+                                            <i class="fas fa-cloud me-2"></i>
+                                            15 - Deployment
+                                        </a>
+                                        <a class="nav-link" href="16-security.html">
+                                            <i class="fas fa-lock me-2"></i>
+                                            16 - Security
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Reference -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="quickReference">
+                                <button class="accordion-button collapsed" type="button" id="btnQuickReference" data-bs-toggle="collapse" data-bs-target="#collapseQuickReference">
+                                    <i class="fas fa-bookmark me-2"></i>
+                                    Quick Reference
+                                </button>
+                            </h2>
+                            <div id="collapseQuickReference" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="cheatsheet.html">
+                                            <i class="fas fa-clipboard-list me-2"></i>
+                                            Complete Cheat Sheet
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="mt-4 p-3 bg-dark rounded">
+                        <h6 class="text-warning mb-2">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Project Stats
+                        </h6>
+                        <div class="small text-muted">
+                            <div><i class="fas fa-file-code me-1"></i> 18 HTML Pages</div>
+                            <div><i class="fas fa-code me-1"></i> 16+ Python Topics</div>
+                            <div><i class="fas fa-comments me-1"></i> Detailed Comments</div>
+                            <div><i class="fas fa-mobile-alt me-1"></i> Mobile Responsive</div>
+                            <div class="text-success mt-2"><i class="fas fa-circle me-1"></i> Online !</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Page Navigation -->
+                <div class="mb-4">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="16-security.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="07-web.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Content Placeholder -->
+                
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-book me-2"></i>
+                            File Handling (Text, CSV, JSON)
+                        </div>
+                        <div class="card-body">
+                            <h1 class="section-title"><i class="fas fa-play-circle me-2"></i>File Handling (Text, CSV, JSON)</h1>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Text Files</h2>
+
+<h3 class="text-primary mt-3">Reading Text Files</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Basic file reading: read entire file content into a single string</h1>
+with open('file.txt', 'r', encoding='utf-8') as f:  # Open file in read mode with UTF-8 encoding
+    content = f.read()  # Read entire file content as a single string
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Reading line by line: process file efficiently without loading entire content into memory</h1>
+with open('file.txt', 'r', encoding='utf-8') as f:  # Open file in read mode with UTF-8 encoding
+    for line in f:  # Iterate over file lines (memory efficient for large files)
+        print(line.strip())  # Print each line with whitespace removed
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Reading all lines into a list: load all lines into memory for random access</h1>
+with open('file.txt', 'r', encoding='utf-8') as f:  # Open file in read mode with UTF-8 encoding
+    lines = f.readlines()  # Read all lines into a list (each line as a separate element)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Writing Text Files</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Writing text: write a single string to a file</h1>
+with open('output.txt', 'w', encoding='utf-8') as f:  # Open file in write mode (overwrites existing content)
+    f.write("Hello, World!")  # Write string content to file
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Writing multiple lines: write multiple lines efficiently using a generator expression</h1>
+lines = ["Line 1", "Line 2", "Line 3"]  # List of strings to write
+with open('output.txt', 'w', encoding='utf-8') as f:  # Open file in write mode
+    f.writelines(line + '\n' for line in lines)  # Write each line with newline character
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Appending to file: add content to existing file without overwriting</h1>
+with open('output.txt', 'a', encoding='utf-8') as f:  # Open file in append mode (preserves existing content)
+    f.write("\nNew line")  # Add new line to end of file</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">File Modes</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Common file modes: specify how to open and interact with files</h1>
+'r'     # Read mode (default): open file for reading only
+'w'     # Write mode: create new file or overwrite existing file
+'a'     # Append mode: add content to end of existing file (creates file if it doesn't exist)
+'r+'    # Read and write mode: open file for both reading and writing
+'w+'    # Write and read mode: create new file or overwrite existing file, then allow reading
+'a+'    # Append and read mode: add content to end of file and allow reading
+'b'     # Binary mode: handle file as binary data (e.g., 'rb', 'wb', 'ab')</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>CSV Files</h2>
+
+<h3 class="text-primary mt-3">Reading CSV</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import csv  # Import CSV module for handling comma-separated values
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Basic CSV reading: read CSV file as list of lists (rows as lists)</h1>
+with open('data.csv', 'r', newline='', encoding='utf-8') as f:  # Open CSV file with proper line ending handling
+    reader = csv.reader(f)  # Create CSV reader object
+    for row in reader:  # Iterate over each row in the CSV file
+        print(row)  # Print each row as a list of values
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Reading with DictReader: read CSV file as list of dictionaries (rows as dicts with column headers as keys)</h1>
+with open('data.csv', 'r', newline='', encoding='utf-8') as f:  # Open CSV file with proper line ending handling
+    reader = csv.DictReader(f)  # Create CSV reader that uses first row as column headers
+    for row in reader:  # Iterate over each row in the CSV file
+        print(row['name'], row['age'])  # Access values by column name (more readable)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Reading with pandas: powerful data analysis library for CSV handling</h1>
+import pandas as pd  # Import pandas for advanced data manipulation
+df = pd.read_csv('data.csv')  # Read CSV into pandas DataFrame (handles many edge cases automatically)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Writing CSV</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import csv  # Import CSV module for handling comma-separated values
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Basic CSV writing: write list of lists to CSV file</h1>
+data = [['Name', 'Age', 'City'], ['Alice', 30, 'NYC'], ['Bob', 25, 'LA']]  # Data as list of lists
+with open('output.csv', 'w', newline='', encoding='utf-8') as f:  # Open file for writing with proper line ending handling
+    writer = csv.writer(f)  # Create CSV writer object
+    writer.writerows(data)  # Write all rows at once (more efficient than writing one by one)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Writing with DictWriter: write list of dictionaries to CSV file with column headers</h1>
+data = [
+    {'name': 'Alice', 'age': 30, 'city': 'NYC'},  # Data as list of dictionaries
+    {'name': 'Bob', 'age': 25, 'city': 'LA'}
+]
+with open('output.csv', 'w', newline='', encoding='utf-8') as f:  # Open file for writing
+    fieldnames = ['name', 'age', 'city']  # Define column order and names
+    writer = csv.DictWriter(f, fieldnames=fieldnames)  # Create DictWriter with specified field names
+    writer.writeheader()  # Write column headers as first row
+    writer.writerows(data)  # Write all data rows
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Writing with pandas: write DataFrame to CSV file</h1>
+df.to_csv('output.csv', index=False)  # Write DataFrame to CSV, exclude row index numbers</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">CSV Best Practices</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import csv
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Handling different delimiters</h1>
+with open('data.csv', 'r', newline='', encoding='utf-8') as f:
+    reader = csv.reader(f, delimiter=';')  # For semicolon-separated files
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Handling quotes</h1>
+with open('data.csv', 'r', newline='', encoding='utf-8') as f:
+    reader = csv.reader(f, quoting=csv.QUOTE_ALL)  # Quote all fields
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Error handling</h1>
+try:
+    with open('data.csv', 'r', newline='', encoding='utf-8') as f:
+        reader = csv.reader(f)
+        for row_num, row in enumerate(reader, 1):
+            try:
+                # Process row
+                pass
+            except Exception as e:
+                print(f"Error in row {row_num}: {e}")
+except FileNotFoundError:
+    print("File not found")</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>JSON Files</h2>
+
+<h3 class="text-primary mt-3">Reading JSON</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import json  # Import JSON module for handling JavaScript Object Notation
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Reading JSON file: load JSON data from file into Python objects</h1>
+with open('data.json', 'r', encoding='utf-8') as f:  # Open JSON file in read mode
+    data = json.load(f)  # Parse JSON content into Python dictionary/list
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Reading JSON string: parse JSON string into Python objects</h1>
+json_string = '{"name": "Alice", "age": 30}'  # JSON string (note: double quotes required)
+data = json.loads(json_string)  # Parse JSON string into Python dictionary
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Reading with error handling: robust JSON parsing with exception handling</h1>
+try:
+    with open('data.json', 'r', encoding='utf-8') as f:  # Open JSON file
+        data = json.load(f)  # Parse JSON content
+except json.JSONDecodeError as e:  # Handle malformed JSON syntax
+    print(f"Invalid JSON: {e}")  # Print specific JSON parsing error
+except FileNotFoundError:  # Handle missing file
+    print("File not found")  # User-friendly error message</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Writing JSON</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import json  # Import JSON module for handling JavaScript Object Notation
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Writing JSON file: serialize Python objects to JSON file</h1>
+data = {
+    'name': 'Alice',
+    'age': 30,
+    'city': 'NYC',
+    'hobbies': ['reading', 'swimming']  # Nested data structures supported
+}<p>with open('output.json', 'w', encoding='utf-8') as f:  # Open file for writing
+    json.dump(data, f, indent=2, ensure_ascii=False)  # Write JSON with pretty formatting and Unicode support</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Writing JSON string: serialize Python objects to JSON string</h1>
+json_string = json.dumps(data, indent=2, ensure_ascii=False)  # Convert to JSON string instead of writing to file
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Writing with custom serialization: handle non-JSON-serializable objects</h1>
+class Person:
+    def __init__(self, name, age):
+        self.name = name  # Person object attributes
+        self.age = age<p>def person_encoder(obj):  # Custom encoder function for Person objects
+    if isinstance(obj, Person):  # Check if object is Person instance
+        return {'name': obj.name, 'age': obj.age}  # Convert to dictionary format
+    raise TypeError(f"Object of type {type(obj)} is not JSON serializable")  # Raise error for unsupported types</p>person = Person('Alice', 30)  # Create Person object
+with open('output.json', 'w', encoding='utf-8') as f:  # Open file for writing
+    json.dump(person, f, default=person_encoder, indent=2)  # Use custom encoder for serialization</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">JSON Best Practices</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import json
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Pretty printing</h1>
+data = {'name': 'Alice', 'age': 30}
+json_string = json.dumps(data, indent=2, sort_keys=True)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Handling datetime objects</h1>
+from datetime import datetime<p>def datetime_encoder(obj):
+    if isinstance(obj, datetime):
+        return obj.isoformat()
+    raise TypeError(f"Object of type {type(obj)} is not JSON serializable")</p>data = {'timestamp': datetime.now()}
+json_string = json.dumps(data, default=datetime_encoder)</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Other File Formats</h2>
+
+<h3 class="text-primary mt-3">Excel Files</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import pandas as pd
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Reading Excel</h1>
+df = pd.read_excel('data.xlsx', sheet_name='Sheet1')
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Writing Excel</h1>
+df.to_excel('output.xlsx', sheet_name='Sheet1', index=False)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Reading multiple sheets</h1>
+excel_file = pd.ExcelFile('data.xlsx')
+sheet_names = excel_file.sheet_names
+for sheet in sheet_names:
+    df = pd.read_excel('data.xlsx', sheet_name=sheet)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Pickle Files</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import pickle
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Writing pickle</h1>
+data = {'name': 'Alice', 'age': 30}
+with open('data.pkl', 'wb') as f:
+    pickle.dump(data, f)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Reading pickle</h1>
+with open('data.pkl', 'rb') as f:
+    data = pickle.load(f)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Security warning: Only load pickle files from trusted sources</h1></code></pre>
+</div>
+
+<h3 class="text-primary mt-3">YAML Files</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import yaml
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Reading YAML</h1>
+with open('config.yaml', 'r', encoding='utf-8') as f:
+    config = yaml.safe_load(f)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Writing YAML</h1>
+config = {
+    'database': {
+        'host': 'localhost',
+        'port': 5432
+    },
+    'api': {
+        'timeout': 30
+    }
+}<p>with open('config.yaml', 'w', encoding='utf-8') as f:
+    yaml.dump(config, f, default_flow_style=False)</code></pre>
+</div></p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>File System Operations</h2>
+
+<h3 class="text-primary mt-3">Path Operations</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from pathlib import Path
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating paths</h1>
+file_path = Path('folder/subfolder/file.txt')
+file_path.parent.mkdir(parents=True, exist_ok=True)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Checking file existence</h1>
+if file_path.exists():
+    print("File exists")
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Getting file info</h1>
+print(file_path.name)      # file.txt
+print(file_path.suffix)    # .txt
+print(file_path.stem)      # file
+print(file_path.parent)    # folder/subfolder</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Directory Operations</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import os
+from pathlib import Path
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Listing directory contents</h1>
+for item in Path('.').iterdir():
+    print(item)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Walking directory tree</h1>
+for root, dirs, files in os.walk('.'):
+    for file in files:
+        if file.endswith('.py'):
+            print(os.path.join(root, file))
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating directories</h1>
+Path('new_folder').mkdir(exist_ok=True)
+Path('nested/folders').mkdir(parents=True, exist_ok=True)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">File Operations</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import shutil
+from pathlib import Path
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Copying files</h1>
+shutil.copy('source.txt', 'destination.txt')
+shutil.copy2('source.txt', 'destination.txt')  # Preserves metadata
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Moving files</h1>
+shutil.move('old_name.txt', 'new_name.txt')
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Removing files</h1>
+Path('file_to_delete.txt').unlink()
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Removing directories</h1>
+shutil.rmtree('directory_to_remove')</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Error Handling and Best Practices</h2>
+
+<h3 class="text-primary mt-3">Robust File Operations</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from pathlib import Path
+import logging<p>def safe_read_file(file_path):
+    """Safely read a file with proper error handling."""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            return f.read()
+    except FileNotFoundError:
+        logging.error(f"File not found: {file_path}")
+        return None
+    except PermissionError:
+        logging.error(f"Permission denied: {file_path}")
+        return None
+    except UnicodeDecodeError:
+        logging.error(f"Encoding error: {file_path}")
+        return None</p>def safe_write_file(file_path, content):
+    """Safely write content to a file."""
+    try:
+        # Create parent directories if they don't exist
+        Path(file_path).parent.mkdir(parents=True, exist_ok=True)
+        
+        with open(file_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        return True
+    except Exception as e:
+        logging.error(f"Error writing file {file_path}: {e}")
+        return False</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Context Managers</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class FileManager:
+    def __init__(self, filename, mode='r', encoding='utf-8'):
+        self.filename = filename
+        self.mode = mode
+        self.encoding = encoding
+        self.file = None<p>    def __enter__(self):
+        self.file = open(self.filename, self.mode, encoding=self.encoding)
+        return self.file</p>    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.file:
+            self.file.close()
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+with FileManager('data.txt', 'w') as f:
+    f.write('Hello, World!')</code></pre>
+</div><p>---</p><a href="05-libraries.md" target="_blank" class="text-warning">Previous Chapter</a> | <a href="07-web.md" target="_blank" class="text-warning">Next Chapter</a>
+
+                        </div>
+                    </div>
+
+
+                <!-- Quick Access -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <i class="fas fa-bolt me-2"></i>
+                        Quick Access
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <a href="cheatsheet.html" class="btn btn-outline-warning w-100">
+                                    <i class="fas fa-clipboard-list me-1"></i>
+                                    Complete Cheat Sheet
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="11-bestpractices.html" class="btn btn-outline-info w-100">
+                                    <i class="fas fa-star me-1"></i>
+                                    Best Practices
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="16-security.html" class="btn btn-outline-danger w-100">
+                                    <i class="fas fa-shield-alt me-1"></i>
+                                    Security Guide
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 mb-2">
+                                <a href="08-testing.html" class="btn btn-outline-success w-100">
+                                    <i class="fas fa-vial me-1"></i>
+                                    Testing Guide
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="10-performance.html" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-bolt me-1"></i>
+                                    Performance Tips
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="15-deployment.html" class="btn btn-outline-secondary w-100">
+                                    <i class="fas fa-cloud me-1"></i>
+                                    Deployment Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Navigation (Bottom) -->
+                <div class="mt-5">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="16-security.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="07-web.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fab fa-python me-2"></i>
+                Professional Python Cheat Sheet - Created with ❤️ for Python Developers
+            </p>
+            <small class="text-muted">
+                Enhanced with comprehensive English comments and modern web design
+            </small>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

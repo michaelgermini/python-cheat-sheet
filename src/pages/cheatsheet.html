@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Professional Cheat Sheet - Quick Reference - Professional Python Cheat Sheet</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-python me-2"></i>
+                Python Cheat Sheet
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-home me-1"></i>
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5 class="text-warning mb-3">
+                        <i class="fas fa-list me-2"></i>
+                        Complete Navigation
+                    </h5>
+                    
+                    <!-- Search in sidebar -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control search-box" id="sidebarSearch" 
+                               placeholder="🔍 Search sections...">
+                    </div>
+
+                    <!-- Main Sections -->
+                    <div class="accordion" id="sidebarAccordion">
+                        <!-- Getting Started -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="gettingStarted">
+                                <button class="accordion-button collapsed" type="button" id="btnGettingStarted" data-bs-toggle="collapse" data-bs-target="#collapseGettingStarted">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Getting Started
+                                </button>
+                            </h2>
+                            <div id="collapseGettingStarted" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="00-intro.html">
+                                            <i class="fas fa-play-circle me-2"></i>
+                                            00 - Python Introduction
+                                        </a>
+                                        <a class="nav-link" href="01-basics.html">
+                                            <i class="fas fa-cube me-2"></i>
+                                            01 - Variables & Data Types
+                                        </a>
+                                        <a class="nav-link" href="02-control.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            02 - Control Structures
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Programming -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="coreProgramming">
+                                <button class="accordion-button collapsed" type="button" id="btnCoreProgramming" data-bs-toggle="collapse" data-bs-target="#collapseCoreProgramming">
+                                    <i class="fas fa-code me-2"></i>
+                                    Core Programming
+                                </button>
+                            </h2>
+                            <div id="collapseCoreProgramming" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="03-functions.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            03 - Functions & Decorators
+                                        </a>
+                                        <a class="nav-link" href="04-oop.html">
+                                            <i class="fas fa-cubes me-2"></i>
+                                            04 - Classes & OOP
+                                        </a>
+                                        <a class="nav-link" href="05-libraries.html">
+                                            <i class="fas fa-boxes me-2"></i>
+                                            05 - Popular Libraries
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File & Web Development -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="fileWeb">
+                                <button class="accordion-button collapsed" type="button" id="btnFileWeb" data-bs-toggle="collapse" data-bs-target="#collapseFileWeb">
+                                    <i class="fas fa-file-code me-2"></i>
+                                    File & Web Development
+                                </button>
+                            </h2>
+                            <div id="collapseFileWeb" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="06-files.html">
+                                            <i class="fas fa-file-alt me-2"></i>
+                                            06 - File Handling
+                                        </a>
+                                        <a class="nav-link" href="07-web.html">
+                                            <i class="fas fa-globe me-2"></i>
+                                            07 - Web Development
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testing & Debugging -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="testingDebugging">
+                                <button class="accordion-button collapsed" type="button" id="btnTestingDebugging" data-bs-toggle="collapse" data-bs-target="#collapseTestingDebugging">
+                                    <i class="fas fa-bug me-2"></i>
+                                    Testing & Debugging
+                                </button>
+                            </h2>
+                            <div id="collapseTestingDebugging" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="08-testing.html">
+                                            <i class="fas fa-vial me-2"></i>
+                                            08 - Testing
+                                        </a>
+                                        <a class="nav-link" href="09-debugging.html">
+                                            <i class="fas fa-search me-2"></i>
+                                            09 - Debugging
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance & Best Practices -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="performanceBestPractices">
+                                <button class="accordion-button collapsed" type="button" id="btnPerformanceBestPractices" data-bs-toggle="collapse" data-bs-target="#collapsePerformanceBestPractices">
+                                    <i class="fas fa-tachometer-alt me-2"></i>
+                                    Performance & Best Practices
+                                </button>
+                            </h2>
+                            <div id="collapsePerformanceBestPractices" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="10-performance.html">
+                                            <i class="fas fa-bolt me-2"></i>
+                                            10 - Performance
+                                        </a>
+                                        <a class="nav-link" href="11-bestpractices.html">
+                                            <i class="fas fa-star me-2"></i>
+                                            11 - Best Practices
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Topics -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="advancedTopics">
+                                <button class="accordion-button collapsed" type="button" id="btnAdvancedTopics" data-bs-toggle="collapse" data-bs-target="#collapseAdvancedTopics">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Advanced Topics
+                                </button>
+                            </h2>
+                            <div id="collapseAdvancedTopics" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="12-advanced.html">
+                                            <i class="fas fa-magic me-2"></i>
+                                            12 - Advanced Python
+                                        </a>
+                                        <a class="nav-link" href="13-concurrency.html">
+                                            <i class="fas fa-sync-alt me-2"></i>
+                                            13 - Concurrency
+                                        </a>
+                                        <a class="nav-link" href="14-datascience.html">
+                                            <i class="fas fa-chart-bar me-2"></i>
+                                            14 - Data Science
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deployment & Security -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="deploymentSecurity">
+                                <button class="accordion-button collapsed" type="button" id="btnDeploymentSecurity" data-bs-toggle="collapse" data-bs-target="#collapseDeploymentSecurity">
+                                    <i class="fas fa-shield-alt me-2"></i>
+                                    Deployment & Security
+                                </button>
+                            </h2>
+                            <div id="collapseDeploymentSecurity" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="15-deployment.html">
+                                            <i class="fas fa-cloud me-2"></i>
+                                            15 - Deployment
+                                        </a>
+                                        <a class="nav-link" href="16-security.html">
+                                            <i class="fas fa-lock me-2"></i>
+                                            16 - Security
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Reference -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="quickReference">
+                                <button class="accordion-button collapsed" type="button" id="btnQuickReference" data-bs-toggle="collapse" data-bs-target="#collapseQuickReference">
+                                    <i class="fas fa-bookmark me-2"></i>
+                                    Quick Reference
+                                </button>
+                            </h2>
+                            <div id="collapseQuickReference" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="cheatsheet.html">
+                                            <i class="fas fa-clipboard-list me-2"></i>
+                                            Complete Cheat Sheet
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="mt-4 p-3 bg-dark rounded">
+                        <h6 class="text-warning mb-2">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Project Stats
+                        </h6>
+                        <div class="small text-muted">
+                            <div><i class="fas fa-file-code me-1"></i> 18 HTML Pages</div>
+                            <div><i class="fas fa-code me-1"></i> 16+ Python Topics</div>
+                            <div><i class="fas fa-comments me-1"></i> Detailed Comments</div>
+                            <div><i class="fas fa-mobile-alt me-1"></i> Mobile Responsive</div>
+                            <div class="text-success mt-2"><i class="fas fa-circle me-1"></i> Online !</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Page Navigation -->
+                <div class="mb-4">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="11-bestpractices.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="08-testing.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Content Placeholder -->
+                
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-book me-2"></i>
+                            Python Professional Cheat Sheet - Quick Reference
+                        </div>
+                        <div class="card-body">
+                            <h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Python Professional Cheat Sheet - Quick Reference</h1>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>🐍 Python Basics</h2>
+
+<h3 class="text-primary mt-3">Variables & Data Types</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Numbers: fundamental numeric data types for mathematical operations</h1>
+x = 10          # int: whole number (integer) for counting and indexing
+y = 3.14        # float: decimal number (floating point) for precise calculations
+z = 1 + 2j      # complex: complex number with real and imaginary parts for advanced math
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Strings: text data with various quote styles for flexible text handling</h1>
+name = "Python" # str: single or double quotes for simple strings
+text = '''Multi-line
+string'''       # Triple quotes for multi-line strings and documentation
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Collections: data structures for organizing multiple values efficiently</h1>
+my_list = [1, 2, 3]           # list: ordered, mutable sequence for dynamic data
+my_tuple = (1, 2, 3)          # tuple: ordered, immutable sequence for fixed data
+my_dict = {"key": "value"}     # dict: key-value pairs (mapping) for associative data
+my_set = {1, 2, 3}            # set: unordered collection of unique elements for distinct values
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Booleans: logical values for conditional logic and control flow</h1>
+is_valid = True                # True: represents truth condition for positive logic
+is_empty = False               # False: represents false condition for negative logic
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Type hints: optional annotations for better code documentation and IDE support</h1>
+age: int = 25                  # Explicitly typed integer variable for clarity
+name: str = "John"             # Explicitly typed string variable for documentation
+scores: List[int] = [85, 90, 78]  # List containing integers with type annotation for validation</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Control Structures</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>If/elif/else: conditional execution based on boolean expressions for decision making</h1>
+if x > 0:
+    print("Positive")          # Execute if x is greater than 0 (positive number)
+elif x == 0:
+    print("Zero")              # Execute if x equals 0 (only if previous conditions were False)
+else:
+    print("Negative")          # Execute if all previous conditions were False (negative number)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Ternary operator: concise conditional expression for simple decisions in one line</h1>
+result = "Even" if x % 2 == 0 else "Odd"  # Assign "Even" if x is even, "Odd" if x is odd
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Loops: iterative execution for processing sequences and repeated operations efficiently</h1>
+for item in my_list:
+    print(item)                # Iterate over each item in the list (sequence iteration)<p>for i in range(10):
+    print(i)                   # Iterate over numbers 0 to 9 (range generates sequence)</p>while condition:
+    # do something              # Execute loop body while condition is True (conditional iteration)
+    break  # or continue        # break: exit loop immediately, continue: skip to next iteration
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>List comprehensions: concise way to create lists from iterables with optional filtering</h1>
+squares = [x<strong>2 for x in range(10)]        # Create list of squares for numbers 0-9 (transformation)
+evens = [x for x in range(10) if x % 2 == 0]  # Create list of even numbers 0-9 with filtering (conditional)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Functions</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Basic function: reusable code block with parameters and return value for modular programming</h1>
+def greet(name: str) -> str:  # Function with type hints for parameter and return value
+    return f"Hello, {name}!"  # Return formatted greeting string with f-string interpolation
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Default arguments: parameters with predefined values if no argument provided for convenience</h1>
+def power(base, exponent=2):  # exponent has default value of 2 for common use case
+    return base </strong> exponent   # Return base raised to the power of exponent using ** operator
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>*args and **kwargs: variable arguments for flexible function signatures and dynamic behavior</h1>
+def flexible_func(*args, **kwargs):  # *args: variable positional arguments, <strong>kwargs: variable keyword arguments
+    print(f"Args: {args}")           # Print tuple of positional arguments for debugging
+    print(f"Kwargs: {kwargs}")       # Print dictionary of keyword arguments for debugging
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Lambda functions: anonymous functions for simple operations and functional programming</h1>
+square = lambda x: x</strong>2              # Lambda function to square a number (inline function)
+add = lambda x, y: x + y             # Lambda function to add two numbers (inline function)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Decorators: functions that modify or enhance other functions with cross-cutting concerns</h1>
+def timer(func):  # Decorator function that takes a function as parameter for enhancement
+    def wrapper(*args, **kwargs):  # Inner function that wraps the original function with timing
+        import time
+        start = time.time()        # Record start time before function execution for performance measurement
+        result = func(*args, <strong>kwargs)  # Call the original function with all arguments (preserve signature)
+        end = time.time()          # Record end time after function execution for duration calculation
+        print(f"{func.__name__} took {end-start:.4f} seconds")  # Print execution time with function name
+        return result              # Return the original function's result (preserve return value)
+    return wrapper                 # Return the wrapper function (decorator pattern)<p>@timer  # Decorator syntax: apply timer decorator to function for automatic timing
+def slow_function():
+    import time
+    time.sleep(1)  # Simulate slow operation for demonstration purposes</code></pre>
+</div></p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>🏗️ Object-Oriented Programming</h2>
+
+<h3 class="text-primary mt-3">Classes</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class Person:
+    def __init__(self, name: str, age: int):  # Constructor method: initialize object attributes on creation
+        self.name = name  # Instance attribute: unique to each Person object (encapsulation)
+        self.age = age    # Instance attribute: unique to each Person object (encapsulation)
+    
+    def greet(self) -> str:  # Instance method: behavior specific to each person (polymorphism)
+        return f"Hello, I'm {self.name}"  # Return personalized greeting with f-string interpolation
+    
+    @property
+    def is_adult(self) -> bool:  # Property decorator: computed attribute that behaves like a field (getter)
+        return self.age >= 18    # Return True if person is 18 or older (business logic)
+    
+    @classmethod
+    def create_anonymous(cls):  # Class method: operates on the class itself, not instances (factory pattern)
+        return cls("Anonymous", 0)  # Create and return a new Person instance with default values
+    
+    @staticmethod
+    def validate_age(age: int) -> bool:  # Static method: utility function not tied to class or instance
+        return 0 <= age <= 150  # Return True if age is within valid range (validation logic)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Inheritance: create specialized classes that inherit from base classes for code reuse</h1>
+class Employee(Person):  # Employee inherits all methods and attributes from Person (inheritance)
+    def __init__(self, name: str, age: int, salary: float):  # Constructor with additional parameter
+        super().__init__(name, age)  # Call parent class constructor to initialize inherited attributes
+        self.salary = salary  # Employee-specific attribute (extension)
+    
+    def get_salary_info(self) -> str:  # Employee-specific method (specialization)
+        return f"Salary: ${self.salary:,.2f}"  # Return formatted salary information with currency formatting
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Dataclasses: automatically generate boilerplate code for simple data containers (reduced boilerplate)</h1>
+from dataclasses import dataclass  # Import dataclass decorator for automatic code generation<p>@dataclass
+class Point:  # Dataclass automatically generates __init__, __repr__, __eq__, etc. (convenience)
+    x: float  # Type-annotated field for automatic validation
+    y: float  # Type-annotated field for automatic validation
+    
+    def distance(self, other: 'Point') -> float:  # Custom method for distance calculation (geometry)
+        return ((self.x - other.x)</strong>2 + (self.y - other.y)<strong>2)</strong>0.5  # Euclidean distance formula (mathematics)</code></pre>
+</div></p><h3 class="text-primary mt-3">Magic Methods</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class Vector:
+    def __init__(self, x: float, y: float):  # Constructor: initialize vector components for mathematical operations
+        self.x = x  # X-component of the vector (horizontal component)
+        self.y = y  # Y-component of the vector (vertical component)
+    
+    def __str__(self) -> str:  # String representation for user-friendly output (str() function)
+        return f"Vector({self.x}, {self.y})"  # Human-readable format with f-string interpolation
+    
+    def __repr__(self) -> str:  # Detailed string representation for debugging (repr() function)
+        return f"Vector({self.x}, {self.y})"  # Developer-friendly format (same as __str__ in this case)
+    
+    def __add__(self, other: 'Vector') -> 'Vector':  # Addition operator: vector + vector (operator overloading)
+        return Vector(self.x + other.x, self.y + other.y)  # Return new vector with summed components (vector addition)
+    
+    def __eq__(self, other: 'Vector') -> bool:  # Equality operator: vector == vector (comparison)
+        return self.x == other.x and self.y == other.y  # Return True if all components match (component-wise equality)
+    
+    def __len__(self) -> int:  # Length operator: len(vector) returns magnitude (custom behavior)
+        return int((self.x<strong>2 + self.y</strong>2)**0.5)  # Calculate vector magnitude using Pythagorean theorem (mathematics)</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>📚 Popular Libraries</h2>
+
+<h3 class="text-primary mt-3">NumPy</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import numpy as np
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Arrays</h1>
+arr = np.array([1, 2, 3, 4, 5])
+matrix = np.array([[1, 2], [3, 4]])
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Operations</h1>
+arr + 2                    # Broadcasting
+arr * 3                    # Element-wise multiplication
+np.dot(matrix, matrix)     # Matrix multiplication
+arr.reshape(2, 3)          # Reshape
+arr.flatten()              # Flatten
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Indexing</h1>
+arr[1:4]                   # Slicing
+arr[arr > 3]               # Boolean indexing
+arr[[0, 2, 4]]             # Fancy indexing
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Functions</h1>
+np.mean(arr)               # Mean
+np.std(arr)                # Standard deviation
+np.max(arr)                # Maximum
+np.min(arr)                # Minimum
+np.sum(arr)                # Sum</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Pandas</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import pandas as pd
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Series and DataFrames</h1>
+series = pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])
+df = pd.DataFrame({
+    'name': ['Alice', 'Bob', 'Charlie'],
+    'age': [25, 30, 35],
+    'city': ['NYC', 'LA', 'Chicago']
+})
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Reading data</h1>
+df = pd.read_csv('data.csv')
+df = pd.read_excel('data.xlsx')
+df = pd.read_json('data.json')
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Basic operations</h1>
+df.head()                  # First 5 rows
+df.tail()                  # Last 5 rows
+df.info()                  # DataFrame info
+df.describe()              # Statistical summary
+df.shape                   # Dimensions
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Filtering and selection</h1>
+df[df['age'] > 30]         # Filter rows
+df[['name', 'age']]        # Select columns
+df.loc[0:2, 'name']        # Label-based indexing
+df.iloc[0:2, 0:2]          # Integer-based indexing
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Grouping and aggregation</h1>
+df.groupby('city')['age'].mean()
+df.groupby('city').agg({'age': ['mean', 'std'], 'name': 'count'})
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Merging</h1>
+pd.merge(df1, df2, on='id', how='inner')
+df1.join(df2, on='id')</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Matplotlib & Seaborn</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import matplotlib.pyplot as plt
+import seaborn as sns
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Basic plotting</h1>
+plt.plot(x, y, 'b-', label='Line')
+plt.scatter(x, y, c=colors, alpha=0.6)
+plt.bar(categories, values)
+plt.hist(data, bins=30)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Subplots</h1>
+fig, axes = plt.subplots(2, 2, figsize=(12, 8))
+axes[0, 0].plot(x, y)
+axes[0, 1].scatter(x, y)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Seaborn</h1>
+sns.lineplot(data=df, x='x', y='y', hue='category')
+sns.boxplot(data=df, x='category', y='value')
+sns.heatmap(correlation_matrix, annot=True)
+sns.pairplot(df, hue='target')
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Styling</h1>
+plt.title('My Plot')
+plt.xlabel('X Axis')
+plt.ylabel('Y Axis')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>🌐 Web Development</h2>
+
+<h3 class="text-primary mt-3">Flask</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from flask import Flask, request, jsonify, render_template<p>app = Flask(__name__)</p>@app.route('/')
+def home():
+    return render_template('index.html')<p>@app.route('/api/users', methods=['GET', 'POST'])
+def users():
+    if request.method == 'POST':
+        data = request.get_json()
+        # Process data
+        return jsonify({'message': 'User created'}), 201
+    else:
+        # Return users
+        return jsonify({'users': []})</p>@app.route('/user/<int:user_id>')
+def get_user(user_id):
+    return jsonify({'id': user_id, 'name': 'John'})<p>if __name__ == '__main__':
+    app.run(debug=True)</code></pre>
+</div></p><h3 class="text-primary mt-3">FastAPI</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from fastapi import FastAPI, HTTPException, Depends
+from pydantic import BaseModel
+from typing import List, Optional<p>app = FastAPI()</p>class User(BaseModel):
+    name: str
+    email: str
+    age: Optional[int] = None<p>@app.get("/")
+def read_root():
+    return {"Hello": "World"}</p>@app.get("/users/{user_id}")
+def read_user(user_id: int):
+    return {"user_id": user_id}<p>@app.post("/users/")
+def create_user(user: User):
+    return user</p>@app.get("/items/")
+def read_items(skip: int = 0, limit: int = 10):
+    return {"skip": skip, "limit": limit}</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>🧪 Testing</h2>
+
+<h3 class="text-primary mt-3">Pytest</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import pytest<p>def add(a: int, b: int) -> int:
+    return a + b</p>def test_add():
+    assert add(2, 3) == 5
+    assert add(-1, 1) == 0
+    assert add(0, 0) == 0<p>def test_add_negative():
+    assert add(-2, -3) == -5</p>@pytest.fixture
+def sample_data():
+    return [1, 2, 3, 4, 5]<p>def test_with_fixture(sample_data):
+    assert len(sample_data) == 5
+    assert sum(sample_data) == 15</p>@pytest.mark.parametrize("a,b,expected", [
+    (1, 2, 3),
+    (0, 0, 0),
+    (-1, 1, 0),
+])
+def test_add_parametrized(a, b, expected):
+    assert add(a, b) == expected</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Mocking</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from unittest.mock import Mock, patch<p>def test_with_mock():
+    mock_obj = Mock()
+    mock_obj.method.return_value = "mocked result"
+    
+    assert mock_obj.method() == "mocked result"
+    mock_obj.method.assert_called_once()</p>@patch('module.external_api_call')
+def test_with_patch(mock_api):
+    mock_api.return_value = {'status': 'success'}
+    
+    result = function_that_calls_api()
+    assert result['status'] == 'success'
+    mock_api.assert_called_once()</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>🐛 Debugging</h2>
+
+<h3 class="text-primary mt-3">Logging</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import logging
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Basic logging</h1>
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('app.log'),
+        logging.StreamHandler()
+    ]
+)<p>logger = logging.getLogger(__name__)
+logger.info("Info message")
+logger.error("Error message")
+logger.debug("Debug message")</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Structured logging</h1>
+logger.info("User action", extra={
+    'user_id': 123,
+    'action': 'login',
+    'ip': '192.168.1.1'
+})</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Exception Handling</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">try:
+    result = risky_operation()
+except ValueError as e:
+    logger.error(f"Value error: {e}")
+    result = None
+except FileNotFoundError as e:
+    logger.error(f"File not found: {e}")
+    result = None
+except Exception as e:
+    logger.error(f"Unexpected error: {e}")
+    raise
+else:
+    logger.info("Operation successful")
+finally:
+    cleanup_resources()</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Debugger</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import pdb<p>def debug_function():
+    x = 10
+    y = 20
+    pdb.set_trace()  # or breakpoint() in Python 3.7+
+    result = x + y
+    return result</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Debugger commands:</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>n (next), s (step), c (continue), l (list), p (print), q (quit)</h1></code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>🚀 Performance & Optimization</h2>
+
+<h3 class="text-primary mt-3">Profiling</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import cProfile
+import timeit
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>cProfile</h1>
+def profile_function():
+    profiler = cProfile.Profile()
+    profiler.enable()
+    # Your code here
+    profiler.disable()
+    profiler.print_stats(sort='cumulative')
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>timeit</h1>
+execution_time = timeit.timeit(
+    'your_function()',
+    setup='from __main__ import your_function',
+    number=1000
+)
+print(f"Average time: {execution_time/1000:.6f} seconds")</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Memory Optimization</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Generators for memory efficiency</h1>
+def fibonacci_generator(n):
+    a, b = 0, 1
+    while a < n:
+        yield a
+        a, b = b, a + b
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Use __slots__ for memory-efficient classes</h1>
+class Point:
+    __slots__ = ['x', 'y']
+    
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Weak references to avoid circular references</h1>
+import weakref<p>class Cache:
+    def __init__(self):
+        self._cache = weakref.WeakValueDictionary()</code></pre>
+</div></p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>🔒 Security</h2>
+
+<h3 class="text-primary mt-3">Environment Variables</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import os
+from dotenv import load_dotenv<p>load_dotenv()</p>SECRET_KEY = os.getenv('SECRET_KEY')
+DATABASE_URL = os.getenv('DATABASE_URL')
+API_KEY = os.getenv('API_KEY')</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Input Validation</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import re
+import html<p>def validate_email(email: str) -> bool:
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return re.match(pattern, email) is not None</p>def sanitize_html(text: str) -> str:
+    return html.escape(text)<p>def validate_password(password: str) -> bool:
+    # At least 8 chars, uppercase, lowercase, number, special char
+    pattern = r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$'
+    return re.match(pattern, password) is not None</code></pre>
+</div></p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>📦 Package Management</h2>
+
+<h3 class="text-primary mt-3">Virtual Environments</h3>
+``<code>bash
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Create virtual environment</h1>
+python -m venv myenv
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Activate (Windows)</h1>
+myenv\Scripts\activate
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Activate (Unix/MacOS)</h1>
+source myenv/bin/activate
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Deactivate</h1>
+deactivate
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Install packages</h1>
+pip install package_name
+pip install -r requirements.txt
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Generate requirements</h1>
+pip freeze > requirements.txt
+</code>`<code>
+
+<h3 class="text-primary mt-3">Project Structure</h3>
+</code>`<code>
+myproject/
+├── myproject/
+│   ├── __init__.py
+│   ├── core.py
+│   ├── utils.py
+│   └── models.py
+├── tests/
+│   ├── __init__.py
+│   ├── test_core.py
+│   └── test_utils.py
+├── docs/
+├── requirements.txt
+├── setup.py
+├── pyproject.toml
+├── README.md
+└── .gitignore
+</code>`<code>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>🔧 Common Patterns</h2>
+
+<h3 class="text-primary mt-3">Context Managers</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Custom context manager</h1>
+class DatabaseConnection:
+    def __init__(self, host, port):
+        self.host = host
+        self.port = port
+        self.connection = None
+    
+    def __enter__(self):
+        print(f"Connecting to {self.host}:{self.port}")
+        self.connection = "connected"
+        return self.connection
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print("Closing connection")
+        self.connection = None
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+with DatabaseConnection("localhost", 5432) as conn:
+    print(f"Using connection: {conn}")</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Decorators</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import functools
+import time<p>def retry(max_attempts=3, delay=1.0):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            for attempt in range(max_attempts):
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    if attempt == max_attempts - 1:
+                        raise
+                    time.sleep(delay)
+            return None
+        return wrapper
+    return decorator</p>@retry(max_attempts=3, delay=0.5)
+def unreliable_function():
+    import random
+    if random.random() < 0.7:
+        raise ValueError("Random failure")
+    return "Success!"</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Generators</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def read_large_file(filename):
+    """Read large file line by line."""
+    with open(filename, 'r') as f:
+        for line in f:
+            yield line.strip()<p>def infinite_counter():
+    """Infinite counter generator."""
+    num = 0
+    while True:
+        yield num
+        num += 1</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+for line in read_large_file('large_file.txt'):
+    process_line(line)<p>counter = infinite_counter()
+for i in range(10):
+    print(next(counter))</code></pre>
+</div></p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>🎯 Best Practices</h2>
+
+<h3 class="text-primary mt-3">Code Style (PEP 8)</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Naming conventions</h1>
+class UserAccount:          # PascalCase for classes
+    def __init__(self):
+        self.user_name = "" # snake_case for variables
+        self.MAX_RETRIES = 3 # UPPER_CASE for constants<p>def calculate_score():      # snake_case for functions
+    pass</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Line length: 79 characters (88 with black)</h1>
+long_string = (
+    "This is a very long string that needs to be "
+    "broken across multiple lines for readability"
+)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Import organization</h1>
+import os
+import sys
+from datetime import datetime
+from typing import List, Dict<p>import numpy as np
+import pandas as pd</p>from .models import User
+from .utils import helper_function</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Type Hints</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from typing import List, Dict, Optional, Union, Tuple, Callable<p>def process_data(
+    items: List[Dict[str, Union[str, int, float]]],
+    callback: Optional[Callable[[str], bool]] = None
+) -> Tuple[List[str], int]:
+    """Process a list of dictionaries with optional callback."""
+    processed = []
+    count = 0
+    
+    for item in items:
+        if callback and callback(str(item)):
+            processed.append(str(item))
+            count += 1
+    
+    return processed, count</code></pre>
+</div></p><h3 class="text-primary mt-3">Documentation</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def complex_function(param1: str, param2: int, optional_param: bool = True) -> str:
+    """
+    Perform a complex operation on the given parameters.
+    
+    Args:
+        param1: A string parameter that describes something important.
+        param2: An integer parameter that controls the operation.
+        optional_param: An optional boolean parameter. Defaults to True.
+    
+    Returns:
+        A string containing the result of the operation.
+    
+    Raises:
+        ValueError: If param2 is negative.
+        TypeError: If param1 is not a string.
+    
+    Example:
+        >>> result = complex_function("test", 42)
+        >>> print(result)
+        'Processed: test with value 42'
+    """
+    if param2 < 0:
+        raise ValueError("param2 must be non-negative")
+    
+    if not isinstance(param1, str):
+        raise TypeError("param1 must be a string")
+    
+    result = f"Processed: {param1} with value {param2}"
+    if optional_param:
+        result += " (optional enabled)"
+    
+    return result</code></pre>
+</div><p>---</p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>🚀 Quick Commands</h2>
+
+<h3 class="text-primary mt-3">Git</h3>
+</code>`<code>bash
+git init                    # Initialize repository
+git add .                   # Stage all files
+git commit -m "Message"     # Commit changes
+git push origin main        # Push to remote
+git pull origin main        # Pull from remote
+git branch feature-branch   # Create branch
+git checkout feature-branch # Switch branch
+git merge feature-branch    # Merge branch
+</code>`<code>
+
+<h3 class="text-primary mt-3">Package Management</h3>
+</code>`<code>bash
+pip install package         # Install package
+pip install -r req.txt      # Install from requirements
+pip freeze > req.txt        # Save requirements
+python -m venv env          # Create virtual environment
+source env/bin/activate     # Activate environment
+deactivate                  # Deactivate environment
+</code>`<code>
+
+<h3 class="text-primary mt-3">Testing</h3>
+</code>`<code>bash
+pytest                     # Run all tests
+pytest test_file.py        # Run specific test file
+pytest -v                  # Verbose output
+pytest -k "test_name"      # Run specific test
+pytest --cov=app           # Run with coverage
+</code>`<code>
+
+<h3 class="text-primary mt-3">Code Quality</h3>
+</code>`<code>bash
+black .                    # Format code
+flake8 .                   # Lint code
+mypy .                     # Type checking
+isort .                    # Sort imports
+</code>``<p>---</p>*This cheat sheet covers the most essential Python concepts for professional development. For detailed explanations, refer to the individual chapter files.*
+
+                        </div>
+                    </div>
+
+
+                <!-- Quick Access -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <i class="fas fa-bolt me-2"></i>
+                        Quick Access
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <a href="cheatsheet.html" class="btn btn-outline-warning w-100">
+                                    <i class="fas fa-clipboard-list me-1"></i>
+                                    Complete Cheat Sheet
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="11-bestpractices.html" class="btn btn-outline-info w-100">
+                                    <i class="fas fa-star me-1"></i>
+                                    Best Practices
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="16-security.html" class="btn btn-outline-danger w-100">
+                                    <i class="fas fa-shield-alt me-1"></i>
+                                    Security Guide
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 mb-2">
+                                <a href="08-testing.html" class="btn btn-outline-success w-100">
+                                    <i class="fas fa-vial me-1"></i>
+                                    Testing Guide
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="10-performance.html" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-bolt me-1"></i>
+                                    Performance Tips
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="15-deployment.html" class="btn btn-outline-secondary w-100">
+                                    <i class="fas fa-cloud me-1"></i>
+                                    Deployment Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Navigation (Bottom) -->
+                <div class="mt-5">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="11-bestpractices.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="08-testing.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fab fa-python me-2"></i>
+                Professional Python Cheat Sheet - Created with ❤️ for Python Developers
+            </p>
+            <small class="text-muted">
+                Enhanced with comprehensive English comments and modern web design
+            </small>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

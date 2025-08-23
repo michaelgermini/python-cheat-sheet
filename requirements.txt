@@ -1,0 +1,13 @@
+# Python Cheat Sheet Project Dependencies
+# Core dependencies for the build script
+
+# No external dependencies required for the current build process
+# The project uses only Python standard library modules:
+# - os
+# - re
+# - pathlib
+
+# If you want to add additional features, you can uncomment and add:
+# markdown==3.5.1
+# jinja2==3.1.2
+# beautifulsoup4==4.12.2

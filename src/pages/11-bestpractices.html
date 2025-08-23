@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Best Practices (PEP8, Documentation, Packaging) - Professional Python Cheat Sheet</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-python me-2"></i>
+                Python Cheat Sheet
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-home me-1"></i>
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5 class="text-warning mb-3">
+                        <i class="fas fa-list me-2"></i>
+                        Complete Navigation
+                    </h5>
+                    
+                    <!-- Search in sidebar -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control search-box" id="sidebarSearch" 
+                               placeholder="🔍 Search sections...">
+                    </div>
+
+                    <!-- Main Sections -->
+                    <div class="accordion" id="sidebarAccordion">
+                        <!-- Getting Started -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="gettingStarted">
+                                <button class="accordion-button collapsed" type="button" id="btnGettingStarted" data-bs-toggle="collapse" data-bs-target="#collapseGettingStarted">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Getting Started
+                                </button>
+                            </h2>
+                            <div id="collapseGettingStarted" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="00-intro.html">
+                                            <i class="fas fa-play-circle me-2"></i>
+                                            00 - Python Introduction
+                                        </a>
+                                        <a class="nav-link" href="01-basics.html">
+                                            <i class="fas fa-cube me-2"></i>
+                                            01 - Variables & Data Types
+                                        </a>
+                                        <a class="nav-link" href="02-control.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            02 - Control Structures
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Programming -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="coreProgramming">
+                                <button class="accordion-button collapsed" type="button" id="btnCoreProgramming" data-bs-toggle="collapse" data-bs-target="#collapseCoreProgramming">
+                                    <i class="fas fa-code me-2"></i>
+                                    Core Programming
+                                </button>
+                            </h2>
+                            <div id="collapseCoreProgramming" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="03-functions.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            03 - Functions & Decorators
+                                        </a>
+                                        <a class="nav-link" href="04-oop.html">
+                                            <i class="fas fa-cubes me-2"></i>
+                                            04 - Classes & OOP
+                                        </a>
+                                        <a class="nav-link" href="05-libraries.html">
+                                            <i class="fas fa-boxes me-2"></i>
+                                            05 - Popular Libraries
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File & Web Development -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="fileWeb">
+                                <button class="accordion-button collapsed" type="button" id="btnFileWeb" data-bs-toggle="collapse" data-bs-target="#collapseFileWeb">
+                                    <i class="fas fa-file-code me-2"></i>
+                                    File & Web Development
+                                </button>
+                            </h2>
+                            <div id="collapseFileWeb" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="06-files.html">
+                                            <i class="fas fa-file-alt me-2"></i>
+                                            06 - File Handling
+                                        </a>
+                                        <a class="nav-link" href="07-web.html">
+                                            <i class="fas fa-globe me-2"></i>
+                                            07 - Web Development
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testing & Debugging -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="testingDebugging">
+                                <button class="accordion-button collapsed" type="button" id="btnTestingDebugging" data-bs-toggle="collapse" data-bs-target="#collapseTestingDebugging">
+                                    <i class="fas fa-bug me-2"></i>
+                                    Testing & Debugging
+                                </button>
+                            </h2>
+                            <div id="collapseTestingDebugging" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="08-testing.html">
+                                            <i class="fas fa-vial me-2"></i>
+                                            08 - Testing
+                                        </a>
+                                        <a class="nav-link" href="09-debugging.html">
+                                            <i class="fas fa-search me-2"></i>
+                                            09 - Debugging
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance & Best Practices -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="performanceBestPractices">
+                                <button class="accordion-button collapsed" type="button" id="btnPerformanceBestPractices" data-bs-toggle="collapse" data-bs-target="#collapsePerformanceBestPractices">
+                                    <i class="fas fa-tachometer-alt me-2"></i>
+                                    Performance & Best Practices
+                                </button>
+                            </h2>
+                            <div id="collapsePerformanceBestPractices" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="10-performance.html">
+                                            <i class="fas fa-bolt me-2"></i>
+                                            10 - Performance
+                                        </a>
+                                        <a class="nav-link" href="11-bestpractices.html">
+                                            <i class="fas fa-star me-2"></i>
+                                            11 - Best Practices
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Topics -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="advancedTopics">
+                                <button class="accordion-button collapsed" type="button" id="btnAdvancedTopics" data-bs-toggle="collapse" data-bs-target="#collapseAdvancedTopics">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Advanced Topics
+                                </button>
+                            </h2>
+                            <div id="collapseAdvancedTopics" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="12-advanced.html">
+                                            <i class="fas fa-magic me-2"></i>
+                                            12 - Advanced Python
+                                        </a>
+                                        <a class="nav-link" href="13-concurrency.html">
+                                            <i class="fas fa-sync-alt me-2"></i>
+                                            13 - Concurrency
+                                        </a>
+                                        <a class="nav-link" href="14-datascience.html">
+                                            <i class="fas fa-chart-bar me-2"></i>
+                                            14 - Data Science
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deployment & Security -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="deploymentSecurity">
+                                <button class="accordion-button collapsed" type="button" id="btnDeploymentSecurity" data-bs-toggle="collapse" data-bs-target="#collapseDeploymentSecurity">
+                                    <i class="fas fa-shield-alt me-2"></i>
+                                    Deployment & Security
+                                </button>
+                            </h2>
+                            <div id="collapseDeploymentSecurity" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="15-deployment.html">
+                                            <i class="fas fa-cloud me-2"></i>
+                                            15 - Deployment
+                                        </a>
+                                        <a class="nav-link" href="16-security.html">
+                                            <i class="fas fa-lock me-2"></i>
+                                            16 - Security
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Reference -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="quickReference">
+                                <button class="accordion-button collapsed" type="button" id="btnQuickReference" data-bs-toggle="collapse" data-bs-target="#collapseQuickReference">
+                                    <i class="fas fa-bookmark me-2"></i>
+                                    Quick Reference
+                                </button>
+                            </h2>
+                            <div id="collapseQuickReference" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="cheatsheet.html">
+                                            <i class="fas fa-clipboard-list me-2"></i>
+                                            Complete Cheat Sheet
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="mt-4 p-3 bg-dark rounded">
+                        <h6 class="text-warning mb-2">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Project Stats
+                        </h6>
+                        <div class="small text-muted">
+                            <div><i class="fas fa-file-code me-1"></i> 18 HTML Pages</div>
+                            <div><i class="fas fa-code me-1"></i> 16+ Python Topics</div>
+                            <div><i class="fas fa-comments me-1"></i> Detailed Comments</div>
+                            <div><i class="fas fa-mobile-alt me-1"></i> Mobile Responsive</div>
+                            <div class="text-success mt-2"><i class="fas fa-circle me-1"></i> Online !</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Page Navigation -->
+                <div class="mb-4">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="10-performance.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="cheatsheet.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Content Placeholder -->
+                
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-book me-2"></i>
+                            Python Best Practices (PEP8, Documentation, Packaging)
+                        </div>
+                        <div class="card-body">
+                            <h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Python Best Practices (PEP8, Documentation, Packaging)</h1>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Code Style and PEP8</h2>
+
+<h3 class="text-primary mt-3">PEP8 Guidelines</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Good: Follow PEP8 naming conventions for clean, readable code</h1>
+class UserAccount:  # Class names use PascalCase (CapitalizedWords)
+    """User account management class with proper documentation."""
+    
+    def __init__(self, username: str, email: str):  # Parameters use snake_case
+        self.username = username  # Instance attributes use snake_case
+        self.email = email        # Email address for user account
+        self._is_active = True    # Private attributes use leading underscore
+    
+    def get_user_info(self) -> dict:  # Method names use snake_case
+        """Get user information as dictionary with proper return type hint."""
+        return {
+            'username': self.username,  # Return username
+            'email': self.email,        # Return email address
+            'is_active': self._is_active  # Return account status
+        }
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Constants use UPPER_CASE with underscores for readability</h1>
+MAX_RETRY_ATTEMPTS = 3    # Maximum number of retry attempts
+DEFAULT_TIMEOUT = 30      # Default timeout in seconds
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Functions and variables use snake_case for consistency</h1>
+def calculate_user_score(user_data: dict) -> float:  # Function with type hints
+    """Calculate user score based on activity data."""
+    base_score = user_data.get('base_score', 0)      # Use .get() for safe access
+    bonus_points = user_data.get('bonus_points', 0)  # Provide default values
+    return base_score + bonus_points  # Return calculated total score
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Bad: Examples of what NOT to do (anti-patterns)</h1>
+class userAccount:  # Should be UserAccount (PascalCase)
+    def __init__(self, UserName, EMAIL):  # Should be snake_case parameters
+        self.UserName = UserName  # Should be snake_case attributes
+        self.EMAIL = EMAIL        # Should be snake_case</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Import Organization</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Import organization: follow the standard order for clean, maintainable code</h1>
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>1. Standard library imports first (Python built-in modules)</h1>
+import os                    # Operating system interface
+import sys                   # System-specific parameters
+from datetime import datetime  # Date and time handling
+from typing import List, Dict, Optional  # Type hints
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>2. Third-party imports (external packages)</h1>
+import numpy as np           # Numerical computing library
+import pandas as pd          # Data manipulation library
+from flask import Flask, request  # Web framework components
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>3. Local application imports (your own modules)</h1>
+from .models import User     # Relative import for local models
+from .utils import helper_function  # Relative import for local utilities
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Import best practices and guidelines</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Avoid wildcard imports for better code clarity</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Bad: from module import *  # Imports everything, can cause namespace pollution</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Good: from module import specific_function  # Explicit imports are clearer</h1>
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Use absolute imports when possible for better maintainability</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Good: from mypackage.submodule import function  # Clear dependency path</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Avoid: from .submodule import function  # Use only when relative import is necessary</h1></code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Line Length and Formatting</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Line length and formatting: keep code readable and maintainable</h1>
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Keep lines under 79 characters (88 with black formatter)</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Use parentheses for automatic line continuation (preferred method)</h1>
+long_string = (
+    "This is a very long string that needs to be "  # First part of string
+    "broken across multiple lines for readability"   # Second part of string
+)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function calls with many parameters: break for clarity</h1>
+result = complex_function(
+    parameter1,    # First parameter
+    parameter2,    # Second parameter
+    parameter3,    # Third parameter
+    parameter4     # Fourth parameter
+)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Long dictionary/list definitions: structure for readability</h1>
+config = {
+    'database': {           # Database configuration section
+        'host': 'localhost', # Database host
+        'port': 5432,        # Database port
+        'name': 'myapp'      # Database name
+    },
+    'cache': {              # Cache configuration section
+        'enabled': True,     # Enable caching
+        'ttl': 3600         # Time to live in seconds
+    }
+}
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Use backslashes only when parentheses don't work</h1>
+from some.very.long.module.path import \
+    very_long_function_name  # Import specific function from long path</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Documentation Standards</h2>
+
+<h3 class="text-primary mt-3">Docstring Formats</h3><p>#### Google Style Docstrings
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def process_user_data(user_id: int, include_history: bool = True) -> dict:
+    """Process user data and return formatted information with comprehensive documentation.
+    
+    This function retrieves user data from the database, processes it according to
+    specified parameters, and returns a structured dictionary with user information.
+    
+    Args:
+        user_id: The unique identifier for the user (must be positive integer).
+        include_history: Whether to include user activity history in the response.
+            Defaults to True for backward compatibility.
+    
+    Returns:
+        A dictionary containing processed user data with the following structure:
+            - user_info: Basic user information (name, id, email, etc.)
+            - history: User activity history (if include_history is True)
+            - metadata: Processing metadata (timestamp, version, etc.)
+    
+    Raises:
+        ValueError: If user_id is not a positive integer or invalid format.
+        UserNotFoundError: If user with the given ID doesn't exist in database.
+        DatabaseError: If there's an issue connecting to or querying the database.
+    
+    Example:
+        >>> result = process_user_data(123, include_history=False)
+        >>> print(result['user_info']['name'])
+        'John Doe'
+        >>> print('history' in result)
+        False
+    """
+    if not isinstance(user_id, int) or user_id <= 0:  # Validate input parameter
+        raise ValueError("user_id must be a positive integer")  # Raise error for invalid input
+    
+    # Implementation here (database query, data processing, etc.)
+    return {
+        'user_info': {'name': 'John Doe', 'id': user_id},  # Basic user data
+        'history': [] if not include_history else ['activity1', 'activity2'],  # Conditional history
+        'metadata': {'processed_at': datetime.now()}  # Processing timestamp
+    }</code></pre>
+</div></p>#### NumPy Style Docstrings
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def calculate_statistics(data: List[float]) -> Dict[str, float]:
+    """
+    Calculate comprehensive statistical measures for a list of numerical data.
+    
+    This function computes various statistical measures including central tendency,
+    dispersion, and range statistics for the provided numerical dataset.
+    
+    Parameters
+    ----------
+    data : list of float
+        Input data for statistical analysis. Must contain numeric values only.
+        Empty lists will raise a ValueError.
+    
+    Returns
+    -------
+    dict
+        Dictionary containing calculated statistics with the following keys:
+        - mean: arithmetic mean (average) of the data values
+        - median: middle value when data is sorted (50th percentile)
+        - std: standard deviation measuring data dispersion
+        - min: minimum value in the dataset
+        - max: maximum value in the dataset
+    
+    Raises
+    ------
+    ValueError
+        If data is empty, contains non-numeric values, or is None.
+    TypeError
+        If data is not a list or contains non-numeric elements.
+    
+    Examples
+    --------
+    >>> data = [1.0, 2.0, 3.0, 4.0, 5.0]
+    >>> stats = calculate_statistics(data)
+    >>> print(f"Mean: {stats['mean']:.2f}")
+    Mean: 3.00
+    >>> print(f"Standard deviation: {stats['std']:.2f}")
+    Standard deviation: 1.58
+    """
+    if not data:  # Check for empty data
+        raise ValueError("Data cannot be empty")  # Raise error for empty dataset
+    
+    # Implementation with proper error handling and calculations
+    return {
+        'mean': sum(data) / len(data),                    # Calculate arithmetic mean
+        'median': sorted(data)[len(data) // 2],           # Calculate median
+        'std': 1.0,  # Simplified standard deviation      # Calculate standard deviation
+        'min': min(data),                                 # Find minimum value
+        'max': max(data)                                  # Find maximum value
+    }</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Type Hints</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from typing import List, Dict, Optional, Union, Tuple, Callable  # Import type hint classes
+from dataclasses import dataclass  # Import dataclass decorator
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Type hints: provide static type information for better code documentation and IDE support</h1>
+def greet(name: str, age: int) -> str:  # Function with type hints for parameters and return
+    return f"Hello {name}, you are {age} years old"  # Return type is str
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Complex type hints</h1>
+def process_data(
+    items: List[Dict[str, Union[str, int, float]]],
+    callback: Optional[Callable[[str], bool]] = None
+) -> Tuple[List[str], int]:
+    """Process a list of dictionaries with optional callback."""
+    processed = []
+    count = 0
+    
+    for item in items:
+        if callback and callback(str(item)):
+            processed.append(str(item))
+            count += 1
+    
+    return processed, count
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Using dataclasses with type hints</h1>
+@dataclass
+class UserProfile:
+    """User profile data structure."""
+    user_id: int
+    username: str
+    email: str
+    is_active: bool = True
+    preferences: Optional[Dict[str, str]] = None
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Generic types</h1>
+from typing import TypeVar, Generic<p>T = TypeVar('T')</p>class Stack(Generic[T]):
+    """Generic stack implementation."""
+    
+    def __init__(self) -> None:
+        self._items: List[T] = []
+    
+    def push(self, item: T) -> None:
+        self._items.append(item)
+    
+    def pop(self) -> T:
+        return self._items.pop()
+    
+    def is_empty(self) -> bool:
+        return len(self._items) == 0</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Pythonic Idioms</h2>
+
+<h3 class="text-primary mt-3">List Comprehensions and Generator Expressions</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>List comprehensions: concise and readable way to create lists from iterables</h1>
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  # Sample data for demonstrations
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Filter and transform: combine filtering and mapping in one expression</h1>
+even_squares = [x<strong>2 for x in numbers if x % 2 == 0]  # Square only even numbers
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Nested comprehensions: create 2D structures efficiently</h1>
+matrix = [[i + j for j in range(3)] for i in range(3)]  # Create 3x3 matrix
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Dictionary comprehensions: create dictionaries from iterables</h1>
+word_counts = {word: text.count(word) for word in set(text.split())}  # Count word frequencies
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Set comprehensions: create sets with unique values</h1>
+unique_squares = {x</strong>2 for x in numbers}  # Set of unique squares
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Generator expressions: memory-efficient alternative to list comprehensions</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Use () instead of [] for large datasets to avoid loading everything into memory</h1>
+large_sum = sum(x**2 for x in range(1000000))  # Calculate sum without storing all squares
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Generator function: yield values one at a time for memory efficiency</h1>
+def fibonacci_generator(n: int):
+    """Generate Fibonacci numbers up to n using generator pattern."""
+    a, b = 0, 1  # Initialize first two Fibonacci numbers
+    while a < n:  # Continue while current number is less than limit
+        yield a   # Yield current number (pause execution here)
+        a, b = b, a + b  # Calculate next Fibonacci number
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: convert generator to list when needed</h1>
+fib_numbers = list(fibonacci_generator(100))  # Get first 100 Fibonacci numbers</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Unpacking and Extended Unpacking</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Unpacking: elegant way to assign multiple variables from iterables</h1>
+x, y, z = [1, 2, 3]  # Basic unpacking: assign list elements to variables
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Extended unpacking (Python 3.0+): capture multiple values with * operator</h1>
+first, *middle, last = [1, 2, 3, 4, 5]  # Capture first, middle elements, and last
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Result: first = 1, middle = [2, 3, 4], last = 5</h1>
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Dictionary unpacking: merge dictionaries with <strong> operator</h1>
+defaults = {'timeout': 30, 'retries': 3}  # Default configuration
+config = {</strong>defaults, 'timeout': 60}      # Override timeout while keeping other defaults
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function argument unpacking: pass iterables as individual arguments</h1>
+def process_items(*args, **kwargs):  # Accept variable number of arguments
+    print(f"Positional args: {args}")     # Print positional arguments
+    print(f"Keyword args: {kwargs}")      # Print keyword arguments
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Call with unpacking: spread iterables into function arguments</h1>
+items = [1, 2, 3]                    # List of items to process
+options = {'verbose': True}           # Dictionary of options
+process_items(*items, <strong>options)      # Unpack list and dict into function call</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Walrus Operator (Python 3.8+)</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Walrus operator (:=): assign values as part of expressions (Python 3.8+)</h1>
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Assignment expressions: assign and use value in same expression</h1>
+if (n := len([1, 2, 3, 4, 5])) > 3:  # Assign length to n and check if > 3
+    print(f"List has {n} items")      # Use assigned value n
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>In while loops: assign input and check condition simultaneously</h1>
+while (line := input()) != "quit":    # Get input and assign to line, check if not "quit"
+    print(f"You entered: {line}")     # Use assigned value line
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>In list comprehensions: avoid computing values twice</h1>
+data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  # Sample data
+filtered = [x for x in data if (sqrt := x</strong>0.5) > 2]  # Compute sqrt once, use in condition
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>In conditional expressions: assign expensive calculation result</h1>
+result = (value := expensive_calculation()) if condition else default_value  # Avoid computing twice</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Context Managers</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Context managers: ensure proper resource management with automatic cleanup</h1>
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Custom context manager class: implement __enter__ and __exit__ methods</h1>
+class DatabaseConnection:
+    def __init__(self, host: str, port: int):
+        self.host = host      # Database host address
+        self.port = port      # Database port number
+        self.connection = None # Connection object (initially None)
+    
+    def __enter__(self):  # Called when entering 'with' block
+        print(f"Connecting to {self.host}:{self.port}")
+        self.connection = "connected"  # Simulate database connection
+        return self.connection  # Return connection for use in 'with' block
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):  # Called when exiting 'with' block
+        print("Closing connection")
+        self.connection = None  # Clean up connection
+        if exc_type:  # Check if an exception occurred
+            print(f"Error occurred: {exc_val}")
+        return False  # Re-raise exception (True would suppress it)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: automatic resource management</h1>
+with DatabaseConnection("localhost", 5432) as conn:  # Connection automatically opened
+    print(f"Using connection: {conn}")               # Use connection safely
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Connection automatically closed when exiting 'with' block</h1>
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Using contextlib for simpler context managers: decorator approach</h1>
+from contextlib import contextmanager<p>@contextmanager
+def timer(operation_name: str):  # Context manager for timing operations
+    """Context manager for timing operations with automatic cleanup."""
+    start_time = time.time()     # Record start time
+    try:
+        yield                    # Pause here and return control to 'with' block
+    finally:
+        end_time = time.time()   # Record end time (always executed)
+        print(f"{operation_name} took {end_time - start_time:.4f} seconds")</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: automatic timing with cleanup</h1>
+with timer("data processing"):  # Start timing
+    time.sleep(1)               # Simulate work
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Timing automatically stopped and printed when exiting 'with' block</h1></code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Package Management</h2>
+
+<h3 class="text-primary mt-3">Virtual Environments</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating virtual environment</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>python -m venv myenv</h1>
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Activating virtual environment</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Windows: myenv\Scripts\activate</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Unix/MacOS: source myenv/bin/activate</h1>
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Deactivating</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>deactivate</h1>
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Requirements file</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>requirements.txt</h1>
+"""
+flask==2.3.3
+pandas>=1.5.0
+numpy==1.24.3
+pytest>=7.0.0
+"""
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Installing from requirements</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>pip install -r requirements.txt</h1>
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Generating requirements</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>pip freeze > requirements.txt</h1></code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Project Structure</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Recommended project structure</h1>
+"""
+myproject/
+├── myproject/
+│   ├── __init__.py
+│   ├── core.py
+│   ├── utils.py
+│   └── models.py
+├── tests/
+│   ├── __init__.py
+│   ├── test_core.py
+│   └── test_utils.py
+├── docs/
+│   ├── api.md
+│   └── user_guide.md
+├── requirements.txt
+├── setup.py
+├── pyproject.toml
+├── README.md
+└── .gitignore
+"""</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Setup.py Configuration</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from setuptools import setup, find_packages<p>setup(
+    name="myproject",
+    version="1.0.0",
+    author="Your Name",
+    author_email="your.email@example.com",
+    description="A short description of your project",
+    long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
+    url="https://github.com/username/myproject",
+    packages=find_packages(),
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+    ],
+    python_requires=">=3.8",
+    install_requires=[
+        "requests>=2.25.0",
+        "pandas>=1.3.0",
+    ],
+    extras_require={
+        "dev": [
+            "pytest>=6.0",
+            "black>=21.0",
+            "flake8>=3.8",
+        ],
+    },
+    entry_points={
+        "console_scripts": [
+            "myproject=myproject.cli:main",
+        ],
+    },
+)</code></pre>
+</div></p><h3 class="text-primary mt-3">Pyproject.toml (Modern Python Packaging)</h3>
+``<code>toml
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"<p>[project]
+name = "myproject"
+dynamic = ["version"]
+description = "A modern Python project"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your.email@example.com"},
+]
+keywords = ["python", "package", "example"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+dependencies = [
+    "requests>=2.25.0",
+    "pandas>=1.3.0",
+]</p>[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "black>=21.0",
+    "flake8>=3.8",
+    "mypy>=0.900",
+]<p>[project.scripts]
+myproject = "myproject.cli:main"</p>[project.urls]
+Homepage = "https://github.com/username/myproject"
+Documentation = "https://myproject.readthedocs.io/"
+Repository = "https://github.com/username/myproject"
+"Bug Tracker" = "https://github.com/username/myproject/issues"<p>[tool.setuptools_scm]
+write_to = "myproject/_version.py"</p>[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'<p>[tool.isort]
+profile = "black"
+multi_line_output = 3</p>[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true<p>[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+</code>``</p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Code Quality Tools</h2>
+
+<h3 class="text-primary mt-3">Linting and Formatting</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>.flake8 configuration</h1>
+"""
+[flake8]
+max-line-length = 88
+extend-ignore = E203, W503
+exclude = .git,__pycache__,build,dist
+per-file-ignores =
+    __init__.py:F401
+    tests/*:S101
+"""
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>.pylintrc configuration</h1>
+"""
+[MASTER]
+disable=
+    C0114, # missing-module-docstring
+    C0115, # missing-class-docstring
+    C0116, # missing-function-docstring<p>[FORMAT]
+max-line-length=88</p>[MESSAGES CONTROL]
+disable=C0111,R0903,C0103<p>[REPORTS]
+output-format=text
+score=yes
+"""</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Pre-commit hooks</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>.pre-commit-config.yaml</h1>
+"""
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files<p>  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black</p>  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort<p>  - repo: https://github.com/pycqa/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+"""</code></pre>
+</div></p><h3 class="text-primary mt-3">Testing Best Practices</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Test structure example</h1>
+import pytest
+from unittest.mock import Mock, patch
+from myproject.core import process_data<p>class TestDataProcessing:
+    """Test suite for data processing functionality."""
+    
+    def setup_method(self):
+        """Set up test fixtures."""
+        self.sample_data = [1, 2, 3, 4, 5]
+    
+    def test_process_data_with_valid_input(self):
+        """Test data processing with valid input."""
+        result = process_data(self.sample_data)
+        assert result is not None
+        assert len(result) == len(self.sample_data)
+    
+    def test_process_data_with_empty_input(self):
+        """Test data processing with empty input."""
+        with pytest.raises(ValueError, match="Data cannot be empty"):
+            process_data([])
+    
+    @patch('myproject.core.external_api_call')
+    def test_process_data_with_mock(self, mock_api):
+        """Test data processing with mocked external API."""
+        mock_api.return_value = {'status': 'success'}
+        result = process_data(self.sample_data)
+        mock_api.assert_called_once()
+        assert result['api_status'] == 'success'
+    
+    @pytest.mark.parametrize("input_data,expected", [
+        ([1, 2, 3], 6),
+        ([0, 0, 0], 0),
+        ([-1, -2, -3], -6),
+    ])
+    def test_sum_calculation(self, input_data, expected):
+        """Test sum calculation with various inputs."""
+        result = sum(input_data)
+        assert result == expected</code></pre>
+</div></p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Performance Best Practices</h2>
+
+<h3 class="text-primary mt-3">Efficient Data Structures</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from collections import defaultdict, Counter, deque
+from typing import List, Dict
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Use Counter for frequency counting</h1>
+def count_words(text: str) -> Dict[str, int]:
+    """Count word frequencies in text."""
+    return Counter(text.lower().split())
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Use defaultdict to avoid KeyError</h1>
+def group_by_category(items: List[Dict]) -> Dict[str, List]:
+    """Group items by category."""
+    grouped = defaultdict(list)
+    for item in items:
+        grouped[item['category']].append(item)
+    return dict(grouped)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Use deque for efficient queue operations</h1>
+def process_queue(items: List[str]) -> List[str]:
+    """Process items in FIFO order."""
+    queue = deque(items)
+    processed = []
+    
+    while queue:
+        item = queue.popleft()  # O(1) operation
+        processed.append(item.upper())
+    
+    return processed
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Use sets for membership testing</h1>
+def find_common_elements(list1: List, list2: List) -> set:
+    """Find common elements between two lists."""
+    set1 = set(list1)
+    set2 = set(list2)
+    return set1 & set2  # Set intersection</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Memory Optimization</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Use generators for large datasets</h1>
+def read_large_file(filename: str):
+    """Read large file line by line."""
+    with open(filename, 'r') as f:
+        for line in f:
+            yield line.strip()
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Use __slots__ for memory-efficient classes</h1>
+class Point:
+    """Memory-efficient point class."""
+    __slots__ = ['x', 'y']
+    
+    def __init__(self, x: float, y: float):
+        self.x = x
+        self.y = y
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Use weak references to avoid circular references</h1>
+import weakref<p>class Cache:
+    """Cache with weak references."""
+    
+    def __init__(self):
+        self._cache = weakref.WeakValueDictionary()
+    
+    def get(self, key):
+        return self._cache.get(key)
+    
+    def set(self, key, value):
+        self._cache[key] = value</code></pre>
+</div></p>---
+
+<a href="10-performance.md" target="_blank" class="text-warning">Previous Chapter</a> | <a href="12-advanced.md" target="_blank" class="text-warning">Next Chapter</a>
+
+                        </div>
+                    </div>
+
+
+                <!-- Quick Access -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <i class="fas fa-bolt me-2"></i>
+                        Quick Access
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <a href="cheatsheet.html" class="btn btn-outline-warning w-100">
+                                    <i class="fas fa-clipboard-list me-1"></i>
+                                    Complete Cheat Sheet
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="11-bestpractices.html" class="btn btn-outline-info w-100">
+                                    <i class="fas fa-star me-1"></i>
+                                    Best Practices
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="16-security.html" class="btn btn-outline-danger w-100">
+                                    <i class="fas fa-shield-alt me-1"></i>
+                                    Security Guide
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 mb-2">
+                                <a href="08-testing.html" class="btn btn-outline-success w-100">
+                                    <i class="fas fa-vial me-1"></i>
+                                    Testing Guide
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="10-performance.html" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-bolt me-1"></i>
+                                    Performance Tips
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="15-deployment.html" class="btn btn-outline-secondary w-100">
+                                    <i class="fas fa-cloud me-1"></i>
+                                    Deployment Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Navigation (Bottom) -->
+                <div class="mt-5">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="10-performance.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="cheatsheet.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fab fa-python me-2"></i>
+                Professional Python Cheat Sheet - Created with ❤️ for Python Developers
+            </p>
+            <small class="text-muted">
+                Enhanced with comprehensive English comments and modern web design
+            </small>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

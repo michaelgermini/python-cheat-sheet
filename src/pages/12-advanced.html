@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Python Concepts (Iterators, Generators, Decorators, Metaclasses) - Professional Python Cheat Sheet</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-python me-2"></i>
+                Python Cheat Sheet
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-home me-1"></i>
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5 class="text-warning mb-3">
+                        <i class="fas fa-list me-2"></i>
+                        Complete Navigation
+                    </h5>
+                    
+                    <!-- Search in sidebar -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control search-box" id="sidebarSearch" 
+                               placeholder="🔍 Search sections...">
+                    </div>
+
+                    <!-- Main Sections -->
+                    <div class="accordion" id="sidebarAccordion">
+                        <!-- Getting Started -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="gettingStarted">
+                                <button class="accordion-button collapsed" type="button" id="btnGettingStarted" data-bs-toggle="collapse" data-bs-target="#collapseGettingStarted">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Getting Started
+                                </button>
+                            </h2>
+                            <div id="collapseGettingStarted" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="00-intro.html">
+                                            <i class="fas fa-play-circle me-2"></i>
+                                            00 - Python Introduction
+                                        </a>
+                                        <a class="nav-link" href="01-basics.html">
+                                            <i class="fas fa-cube me-2"></i>
+                                            01 - Variables & Data Types
+                                        </a>
+                                        <a class="nav-link" href="02-control.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            02 - Control Structures
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Programming -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="coreProgramming">
+                                <button class="accordion-button collapsed" type="button" id="btnCoreProgramming" data-bs-toggle="collapse" data-bs-target="#collapseCoreProgramming">
+                                    <i class="fas fa-code me-2"></i>
+                                    Core Programming
+                                </button>
+                            </h2>
+                            <div id="collapseCoreProgramming" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="03-functions.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            03 - Functions & Decorators
+                                        </a>
+                                        <a class="nav-link" href="04-oop.html">
+                                            <i class="fas fa-cubes me-2"></i>
+                                            04 - Classes & OOP
+                                        </a>
+                                        <a class="nav-link" href="05-libraries.html">
+                                            <i class="fas fa-boxes me-2"></i>
+                                            05 - Popular Libraries
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File & Web Development -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="fileWeb">
+                                <button class="accordion-button collapsed" type="button" id="btnFileWeb" data-bs-toggle="collapse" data-bs-target="#collapseFileWeb">
+                                    <i class="fas fa-file-code me-2"></i>
+                                    File & Web Development
+                                </button>
+                            </h2>
+                            <div id="collapseFileWeb" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="06-files.html">
+                                            <i class="fas fa-file-alt me-2"></i>
+                                            06 - File Handling
+                                        </a>
+                                        <a class="nav-link" href="07-web.html">
+                                            <i class="fas fa-globe me-2"></i>
+                                            07 - Web Development
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testing & Debugging -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="testingDebugging">
+                                <button class="accordion-button collapsed" type="button" id="btnTestingDebugging" data-bs-toggle="collapse" data-bs-target="#collapseTestingDebugging">
+                                    <i class="fas fa-bug me-2"></i>
+                                    Testing & Debugging
+                                </button>
+                            </h2>
+                            <div id="collapseTestingDebugging" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="08-testing.html">
+                                            <i class="fas fa-vial me-2"></i>
+                                            08 - Testing
+                                        </a>
+                                        <a class="nav-link" href="09-debugging.html">
+                                            <i class="fas fa-search me-2"></i>
+                                            09 - Debugging
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance & Best Practices -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="performanceBestPractices">
+                                <button class="accordion-button collapsed" type="button" id="btnPerformanceBestPractices" data-bs-toggle="collapse" data-bs-target="#collapsePerformanceBestPractices">
+                                    <i class="fas fa-tachometer-alt me-2"></i>
+                                    Performance & Best Practices
+                                </button>
+                            </h2>
+                            <div id="collapsePerformanceBestPractices" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="10-performance.html">
+                                            <i class="fas fa-bolt me-2"></i>
+                                            10 - Performance
+                                        </a>
+                                        <a class="nav-link" href="11-bestpractices.html">
+                                            <i class="fas fa-star me-2"></i>
+                                            11 - Best Practices
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Topics -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="advancedTopics">
+                                <button class="accordion-button collapsed" type="button" id="btnAdvancedTopics" data-bs-toggle="collapse" data-bs-target="#collapseAdvancedTopics">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Advanced Topics
+                                </button>
+                            </h2>
+                            <div id="collapseAdvancedTopics" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="12-advanced.html">
+                                            <i class="fas fa-magic me-2"></i>
+                                            12 - Advanced Python
+                                        </a>
+                                        <a class="nav-link" href="13-concurrency.html">
+                                            <i class="fas fa-sync-alt me-2"></i>
+                                            13 - Concurrency
+                                        </a>
+                                        <a class="nav-link" href="14-datascience.html">
+                                            <i class="fas fa-chart-bar me-2"></i>
+                                            14 - Data Science
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deployment & Security -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="deploymentSecurity">
+                                <button class="accordion-button collapsed" type="button" id="btnDeploymentSecurity" data-bs-toggle="collapse" data-bs-target="#collapseDeploymentSecurity">
+                                    <i class="fas fa-shield-alt me-2"></i>
+                                    Deployment & Security
+                                </button>
+                            </h2>
+                            <div id="collapseDeploymentSecurity" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="15-deployment.html">
+                                            <i class="fas fa-cloud me-2"></i>
+                                            15 - Deployment
+                                        </a>
+                                        <a class="nav-link" href="16-security.html">
+                                            <i class="fas fa-lock me-2"></i>
+                                            16 - Security
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Reference -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="quickReference">
+                                <button class="accordion-button collapsed" type="button" id="btnQuickReference" data-bs-toggle="collapse" data-bs-target="#collapseQuickReference">
+                                    <i class="fas fa-bookmark me-2"></i>
+                                    Quick Reference
+                                </button>
+                            </h2>
+                            <div id="collapseQuickReference" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="cheatsheet.html">
+                                            <i class="fas fa-clipboard-list me-2"></i>
+                                            Complete Cheat Sheet
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="mt-4 p-3 bg-dark rounded">
+                        <h6 class="text-warning mb-2">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Project Stats
+                        </h6>
+                        <div class="small text-muted">
+                            <div><i class="fas fa-file-code me-1"></i> 18 HTML Pages</div>
+                            <div><i class="fas fa-code me-1"></i> 16+ Python Topics</div>
+                            <div><i class="fas fa-comments me-1"></i> Detailed Comments</div>
+                            <div><i class="fas fa-mobile-alt me-1"></i> Mobile Responsive</div>
+                            <div class="text-success mt-2"><i class="fas fa-circle me-1"></i> Online !</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Page Navigation -->
+                <div class="mb-4">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="13-concurrency.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Content Placeholder -->
+                
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-book me-2"></i>
+                            Advanced Python Concepts (Iterators, Generators, Decorators, Metaclasses)
+                        </div>
+                        <div class="card-body">
+                            <h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Advanced Python Concepts (Iterators, Generators, Decorators, Metaclasses)</h1>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Iterators and Iterables</h2>
+
+<h3 class="text-primary mt-3">Understanding Iteration Protocol</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Understanding the iteration protocol in Python: the foundation of all iteration</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Iterable: Object that can be iterated over (must have __iter__ method that returns an iterator)</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Iterator: Object that implements both __iter__() and __next__() methods for step-by-step iteration</h1><p>class NumberIterator:
+    """Custom iterator class that generates numbers in a specified range with memory efficiency."""
+    
+    def __init__(self, start: int, end: int):
+        self.start = start    # Starting number for the sequence (inclusive)
+        self.end = end        # Ending number for the sequence (exclusive)
+        self.current = start  # Current position in the sequence (tracks iteration state)
+    
+    def __iter__(self):
+        return self  # Return self as the iterator object (this class is both iterable and iterator)
+    
+    def __next__(self):
+        if self.current >= self.end:  # Check if we've reached the end of the sequence
+            raise StopIteration       # Signal that iteration is complete (Python's iteration protocol)
+        result = self.current         # Get current number before advancing
+        self.current += 1             # Move to next number in sequence
+        return result                 # Return current number to the caller</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: automatic iteration with for loop (most common pattern)</h1>
+numbers = NumberIterator(1, 5)  # Create iterator for range 1-4 (exclusive)
+for num in numbers:             # Python automatically calls __iter__ and __next__ behind the scenes
+    print(num)                  # Output: 1, 2, 3, 4 (each number printed on separate line)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Manual iteration: explicit control over iteration process (advanced usage)</h1>
+iterator = iter([1, 2, 3, 4, 5])  # Create iterator from built-in list using iter() function
+print(next(iterator))              # Manually get next value: 1 (explicit iteration control)
+print(next(iterator))              # Manually get next value: 2 (continue iteration)
+print(next(iterator))              # Manually get next value: 3 (continue iteration)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Custom Iterable Classes</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class Sentence:
+    """Custom iterable class that can be iterated over word by word with separation of concerns."""
+    
+    def __init__(self, text: str):
+        self.text = text           # Store the original text string for reference
+        self.words = text.split()  # Split text into list of words (pre-processing)
+    
+    def __iter__(self):
+        return SentenceIterator(self.words)  # Return new iterator instance (creates fresh iteration state)<p>class SentenceIterator:
+    """Iterator class that provides word-by-word iteration over a sentence with state management."""
+    
+    def __init__(self, words):
+        self.words = words  # List of words to iterate over (data source)
+        self.index = 0      # Current position in the word list (iteration state)
+    
+    def __next__(self):
+        if self.index >= len(self.words):  # Check if we've processed all words in the list
+            raise StopIteration            # Signal end of iteration (Python iteration protocol)
+        result = self.words[self.index]    # Get current word at current index
+        self.index += 1                    # Move to next word (advance iteration state)
+        return result                      # Return current word to the caller
+    
+    def __iter__(self):
+        return self  # Return self as the iterator object (this class is both iterable and iterator)</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate the custom iterable class with automatic iteration</h1>
+sentence = Sentence("Hello world from Python")  # Create sentence object with text
+for word in sentence:                           # Iterate over words automatically using for loop
+    print(word)                                 # Output: Hello, world, from, Python (each word on separate line)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Alternative: Generator-based implementation (more Pythonic and memory efficient)</h1>
+class SentenceGenerator:
+    """Iterable class using generator function for word iteration with lazy evaluation."""
+    
+    def __init__(self, text: str):
+        self.text = text  # Store the text string (no pre-processing needed)
+    
+    def __iter__(self):
+        for word in self.text.split():  # Iterate over words in text (lazy evaluation)
+            yield word                  # Yield each word (generator pattern - memory efficient)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate the generator-based iterable with same interface</h1>
+sentence_gen = SentenceGenerator("Hello world from Python")  # Create generator-based sentence object
+for word in sentence_gen:                                    # Iterate over words (same interface as above)
+    print(word)                                              # Same output as above (Hello, world, from, Python)</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Generators</h2>
+
+<h3 class="text-primary mt-3">Generator Functions</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def fibonacci_generator(n: int):
+    """Generate Fibonacci numbers up to a maximum value n using memory-efficient generator pattern."""
+    a, b = 0, 1  # Initialize first two Fibonacci numbers (F(0) = 0, F(1) = 1)
+    while a < n:  # Continue while current number is less than the specified limit
+        yield a   # Yield current Fibonacci number (pause execution and return value)
+        a, b = b, a + b  # Calculate next Fibonacci number (a becomes b, b becomes a+b)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: generate Fibonacci sequence up to 100 with memory efficiency</h1>
+fib = fibonacci_generator(100)  # Create generator object (no computation yet)
+print(list(fib))               # Convert generator to list: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]<p>def countdown_generator(n: int):
+    """Generate countdown sequence from n down to 1 using generator pattern."""
+    while n > 0:  # Continue while n is greater than 0
+        yield n   # Yield current number (pause execution and return value)
+        n -= 1    # Decrement counter for next iteration</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: generate countdown from 5 to 1 with automatic iteration</h1>
+for num in countdown_generator(5):  # Iterate over countdown sequence automatically
+    print(num)                      # Output: 5, 4, 3, 2, 1 (each number on separate line)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Generator Expressions</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Generator expressions: memory-efficient way to create iterables with lazy evaluation</h1>
+squares_gen = (x<strong>2 for x in range(1000000))  # Creates generator object, doesn't compute all values immediately
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>vs List comprehension: memory-intensive, computes all values immediately (eager evaluation)</h1>
+squares_list = [x</strong>2 for x in range(1000000)]  # Creates list with all 1M squared numbers in memory
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Generator function for processing large files efficiently without memory issues</h1>
+def read_large_file(filename: str):
+    """Read large file line by line without loading entire file into memory using generator pattern."""
+    with open(filename, 'r') as f:  # Open file in read mode with automatic cleanup
+        for line in f:              # Iterate over file lines (memory efficient - one line at a time)
+            yield line.strip()      # Yield each line with whitespace removed (lazy processing)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: process large file without memory issues using generator</h1>
+for line in read_large_file('large_file.txt'):  # Process one line at a time (memory efficient)
+    process_line(line)                           # Process each line individually (streaming approach)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Advanced Generator Patterns</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def infinite_counter():
+    """Infinite counter generator that yields numbers indefinitely."""
+    num = 0  # Start counting from 0
+    while True:  # Infinite loop (generator will be controlled by consumer)
+        yield num  # Yield current number and pause execution
+        num += 1   # Increment counter for next iteration<p>def take(iterable, n: int):
+    """Take first n items from iterable using generator pattern."""
+    for i, item in enumerate(iterable):  # Iterate over items with index
+        if i >= n:  # Check if we've taken enough items
+            break   # Stop iteration when limit reached
+        yield item  # Yield current item</p>def drop(iterable, n: int):
+    """Drop first n items from iterable and yield remaining items."""
+    for i, item in enumerate(iterable):  # Iterate over items with index
+        if i >= n:  # Skip first n items
+            yield item  # Yield remaining items after skipping
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate generator composition</h1>
+counter = infinite_counter()  # Create infinite counter generator
+first_5 = take(counter, 5)    # Take first 5 items from infinite counter
+print(list(first_5))          # [0, 1, 2, 3, 4] (finite result from infinite generator)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Pipeline pattern: chain multiple generators for complex data processing</h1>
+def pipeline(*generators):
+    """Chain multiple generators into a single processing pipeline."""
+    def chain(iterable):  # Inner function that processes the iterable
+        for gen in generators:  # Apply each generator in sequence
+            iterable = gen(iterable)  # Transform iterable through each generator
+        yield from iterable  # Yield all results from final generator
+    return chain  # Return the chained function
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Example pipeline components: modular generator functions</h1>
+def filter_even(iterable):
+    """Filter to keep only even numbers from iterable."""
+    for item in iterable:  # Iterate over input items
+        if item % 2 == 0:  # Check if item is even
+            yield item     # Yield only even items<p>def square(iterable):
+    """Square each item in the iterable."""
+    for item in iterable:  # Iterate over input items
+        yield item ** 2    # Yield squared value of each item</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate pipeline pattern with multiple transformations</h1>
+numbers = range(10)                    # Input data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+pipeline_func = pipeline(filter_even, square, take)  # Create pipeline: filter → square → take
+result = pipeline_func(numbers, 3)     # Apply pipeline: even numbers → squared → first 3
+print(list(result))                    # [0, 4, 16] (squares of first 3 even numbers)</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Advanced Decorators</h2>
+
+<h3 class="text-primary mt-3">Decorators with Arguments</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import functools  # Import functools for decorator utilities
+import time      # Import time for timing operations<p>def retry(max_attempts: int = 3, delay: float = 1.0):
+    """Decorator with arguments for retrying functions with configurable retry logic."""
+    def decorator(func):  # Inner decorator function that takes the function to decorate
+        @functools.wraps(func)  # Preserve function metadata (name, docstring, etc.)
+        def wrapper(*args, **kwargs):  # Wrapper function that handles retry logic
+            last_exception = None  # Track the last exception for final error reporting
+            
+            for attempt in range(max_attempts):  # Try up to max_attempts times
+                try:
+                    return func(*args, **kwargs)  # Execute the original function
+                except Exception as e:  # Catch any exception that occurs
+                    last_exception = e  # Store the exception for potential re-raising
+                    if attempt < max_attempts - 1:  # If not the last attempt
+                        time.sleep(delay)  # Wait before retrying
+                        print(f"Attempt {attempt + 1} failed, retrying...")  # Log retry attempt
+            
+            raise last_exception  # Re-raise the last exception if all attempts failed
+        return wrapper  # Return the wrapper function
+    return decorator  # Return the decorator function</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate retry decorator with custom parameters</h1>
+@retry(max_attempts=3, delay=0.5)  # Apply retry decorator with 3 attempts and 0.5s delay
+def unreliable_function():
+    import random
+    if random.random() < 0.7:  # 70% chance of failure (for demonstration)
+        raise ValueError("Random failure")  # Simulate random failure
+    return "Success!"  # Return success message
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Decorator factory: create decorators that accept validation functions</h1>
+def validate_input(*validators):
+    """Decorator factory for input validation with multiple validator functions."""
+    def decorator(func):  # Inner decorator function
+        @functools.wraps(func)  # Preserve function metadata
+        def wrapper(*args, **kwargs):  # Wrapper function that validates inputs
+            # Validate arguments: apply each validator to corresponding argument
+            for i, validator in enumerate(validators):  # Iterate through validators
+                if i < len(args):  # Check if we have enough arguments
+                    validator(args[i])  # Apply validator to argument
+            return func(*args, **kwargs)  # Execute original function if validation passes
+        return wrapper  # Return the wrapper function
+    return decorator  # Return the decorator function
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate input validation decorator</h1>
+def is_positive(x):  # Validator function for positive numbers
+    if x <= 0:  # Check if value is not positive
+        raise ValueError("Must be positive")  # Raise error for invalid input<p>@validate_input(is_positive, is_positive)  # Apply validation to both arguments
+def divide(a, b):  # Function that requires positive inputs
+    return a / b  # Perform division (validation ensures positive inputs)</code></pre>
+</div></p><h3 class="text-primary mt-3">Class-Based Decorators</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class Timer:
+    """Class-based decorator for timing functions."""
+    
+    def __init__(self, func):
+        self.func = func
+        self.calls = 0
+    
+    def __call__(self, *args, **kwargs):
+        self.calls += 1
+        start_time = time.time()
+        result = self.func(*args, **kwargs)
+        end_time = time.time()
+        print(f"{self.func.__name__} took {end_time - start_time:.4f} seconds")
+        return result
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+@Timer
+def slow_function():
+    time.sleep(1)
+    return "Done"
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Class-based decorator with arguments</h1>
+class Cache:
+    """Class-based decorator with arguments."""
+    
+    def __init__(self, max_size: int = 100):
+        self.max_size = max_size
+        self.cache = {}
+    
+    def __call__(self, func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            key = str(args) + str(sorted(kwargs.items()))
+            
+            if key in self.cache:
+                return self.cache[key]
+            
+            result = func(*args, **kwargs)
+            
+            if len(self.cache) >= self.max_size:
+                # Remove oldest item
+                oldest_key = next(iter(self.cache))
+                del self.cache[oldest_key]
+            
+            self.cache[key] = result
+            return result
+        return wrapper
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+@Cache(max_size=50)
+def expensive_calculation(n):
+    time.sleep(1)  # Simulate expensive operation
+    return n * n</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Property Decorators</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class Circle:
+    """Circle class with property decorators."""
+    
+    def __init__(self, radius: float):
+        self._radius = radius
+    
+    @property
+    def radius(self):
+        """Get radius."""
+        return self._radius
+    
+    @radius.setter
+    def radius(self, value):
+        """Set radius with validation."""
+        if value <= 0:
+            raise ValueError("Radius must be positive")
+        self._radius = value
+    
+    @property
+    def area(self):
+        """Calculate area (read-only property)."""
+        import math
+        return math.pi * self._radius ** 2
+    
+    @property
+    def circumference(self):
+        """Calculate circumference (read-only property)."""
+        import math
+        return 2 * math.pi * self._radius
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+circle = Circle(5)
+print(circle.area)  # 78.54...
+print(circle.circumference)  # 31.42...<p>circle.radius = 10  # Uses setter
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>circle.area = 100  # Error: can't set read-only property</h1></code></pre>
+</div></p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Context Managers</h2>
+
+<h3 class="text-primary mt-3">Custom Context Managers</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class DatabaseConnection:
+    """Custom context manager for database connections."""
+    
+    def __init__(self, host: str, port: int):
+        self.host = host
+        self.port = port
+        self.connection = None
+    
+    def __enter__(self):
+        print(f"Connecting to {self.host}:{self.port}")
+        self.connection = "connected"  # Simulate connection
+        return self.connection
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print("Closing connection")
+        self.connection = None
+        if exc_type:
+            print(f"Error occurred: {exc_val}")
+        return False  # Re-raise exception
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+with DatabaseConnection("localhost", 5432) as conn:
+    print(f"Using connection: {conn}")
+    # Connection automatically closed after block
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Context manager for timing</h1>
+class Timer:
+    """Context manager for timing code blocks."""
+    
+    def __init__(self, name: str):
+        self.name = name
+    
+    def __enter__(self):
+        self.start_time = time.time()
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.end_time = time.time()
+        print(f"{self.name} took {self.end_time - self.start_time:.4f} seconds")
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+with Timer("data processing"):
+    time.sleep(1)  # Simulate work</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Context Manager with Contextlib</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from contextlib import contextmanager<p>@contextmanager
+def managed_resource():
+    """Simple context manager using contextlib."""
+    print("Acquiring resource")
+    resource = "resource"
+    try:
+        yield resource
+    finally:
+        print("Releasing resource")</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+with managed_resource() as resource:
+    print(f"Using {resource}")
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Context manager with error handling</h1>
+@contextmanager
+def error_handler(operation_name: str):
+    """Context manager for consistent error handling."""
+    try:
+        yield
+    except Exception as e:
+        print(f"Error in {operation_name}: {e}")
+        raise
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+with error_handler("data processing"):
+    # Some operation that might fail
+    result = 1 / 0</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Nested Context Managers</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class FileManager:
+    """Context manager for file operations."""
+    
+    def __init__(self, filename: str, mode: str = 'r'):
+        self.filename = filename
+        self.mode = mode
+        self.file = None
+    
+    def __enter__(self):
+        self.file = open(self.filename, self.mode)
+        return self.file
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.file:
+            self.file.close()
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Nested context managers</h1>
+with Timer("file operations"):
+    with FileManager("input.txt", "r") as input_file:
+        with FileManager("output.txt", "w") as output_file:
+            content = input_file.read()
+            output_file.write(content.upper())
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Multiple context managers in one line (Python 3.10+)</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>with Timer("file operations"), FileManager("input.txt") as input_file, FileManager("output.txt", "w") as output_file:</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>    content = input_file.read()</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>    output_file.write(content.upper())</h1></code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Metaclasses</h2>
+
+<h3 class="text-primary mt-3">Understanding Metaclasses</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Metaclass: Class that creates classes</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>type() is the default metaclass</h1><p>class MetaExample(type):
+    """Custom metaclass example."""
+    
+    def __new__(cls, name, bases, namespace):
+        print(f"Creating class: {name}")
+        return super().__new__(cls, name, bases, namespace)
+    
+    def __init__(cls, name, bases, namespace):
+        print(f"Initializing class: {name}")
+        super().__init__(name, bases, namespace)</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Using metaclass</h1>
+class MyClass(metaclass=MetaExample):
+    pass
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Output:</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating class: MyClass</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Initializing class: MyClass</h1></code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Metaclass for Automatic Registration</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class RegistryMeta(type):
+    """Metaclass for automatic class registration."""
+    
+    def __new__(cls, name, bases, namespace):
+        # Create the class
+        new_class = super().__new__(cls, name, bases, namespace)
+        
+        # Register the class if it has a 'name' attribute
+        if hasattr(new_class, 'name'):
+            if not hasattr(cls, '_registry'):
+                cls._registry = {}
+            cls._registry[new_class.name] = new_class
+        
+        return new_class<p>class Animal(metaclass=RegistryMeta):
+    """Base class for animals."""
+    pass</p>class Dog(Animal):
+    name = "dog"
+    
+    def speak(self):
+        return "Woof!"<p>class Cat(Animal):
+    name = "cat"
+    
+    def speak(self):
+        return "Meow!"</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+print(Animal._registry)  # {'dog': <class '__main__.Dog'>, 'cat': <class '__main__.Cat'>}
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Factory function using registry</h1>
+def create_animal(animal_type: str):
+    return Animal._registry[animal_type]()<p>dog = create_animal("dog")
+print(dog.speak())  # Woof!</code></pre>
+</div></p><h3 class="text-primary mt-3">Metaclass for Method Validation</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class ValidationMeta(type):
+    """Metaclass for method validation."""
+    
+    def __new__(cls, name, bases, namespace):
+        # Validate required methods
+        required_methods = ['validate', 'process']
+        
+        for method in required_methods:
+            if method not in namespace:
+                raise TypeError(f"Class {name} must implement {method} method")
+        
+        return super().__new__(cls, name, bases, namespace)<p>class DataProcessor(metaclass=ValidationMeta):
+    """Data processor with required methods."""
+    
+    def validate(self, data):
+        return isinstance(data, (list, tuple))
+    
+    def process(self, data):
+        if self.validate(data):
+            return sum(data)
+        raise ValueError("Invalid data")</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>This would raise an error:</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>class InvalidProcessor(metaclass=ValidationMeta):</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>    pass  # Missing required methods</h1></code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Descriptors</h2>
+
+<h3 class="text-primary mt-3">Understanding Descriptors</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Descriptor: Object with __get__, __set__, or __delete__ methods</h1><p>class DescriptorExample:
+    """Simple descriptor example."""
+    
+    def __get__(self, instance, owner):
+        print(f"Getting value from {instance}")
+        return instance._value
+    
+    def __set__(self, instance, value):
+        print(f"Setting value to {value}")
+        instance._value = value
+    
+    def __delete__(self, instance):
+        print("Deleting value")
+        del instance._value</p>class MyClass:
+    descriptor = DescriptorExample()
+    
+    def __init__(self, value):
+        self._value = value
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+obj = MyClass(42)
+print(obj.descriptor)  # Getting value from <__main__.MyClass object>
+obj.descriptor = 100   # Setting value to 100
+del obj.descriptor     # Deleting value</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Property Descriptor</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class Property:
+    """Property descriptor implementation."""
+    
+    def __init__(self, fget=None, fset=None, fdel=None, doc=None):
+        self.fget = fget
+        self.fset = fset
+        self.fdel = fdel
+        self.__doc__ = doc
+    
+    def __get__(self, instance, owner):
+        if instance is None:
+            return self
+        if self.fget is None:
+            raise AttributeError("unreadable attribute")
+        return self.fget(instance)
+    
+    def __set__(self, instance, value):
+        if self.fset is None:
+            raise AttributeError("can't set attribute")
+        self.fset(instance, value)
+    
+    def __delete__(self, instance):
+        if self.fdel is None:
+            raise AttributeError("can't delete attribute")
+        self.fdel(instance)<p>class Temperature:
+    def __init__(self):
+        self._celsius = 0
+    
+    def get_celsius(self):
+        return self._celsius
+    
+    def set_celsius(self, value):
+        if value < -273.15:
+            raise ValueError("Temperature below absolute zero")
+        self._celsius = value
+    
+    celsius = Property(get_celsius, set_celsius)</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+temp = Temperature()
+temp.celsius = 25
+print(temp.celsius)  # 25</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Cached Property Descriptor</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class CachedProperty:
+    """Descriptor for cached property."""
+    
+    def __init__(self, func):
+        self.func = func
+        self.name = func.__name__
+    
+    def __get__(self, instance, owner):
+        if instance is None:
+            return self
+        
+        # Check if value is cached
+        if not hasattr(instance, '_cache'):
+            instance._cache = {}
+        
+        if self.name not in instance._cache:
+            instance._cache[self.name] = self.func(instance)
+        
+        return instance._cache[self.name]<p>class ExpensiveCalculator:
+    def __init__(self, data):
+        self.data = data
+    
+    @CachedProperty
+    def expensive_result(self):
+        """Expensive calculation that should be cached."""
+        print("Performing expensive calculation...")
+        time.sleep(1)  # Simulate expensive operation
+        return sum(self.data) ** 2</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+calc = ExpensiveCalculator([1, 2, 3, 4, 5])
+print(calc.expensive_result)  # Performs calculation
+print(calc.expensive_result)  # Uses cached value</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Validator Descriptor</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class Validated:
+    """Descriptor for validated attributes."""
+    
+    def __init__(self, validator=None, default=None):
+        self.validator = validator
+        self.default = default
+        self.name = None
+    
+    def __set_name__(self, owner, name):
+        self.name = name
+    
+    def __get__(self, instance, owner):
+        if instance is None:
+            return self
+        return instance.__dict__.get(self.name, self.default)
+    
+    def __set__(self, instance, value):
+        if self.validator:
+            value = self.validator(value)
+        instance.__dict__[self.name] = value<p>def positive_int(value):
+    """Validator for positive integers."""
+    value = int(value)
+    if value <= 0:
+        raise ValueError("Value must be positive")
+    return value</p>class Product:
+    price = Validated(positive_int)
+    quantity = Validated(positive_int, default=1)
+    
+    def __init__(self, price, quantity=None):
+        self.price = price
+        if quantity is not None:
+            self.quantity = quantity
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+product = Product(10, 5)
+print(product.price)    # 10
+print(product.quantity) # 5
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>This would raise an error:</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>product.price = -5  # ValueError: Value must be positive</h1></code></pre>
+</div><p>---</p><a href="11-bestpractices.md" target="_blank" class="text-warning">Previous Chapter</a> | <a href="13-concurrency.md" target="_blank" class="text-warning">Next Chapter</a>
+
+                        </div>
+                    </div>
+
+
+                <!-- Quick Access -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <i class="fas fa-bolt me-2"></i>
+                        Quick Access
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <a href="cheatsheet.html" class="btn btn-outline-warning w-100">
+                                    <i class="fas fa-clipboard-list me-1"></i>
+                                    Complete Cheat Sheet
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="11-bestpractices.html" class="btn btn-outline-info w-100">
+                                    <i class="fas fa-star me-1"></i>
+                                    Best Practices
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="16-security.html" class="btn btn-outline-danger w-100">
+                                    <i class="fas fa-shield-alt me-1"></i>
+                                    Security Guide
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 mb-2">
+                                <a href="08-testing.html" class="btn btn-outline-success w-100">
+                                    <i class="fas fa-vial me-1"></i>
+                                    Testing Guide
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="10-performance.html" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-bolt me-1"></i>
+                                    Performance Tips
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="15-deployment.html" class="btn btn-outline-secondary w-100">
+                                    <i class="fas fa-cloud me-1"></i>
+                                    Deployment Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Navigation (Bottom) -->
+                <div class="mt-5">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="13-concurrency.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fab fa-python me-2"></i>
+                Professional Python Cheat Sheet - Created with ❤️ for Python Developers
+            </p>
+            <small class="text-muted">
+                Enhanced with comprehensive English comments and modern web design
+            </small>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

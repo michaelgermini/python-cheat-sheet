@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Libraries (NumPy, Pandas, Matplotlib) - Professional Python Cheat Sheet</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-python me-2"></i>
+                Python Cheat Sheet
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-home me-1"></i>
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5 class="text-warning mb-3">
+                        <i class="fas fa-list me-2"></i>
+                        Complete Navigation
+                    </h5>
+                    
+                    <!-- Search in sidebar -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control search-box" id="sidebarSearch" 
+                               placeholder="🔍 Search sections...">
+                    </div>
+
+                    <!-- Main Sections -->
+                    <div class="accordion" id="sidebarAccordion">
+                        <!-- Getting Started -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="gettingStarted">
+                                <button class="accordion-button collapsed" type="button" id="btnGettingStarted" data-bs-toggle="collapse" data-bs-target="#collapseGettingStarted">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Getting Started
+                                </button>
+                            </h2>
+                            <div id="collapseGettingStarted" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="00-intro.html">
+                                            <i class="fas fa-play-circle me-2"></i>
+                                            00 - Python Introduction
+                                        </a>
+                                        <a class="nav-link" href="01-basics.html">
+                                            <i class="fas fa-cube me-2"></i>
+                                            01 - Variables & Data Types
+                                        </a>
+                                        <a class="nav-link" href="02-control.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            02 - Control Structures
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Programming -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="coreProgramming">
+                                <button class="accordion-button collapsed" type="button" id="btnCoreProgramming" data-bs-toggle="collapse" data-bs-target="#collapseCoreProgramming">
+                                    <i class="fas fa-code me-2"></i>
+                                    Core Programming
+                                </button>
+                            </h2>
+                            <div id="collapseCoreProgramming" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="03-functions.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            03 - Functions & Decorators
+                                        </a>
+                                        <a class="nav-link" href="04-oop.html">
+                                            <i class="fas fa-cubes me-2"></i>
+                                            04 - Classes & OOP
+                                        </a>
+                                        <a class="nav-link" href="05-libraries.html">
+                                            <i class="fas fa-boxes me-2"></i>
+                                            05 - Popular Libraries
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File & Web Development -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="fileWeb">
+                                <button class="accordion-button collapsed" type="button" id="btnFileWeb" data-bs-toggle="collapse" data-bs-target="#collapseFileWeb">
+                                    <i class="fas fa-file-code me-2"></i>
+                                    File & Web Development
+                                </button>
+                            </h2>
+                            <div id="collapseFileWeb" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="06-files.html">
+                                            <i class="fas fa-file-alt me-2"></i>
+                                            06 - File Handling
+                                        </a>
+                                        <a class="nav-link" href="07-web.html">
+                                            <i class="fas fa-globe me-2"></i>
+                                            07 - Web Development
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testing & Debugging -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="testingDebugging">
+                                <button class="accordion-button collapsed" type="button" id="btnTestingDebugging" data-bs-toggle="collapse" data-bs-target="#collapseTestingDebugging">
+                                    <i class="fas fa-bug me-2"></i>
+                                    Testing & Debugging
+                                </button>
+                            </h2>
+                            <div id="collapseTestingDebugging" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="08-testing.html">
+                                            <i class="fas fa-vial me-2"></i>
+                                            08 - Testing
+                                        </a>
+                                        <a class="nav-link" href="09-debugging.html">
+                                            <i class="fas fa-search me-2"></i>
+                                            09 - Debugging
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance & Best Practices -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="performanceBestPractices">
+                                <button class="accordion-button collapsed" type="button" id="btnPerformanceBestPractices" data-bs-toggle="collapse" data-bs-target="#collapsePerformanceBestPractices">
+                                    <i class="fas fa-tachometer-alt me-2"></i>
+                                    Performance & Best Practices
+                                </button>
+                            </h2>
+                            <div id="collapsePerformanceBestPractices" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="10-performance.html">
+                                            <i class="fas fa-bolt me-2"></i>
+                                            10 - Performance
+                                        </a>
+                                        <a class="nav-link" href="11-bestpractices.html">
+                                            <i class="fas fa-star me-2"></i>
+                                            11 - Best Practices
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Topics -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="advancedTopics">
+                                <button class="accordion-button collapsed" type="button" id="btnAdvancedTopics" data-bs-toggle="collapse" data-bs-target="#collapseAdvancedTopics">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Advanced Topics
+                                </button>
+                            </h2>
+                            <div id="collapseAdvancedTopics" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="12-advanced.html">
+                                            <i class="fas fa-magic me-2"></i>
+                                            12 - Advanced Python
+                                        </a>
+                                        <a class="nav-link" href="13-concurrency.html">
+                                            <i class="fas fa-sync-alt me-2"></i>
+                                            13 - Concurrency
+                                        </a>
+                                        <a class="nav-link" href="14-datascience.html">
+                                            <i class="fas fa-chart-bar me-2"></i>
+                                            14 - Data Science
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deployment & Security -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="deploymentSecurity">
+                                <button class="accordion-button collapsed" type="button" id="btnDeploymentSecurity" data-bs-toggle="collapse" data-bs-target="#collapseDeploymentSecurity">
+                                    <i class="fas fa-shield-alt me-2"></i>
+                                    Deployment & Security
+                                </button>
+                            </h2>
+                            <div id="collapseDeploymentSecurity" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="15-deployment.html">
+                                            <i class="fas fa-cloud me-2"></i>
+                                            15 - Deployment
+                                        </a>
+                                        <a class="nav-link" href="16-security.html">
+                                            <i class="fas fa-lock me-2"></i>
+                                            16 - Security
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Reference -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="quickReference">
+                                <button class="accordion-button collapsed" type="button" id="btnQuickReference" data-bs-toggle="collapse" data-bs-target="#collapseQuickReference">
+                                    <i class="fas fa-bookmark me-2"></i>
+                                    Quick Reference
+                                </button>
+                            </h2>
+                            <div id="collapseQuickReference" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="cheatsheet.html">
+                                            <i class="fas fa-clipboard-list me-2"></i>
+                                            Complete Cheat Sheet
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="mt-4 p-3 bg-dark rounded">
+                        <h6 class="text-warning mb-2">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Project Stats
+                        </h6>
+                        <div class="small text-muted">
+                            <div><i class="fas fa-file-code me-1"></i> 18 HTML Pages</div>
+                            <div><i class="fas fa-code me-1"></i> 16+ Python Topics</div>
+                            <div><i class="fas fa-comments me-1"></i> Detailed Comments</div>
+                            <div><i class="fas fa-mobile-alt me-1"></i> Mobile Responsive</div>
+                            <div class="text-success mt-2"><i class="fas fa-circle me-1"></i> Online !</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Page Navigation -->
+                <div class="mb-4">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="04-oop.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="15-deployment.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Content Placeholder -->
+                
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-book me-2"></i>
+                            Popular Libraries (NumPy, Pandas, Matplotlib)
+                        </div>
+                        <div class="card-body">
+                            <h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Popular Libraries (NumPy, Pandas, Matplotlib)</h1>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>NumPy</h2>
+
+<h3 class="text-primary mt-3">Installation</h3>
+``<code>bash
+pip install numpy
+</code>`<code>
+
+<h3 class="text-primary mt-3">Basic Operations</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import numpy as np  # Import NumPy with alias 'np' (convention)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating different types of arrays: various methods to initialize NumPy arrays</h1>
+arr1 = np.array([1, 2, 3, 4, 5])           # Create array from Python list (most common method)
+arr2 = np.zeros(5)                          # Create array of 5 zeros: [0., 0., 0., 0., 0.] (float type)
+arr3 = np.ones(3)                           # Create array of 3 ones: [1., 1., 1.] (float type)
+arr4 = np.arange(0, 10, 2)                  # Create array with step: [0, 2, 4, 6, 8] (like range() but returns array)
+arr5 = np.linspace(0, 1, 5)                 # Create 5 evenly spaced values: [0., 0.25, 0.5, 0.75, 1.] (inclusive endpoints)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Vectorized operations: apply operations to entire arrays at once (much faster than loops)</h1>
+print(arr1 + 2)      # Element-wise addition: [3, 4, 5, 6, 7] (adds 2 to each element)
+print(arr1 * 2)      # Element-wise multiplication: [2, 4, 6, 8, 10] (multiplies each element by 2)
+print(arr1 ** 2)     # Element-wise exponentiation: [1, 4, 9, 16, 25] (squares each element)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Multi-dimensional Arrays</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Multi-dimensional arrays: working with 2D and 3D data structures</h1>
+matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])  # Create 2D array (3x3 matrix) from nested lists
+print(matrix.shape)  # Output: (3, 3) - shows dimensions (rows, columns) as tuple
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating special matrices for different purposes: common matrix initialization patterns</h1>
+zeros_matrix = np.zeros((3, 3))    # 3x3 matrix filled with zeros (useful for initialization)
+identity_matrix = np.eye(3)        # 3x3 identity matrix (1s on diagonal, 0s elsewhere) - useful for linear algebra
+random_matrix = np.random.rand(3, 3)  # 3x3 matrix with random values between 0 and 1 (uniform distribution)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Indexing and slicing multi-dimensional arrays: accessing specific elements and subarrays</h1>
+print(matrix[0, 1])      # Access element at row 0, column 1: 2 (zero-based indexing)
+print(matrix[0, :])      # Get entire first row: [1, 2, 3] (colon means "all columns")
+print(matrix[:, 1])      # Get entire second column: [2, 5, 8] (colon means "all rows")</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Mathematical Operations</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">arr = np.array([1, 2, 3, 4, 5])  # Sample array for statistical operations
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Basic statistical operations on arrays: common mathematical functions</h1>
+print(np.mean(arr))      # Calculate arithmetic mean: 3.0 (sum of all elements divided by count)
+print(np.std(arr))       # Calculate standard deviation: 1.414... (measure of data spread)
+print(np.sum(arr))       # Calculate sum of all elements: 15 (total of all values)
+print(np.max(arr))       # Find maximum value: 5 (highest value in array)
+print(np.min(arr))       # Find minimum value: 1 (lowest value in array)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Matrix operations: working with 2D arrays for linear algebra</h1>
+A = np.array([[1, 2], [3, 4]])  # First 2x2 matrix for demonstration
+B = np.array([[5, 6], [7, 8]])  # Second 2x2 matrix for demonstration<p>print(A + B)             # Element-wise addition (adds corresponding elements position by position)
+print(A * B)             # Element-wise multiplication (multiplies corresponding elements position by position)
+print(np.dot(A, B))      # Matrix multiplication (dot product) - proper matrix multiplication
+print(A @ B)             # Matrix multiplication using @ operator (Python 3.5+) - same as np.dot()</code></pre>
+</div></p><h3 class="text-primary mt-3">Broadcasting</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Broadcasting: NumPy's ability to perform operations on arrays of different shapes automatically</h1>
+arr = np.array([1, 2, 3, 4, 5])                    # 1D array with 5 elements
+matrix = np.array([[1, 2, 3], [4, 5, 6]])          # 2D array (2x3 matrix)<p>print(arr + 10)          # Broadcasting: scalar 10 is added to each element: [11, 12, 13, 14, 15] (scalar expands to match array)
+print(matrix * 2)        # Broadcasting: scalar 2 multiplies each element: [[2, 4, 6], [8, 10, 12]] (scalar expands to match matrix)</code></pre>
+</div></p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Pandas</h2>
+
+<h3 class="text-primary mt-3">Installation</h3>
+</code>`<code>bash
+pip install pandas
+</code>`<code>
+
+<h3 class="text-primary mt-3">Series</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import pandas as pd  # Import pandas with alias 'pd' (convention)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating different types of Series (1D labeled arrays): various initialization methods</h1>
+s1 = pd.Series([1, 2, 3, 4, 5])                        # Series with default numeric index (0, 1, 2, 3, 4)
+s2 = pd.Series([1, 2, 3, 4, 5], index=['a', 'b', 'c', 'd', 'e'])  # Series with custom string index
+s3 = pd.Series({'a': 1, 'b': 2, 'c': 3})               # Series from dictionary (keys become index automatically)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Statistical operations on Series: built-in methods for data analysis</h1>
+print(s1.mean())         # Calculate mean: 3.0 (arithmetic average of all values)
+print(s1.std())          # Calculate standard deviation: 1.581... (measure of data variability)
+print(s1.describe())     # Generate comprehensive summary statistics (count, mean, std, min, 25%, 50%, 75%, max)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">DataFrames</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating DataFrame from dictionary (most common method): structured data container</h1>
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'Diana'],      # Column 1: names (string data)
+    'Age': [25, 30, 35, 28],                           # Column 2: ages (integer data)
+    'City': ['NYC', 'LA', 'Chicago', 'Boston'],        # Column 3: cities (string data)
+    'Salary': [50000, 60000, 70000, 55000]             # Column 4: salaries (integer data)
+}
+df = pd.DataFrame(data)  # Create DataFrame from dictionary (keys become column names)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Basic DataFrame operations and information: essential methods for data exploration</h1>
+print(df.head())         # Display first 5 rows of DataFrame (quick preview of data)
+print(df.info())         # Show DataFrame structure and data types (memory usage and non-null counts)
+print(df.describe())     # Generate statistical summary of numeric columns (count, mean, std, min, 25%, 50%, 75%, max)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Reading and Writing Data</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Reading data from different file formats: pandas supports many data sources</h1>
+df = pd.read_csv('data.csv')      # Read data from CSV file (most common format for tabular data)
+df = pd.read_excel('data.xlsx')   # Read data from Excel file (requires openpyxl or xlrd package)
+df = pd.read_json('data.json')    # Read data from JSON file (nested data structures)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Writing data to different file formats: export DataFrames to various formats</h1>
+df.to_csv('output.csv', index=False)    # Save as CSV (index=False excludes row numbers from output)
+df.to_excel('output.xlsx', index=False) # Save as Excel file (requires openpyxl package)
+df.to_json('output.json')               # Save as JSON file (preserves data structure)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Data Manipulation</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Data selection and filtering operations: accessing and subsetting data</h1>
+names = df['Name']                    # Select single column (returns Series object)
+subset = df[['Name', 'Age']]          # Select multiple columns (returns DataFrame with specified columns)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Filtering data based on conditions: boolean indexing for row selection</h1>
+young_people = df[df['Age'] < 30]     # Filter rows where Age is less than 30 (boolean mask)
+high_salary = df[df['Salary'] > 60000] # Filter rows where Salary is greater than 60000 (boolean mask)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Sorting data: arrange rows based on column values</h1>
+df_sorted = df.sort_values('Age', ascending=False)  # Sort by Age in descending order (oldest first)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Grouping and aggregation: split data into groups and apply functions</h1>
+grouped = df.groupby('City')['Salary'].mean()  # Group by City and calculate mean salary for each city</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Handling Missing Data</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Handling missing data (NaN values) in DataFrames: essential for data cleaning</h1>
+print(df.isnull().sum())  # Count missing values in each column (returns Series with column names and counts)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Filling missing values with appropriate strategies: different approaches for different scenarios</h1>
+df['Age'].fillna(df['Age'].mean(), inplace=True)  # Fill missing ages with mean age (inplace=True modifies original DataFrame)
+df.dropna(inplace=True)  # Remove rows that contain any missing values (inplace=True modifies original DataFrame)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Merging and Joining</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating another DataFrame for demonstration of merging operations: combining data from multiple sources</h1>
+df2 = pd.DataFrame({
+    'Name': ['Alice', 'Bob', 'Eve'],           # Names (some overlap with df for demonstration)
+    'Department': ['IT', 'HR', 'Marketing']    # Department information (new data to merge)
+})
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Different types of joins between DataFrames: SQL-like operations for combining data</h1>
+merged = pd.merge(df, df2, on='Name', how='inner')      # Inner join: only rows that exist in both DataFrames
+left_merged = pd.merge(df, df2, on='Name', how='left')  # Left join: all rows from left DataFrame (df), matching rows from right DataFrame (df2)</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Matplotlib</h2>
+
+<h3 class="text-primary mt-3">Installation</h3>
+</code>`<code>bash
+pip install matplotlib
+</code>``
+
+<h3 class="text-primary mt-3">Basic Plotting</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import matplotlib.pyplot as plt  # Import matplotlib for plotting and visualization
+import numpy as np               # Import numpy for numerical operations and array generation
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating a simple line plot: basic visualization example</h1>
+x = np.linspace(0, 10, 100)      # Create 100 evenly spaced points from 0 to 10 (x-axis values)
+y = np.sin(x)                    # Calculate sine values for each x point (y-axis values)<p>plt.plot(x, y)                   # Create line plot of x vs y (connects points with lines)
+plt.title('Sine Wave')           # Set plot title (appears at top of figure)
+plt.xlabel('x')                  # Set x-axis label (horizontal axis description)
+plt.ylabel('sin(x)')             # Set y-axis label (vertical axis description)
+plt.grid(True)                   # Add grid lines to plot (helps with reading values)
+plt.show()                       # Display the plot (opens in new window or notebook cell)</code></pre>
+</div></p><h3 class="text-primary mt-3">Multiple Plots</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating multiple subplots in a single figure: organize multiple plots in one window</h1>
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))  # Create 1 row, 2 columns of subplots with specified figure size
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>First subplot: sine wave</h1>
+ax1.plot(x, np.sin(x))           # Plot sine function on first subplot (ax1 is the first subplot object)
+ax1.set_title('Sine Wave')       # Set title for first subplot (appears above the plot)
+ax1.grid(True)                   # Add grid to first subplot (horizontal and vertical reference lines)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Second subplot: cosine wave</h1>
+ax2.plot(x, np.cos(x))           # Plot cosine function on second subplot (ax2 is the second subplot object)
+ax2.set_title('Cosine Wave')     # Set title for second subplot (appears above the plot)
+ax2.grid(True)                   # Add grid to second subplot (horizontal and vertical reference lines)<p>plt.tight_layout()               # Automatically adjust spacing between subplots (prevents overlap)
+plt.show()                       # Display the figure with both subplots (opens in new window or notebook cell)</code></pre>
+</div></p><h3 class="text-primary mt-3">Different Plot Types</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Different types of plots for various data visualization needs</h1>
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Scatter plot: shows relationship between two variables</h1>
+x = np.random.randn(100)          # Generate 100 random x values
+y = np.random.randn(100)          # Generate 100 random y values
+plt.scatter(x, y, alpha=0.6)      # Create scatter plot with transparency
+plt.title('Scatter Plot')         # Set plot title
+plt.show()                        # Display plot
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Bar plot: shows categorical data</h1>
+categories = ['A', 'B', 'C', 'D']  # Category labels
+values = [4, 3, 2, 1]             # Corresponding values
+plt.bar(categories, values)        # Create bar plot
+plt.title('Bar Plot')             # Set plot title
+plt.show()                        # Display plot
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Histogram: shows distribution of data</h1>
+data = np.random.randn(1000)      # Generate 1000 random values
+plt.hist(data, bins=30, alpha=0.7) # Create histogram with 30 bins and transparency
+plt.title('Histogram')            # Set plot title
+plt.show()                        # Display plot
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Pie chart: shows proportions of a whole</h1>
+sizes = [30, 20, 25, 15, 10]      # Values representing proportions
+labels = ['A', 'B', 'C', 'D', 'E'] # Labels for each slice
+plt.pie(sizes, labels=labels, autopct='%1.1f%%')  # Create pie chart with percentage labels
+plt.title('Pie Chart')            # Set plot title
+plt.show()                        # Display plot</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Plotting with Pandas</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Using pandas DataFrame</h1>
+df = pd.DataFrame({
+    'x': np.linspace(0, 10, 100),
+    'y1': np.sin(np.linspace(0, 10, 100)),
+    'y2': np.cos(np.linspace(0, 10, 100))
+})
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Line plot</h1>
+df.plot(x='x', y=['y1', 'y2'])
+plt.title('Sine and Cosine Waves')
+plt.show()
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Scatter plot</h1>
+df.plot.scatter(x='x', y='y1')
+plt.title('Scatter Plot')
+plt.show()</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Customizing Plots</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Setting style</h1>
+plt.style.use('seaborn')
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Creating figure with custom size</h1>
+fig, ax = plt.subplots(figsize=(10, 6))
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Plotting with custom colors and styles</h1>
+ax.plot(x, np.sin(x), color='blue', linewidth=2, label='sin(x)')
+ax.plot(x, np.cos(x), color='red', linewidth=2, linestyle='--', label='cos(x)')
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Customizing appearance</h1>
+ax.set_title('Trigonometric Functions', fontsize=16, fontweight='bold')
+ax.set_xlabel('x', fontsize=12)
+ax.set_ylabel('y', fontsize=12)
+ax.legend(fontsize=12)
+ax.grid(True, alpha=0.3)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Setting limits</h1>
+ax.set_xlim(0, 10)
+ax.set_ylim(-1.5, 1.5)<p>plt.tight_layout()
+plt.show()</code></pre>
+</div></p><h3 class="text-primary mt-3">Saving Plots</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Save as PNG</h1>
+plt.savefig('plot.png', dpi=300, bbox_inches='tight')
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Save as PDF</h1>
+plt.savefig('plot.pdf', bbox_inches='tight')
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Save as SVG</h1>
+plt.savefig('plot.svg', bbox_inches='tight')</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Integration Example</h2>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Generate sample data</h1>
+np.random.seed(42)
+data = {
+    'x': np.random.randn(1000),
+    'y': np.random.randn(1000),
+    'category': np.random.choice(['A', 'B', 'C'], 1000)
+}
+df = pd.DataFrame(data)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Create visualization</h1>
+fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(12, 10))
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Scatter plot</h1>
+ax1.scatter(df['x'], df['y'], alpha=0.6)
+ax1.set_title('Scatter Plot')
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Histogram</h1>
+ax2.hist(df['x'], bins=30, alpha=0.7)
+ax2.set_title('Histogram of X')
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Box plot by category</h1>
+df.boxplot(column='y', by='category', ax=ax3)
+ax3.set_title('Box Plot by Category')
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Correlation heatmap</h1>
+correlation = df[['x', 'y']].corr()
+im = ax4.imshow(correlation, cmap='coolwarm', aspect='auto')
+ax4.set_xticks([0, 1])
+ax4.set_yticks([0, 1])
+ax4.set_xticklabels(['x', 'y'])
+ax4.set_yticklabels(['x', 'y'])
+ax4.set_title('Correlation Matrix')<p>plt.colorbar(im, ax=ax4)
+plt.tight_layout()
+plt.show()</code></pre>
+</div></p>---
+
+<a href="04-oop.md" target="_blank" class="text-warning">Previous Chapter</a> | <a href="06-files.md" target="_blank" class="text-warning">Next Chapter</a>
+
+                        </div>
+                    </div>
+
+
+                <!-- Quick Access -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <i class="fas fa-bolt me-2"></i>
+                        Quick Access
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <a href="cheatsheet.html" class="btn btn-outline-warning w-100">
+                                    <i class="fas fa-clipboard-list me-1"></i>
+                                    Complete Cheat Sheet
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="11-bestpractices.html" class="btn btn-outline-info w-100">
+                                    <i class="fas fa-star me-1"></i>
+                                    Best Practices
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="16-security.html" class="btn btn-outline-danger w-100">
+                                    <i class="fas fa-shield-alt me-1"></i>
+                                    Security Guide
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 mb-2">
+                                <a href="08-testing.html" class="btn btn-outline-success w-100">
+                                    <i class="fas fa-vial me-1"></i>
+                                    Testing Guide
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="10-performance.html" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-bolt me-1"></i>
+                                    Performance Tips
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="15-deployment.html" class="btn btn-outline-secondary w-100">
+                                    <i class="fas fa-cloud me-1"></i>
+                                    Deployment Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Navigation (Bottom) -->
+                <div class="mt-5">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="04-oop.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="15-deployment.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fab fa-python me-2"></i>
+                Professional Python Cheat Sheet - Created with ❤️ for Python Developers
+            </p>
+            <small class="text-muted">
+                Enhanced with comprehensive English comments and modern web design
+            </small>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

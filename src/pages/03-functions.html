@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions & Lambdas - Professional Python Cheat Sheet</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-python me-2"></i>
+                Python Cheat Sheet
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-home me-1"></i>
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5 class="text-warning mb-3">
+                        <i class="fas fa-list me-2"></i>
+                        Complete Navigation
+                    </h5>
+                    
+                    <!-- Search in sidebar -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control search-box" id="sidebarSearch" 
+                               placeholder="🔍 Search sections...">
+                    </div>
+
+                    <!-- Main Sections -->
+                    <div class="accordion" id="sidebarAccordion">
+                        <!-- Getting Started -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="gettingStarted">
+                                <button class="accordion-button collapsed" type="button" id="btnGettingStarted" data-bs-toggle="collapse" data-bs-target="#collapseGettingStarted">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Getting Started
+                                </button>
+                            </h2>
+                            <div id="collapseGettingStarted" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="00-intro.html">
+                                            <i class="fas fa-play-circle me-2"></i>
+                                            00 - Python Introduction
+                                        </a>
+                                        <a class="nav-link" href="01-basics.html">
+                                            <i class="fas fa-cube me-2"></i>
+                                            01 - Variables & Data Types
+                                        </a>
+                                        <a class="nav-link" href="02-control.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            02 - Control Structures
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Programming -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="coreProgramming">
+                                <button class="accordion-button collapsed" type="button" id="btnCoreProgramming" data-bs-toggle="collapse" data-bs-target="#collapseCoreProgramming">
+                                    <i class="fas fa-code me-2"></i>
+                                    Core Programming
+                                </button>
+                            </h2>
+                            <div id="collapseCoreProgramming" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="03-functions.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            03 - Functions & Decorators
+                                        </a>
+                                        <a class="nav-link" href="04-oop.html">
+                                            <i class="fas fa-cubes me-2"></i>
+                                            04 - Classes & OOP
+                                        </a>
+                                        <a class="nav-link" href="05-libraries.html">
+                                            <i class="fas fa-boxes me-2"></i>
+                                            05 - Popular Libraries
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File & Web Development -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="fileWeb">
+                                <button class="accordion-button collapsed" type="button" id="btnFileWeb" data-bs-toggle="collapse" data-bs-target="#collapseFileWeb">
+                                    <i class="fas fa-file-code me-2"></i>
+                                    File & Web Development
+                                </button>
+                            </h2>
+                            <div id="collapseFileWeb" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="06-files.html">
+                                            <i class="fas fa-file-alt me-2"></i>
+                                            06 - File Handling
+                                        </a>
+                                        <a class="nav-link" href="07-web.html">
+                                            <i class="fas fa-globe me-2"></i>
+                                            07 - Web Development
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testing & Debugging -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="testingDebugging">
+                                <button class="accordion-button collapsed" type="button" id="btnTestingDebugging" data-bs-toggle="collapse" data-bs-target="#collapseTestingDebugging">
+                                    <i class="fas fa-bug me-2"></i>
+                                    Testing & Debugging
+                                </button>
+                            </h2>
+                            <div id="collapseTestingDebugging" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="08-testing.html">
+                                            <i class="fas fa-vial me-2"></i>
+                                            08 - Testing
+                                        </a>
+                                        <a class="nav-link" href="09-debugging.html">
+                                            <i class="fas fa-search me-2"></i>
+                                            09 - Debugging
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance & Best Practices -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="performanceBestPractices">
+                                <button class="accordion-button collapsed" type="button" id="btnPerformanceBestPractices" data-bs-toggle="collapse" data-bs-target="#collapsePerformanceBestPractices">
+                                    <i class="fas fa-tachometer-alt me-2"></i>
+                                    Performance & Best Practices
+                                </button>
+                            </h2>
+                            <div id="collapsePerformanceBestPractices" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="10-performance.html">
+                                            <i class="fas fa-bolt me-2"></i>
+                                            10 - Performance
+                                        </a>
+                                        <a class="nav-link" href="11-bestpractices.html">
+                                            <i class="fas fa-star me-2"></i>
+                                            11 - Best Practices
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Topics -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="advancedTopics">
+                                <button class="accordion-button collapsed" type="button" id="btnAdvancedTopics" data-bs-toggle="collapse" data-bs-target="#collapseAdvancedTopics">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Advanced Topics
+                                </button>
+                            </h2>
+                            <div id="collapseAdvancedTopics" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="12-advanced.html">
+                                            <i class="fas fa-magic me-2"></i>
+                                            12 - Advanced Python
+                                        </a>
+                                        <a class="nav-link" href="13-concurrency.html">
+                                            <i class="fas fa-sync-alt me-2"></i>
+                                            13 - Concurrency
+                                        </a>
+                                        <a class="nav-link" href="14-datascience.html">
+                                            <i class="fas fa-chart-bar me-2"></i>
+                                            14 - Data Science
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deployment & Security -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="deploymentSecurity">
+                                <button class="accordion-button collapsed" type="button" id="btnDeploymentSecurity" data-bs-toggle="collapse" data-bs-target="#collapseDeploymentSecurity">
+                                    <i class="fas fa-shield-alt me-2"></i>
+                                    Deployment & Security
+                                </button>
+                            </h2>
+                            <div id="collapseDeploymentSecurity" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="15-deployment.html">
+                                            <i class="fas fa-cloud me-2"></i>
+                                            15 - Deployment
+                                        </a>
+                                        <a class="nav-link" href="16-security.html">
+                                            <i class="fas fa-lock me-2"></i>
+                                            16 - Security
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Reference -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="quickReference">
+                                <button class="accordion-button collapsed" type="button" id="btnQuickReference" data-bs-toggle="collapse" data-bs-target="#collapseQuickReference">
+                                    <i class="fas fa-bookmark me-2"></i>
+                                    Quick Reference
+                                </button>
+                            </h2>
+                            <div id="collapseQuickReference" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="cheatsheet.html">
+                                            <i class="fas fa-clipboard-list me-2"></i>
+                                            Complete Cheat Sheet
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="mt-4 p-3 bg-dark rounded">
+                        <h6 class="text-warning mb-2">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Project Stats
+                        </h6>
+                        <div class="small text-muted">
+                            <div><i class="fas fa-file-code me-1"></i> 18 HTML Pages</div>
+                            <div><i class="fas fa-code me-1"></i> 16+ Python Topics</div>
+                            <div><i class="fas fa-comments me-1"></i> Detailed Comments</div>
+                            <div><i class="fas fa-mobile-alt me-1"></i> Mobile Responsive</div>
+                            <div class="text-success mt-2"><i class="fas fa-circle me-1"></i> Online !</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Page Navigation -->
+                <div class="mb-4">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="14-datascience.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="04-oop.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Content Placeholder -->
+                
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-book me-2"></i>
+                            Functions & Lambdas
+                        </div>
+                        <div class="card-body">
+                            <h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Functions & Lambdas</h1>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Function Definition</h2>
+
+<h3 class="text-primary mt-3">Basic Function</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Basic function definition: function without parameters</h1>
+def greet():
+    print("Hello, World!")  # Function body: code to execute when called
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function call: execute the function</h1>
+greet()  # Output: Hello, World!</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Function with Parameters</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function with parameter: accepts input value when called</h1>
+def greet(name):  # Parameter 'name' receives the argument value
+    print(f"Hello, {name}!")  # Use the parameter in the function body
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function call with argument: pass value to the parameter</h1>
+greet("Alice")  # Argument "Alice" is assigned to parameter 'name'</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Function with Return Value</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function with return value: sends data back to the caller</h1>
+def add(a, b):  # Function with two parameters
+    return a + b  # Return statement: sends result back to caller
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function call with return value assignment</h1>
+result = add(5, 3)  # Call function and store returned value in 'result'</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Function with Multiple Parameters</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function with multiple parameters including default value</h1>
+def greet(name, age, city="Unknown"):  # 'city' has default value "Unknown"
+    print(f"Hello, {name}! You are {age} years old from {city}.")
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function calls with different argument patterns</h1>
+greet("Alice", 30, "New York")  # All arguments provided
+greet("Bob", 25)                # Missing 'city' argument, uses default value</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Parameter Types</h2>
+
+<h3 class="text-primary mt-3">Positional Arguments</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Positional arguments: arguments matched to parameters by position</h1>
+def divide(a, b):  # First argument goes to 'a', second to 'b'
+    return a / b   # Return the result of division
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function call with positional arguments</h1>
+result = divide(10, 2)  # 10 assigned to 'a', 2 assigned to 'b'</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Keyword Arguments</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Keyword arguments: arguments matched to parameters by name</h1>
+def create_person(name, age, city):  # Function with three parameters
+    return {"name": name, "age": age, "city": city}  # Return dictionary
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function call with keyword arguments (order doesn't matter)</h1>
+person = create_person(name="Alice", age=30, city="NYC")  # Explicit parameter names</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Default Parameters</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Default parameters: parameters with predefined values if no argument provided</h1>
+def greet(name, greeting="Hello"):  # 'greeting' has default value "Hello"
+    print(f"{greeting}, {name}!")   # Use the greeting parameter
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function calls demonstrating default parameter usage</h1>
+greet("Alice")      # Uses default greeting "Hello"
+greet("Bob", "Hi")  # Overrides default with "Hi"</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Variable Arguments (*args)</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Variable arguments (*args): accept any number of positional arguments</h1>
+def sum_all(*numbers):  # *numbers collects all positional arguments into a tuple
+    return sum(numbers)  # Use built-in sum() function on the tuple
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function call with variable number of arguments</h1>
+result = sum_all(1, 2, 3, 4, 5)  # All arguments collected into numbers tuple</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Keyword Variable Arguments (<strong>kwargs)</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Keyword variable arguments (</strong>kwargs): accept any number of keyword arguments</h1>
+def print_info(<strong>kwargs):  # </strong>kwargs collects all keyword arguments into a dictionary
+    for key, value in kwargs.items():  # Iterate over key-value pairs
+        print(f"{key}: {value}")       # Print each pair
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function call with variable number of keyword arguments</h1>
+print_info(name="Alice", age=30, city="NYC")  # All collected into kwargs dictionary</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Function Scope</h2>
+
+<h3 class="text-primary mt-3">Local vs Global Variables</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Variable scope: understanding where variables are accessible</h1>
+global_var = "I'm global"  # Global variable: accessible throughout the module<p>def my_function():
+    local_var = "I'm local"  # Local variable: only accessible within this function
+    print(global_var)        # Can access global variables from inside function
+    print(local_var)         # Can access local variables within function</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>print(local_var)  # Error! local_var not accessible outside the function</h1></code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Global Keyword</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Global keyword: allows function to modify global variables</h1>
+counter = 0  # Global variable declaration<p>def increment():
+    global counter  # Declare that we want to modify the global variable
+    counter += 1    # Modify the global variable (not create a local one)</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function call and result demonstration</h1>
+increment()         # Call function to increment counter
+print(counter)      # Output: 1 (global variable was modified)</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Lambda Functions (Anonymous Functions)</h2>
+
+<h3 class="text-primary mt-3">Basic Lambda</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Lambda functions: anonymous functions for simple operations</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Regular function definition</h1>
+def square(x):
+    return x <strong> 2  # Return the square of x
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Equivalent lambda function (more concise)</h1>
+square = lambda x: x </strong> 2  # Lambda syntax: lambda parameters: expression
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function calls (both work the same way)</h1>
+print(square(5))  # Output: 25 (both functions produce same result)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Lambda with Multiple Parameters</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Lambda functions with multiple parameters</h1>
+add = lambda x, y: x + y      # Lambda with two parameters for addition
+multiply = lambda x, y: x * y # Lambda with two parameters for multiplication
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function calls demonstrating multiple parameter lambdas</h1>
+print(add(3, 4))      # Output: 7 (3 + 4)
+print(multiply(3, 4)) # Output: 12 (3 * 4)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Lambda with Conditional Logic</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Lambda functions with conditional logic using ternary operator</h1>
+is_even = lambda x: True if x % 2 == 0 else False  # Check if number is even
+absolute = lambda x: x if x >= 0 else -x           # Calculate absolute value
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function calls demonstrating conditional lambdas</h1>
+print(is_even(4))   # Output: True (4 is even)
+print(absolute(-5)) # Output: 5 (absolute value of -5)</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Built-in Functions with Lambda</h2>
+
+<h3 class="text-primary mt-3">Map</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Map function: applies a function to every item in an iterable</h1>
+numbers = [1, 2, 3, 4, 5]                    # Input list
+squares = list(map(lambda x: x**2, numbers)) # Apply square function to each number
+print(squares)                               # Output: [1, 4, 9, 16, 25]</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Filter</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Filter function: creates a new list with elements that pass a test</h1>
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]           # Input list
+evens = list(filter(lambda x: x % 2 == 0, numbers))  # Keep only even numbers
+print(evens)                                         # Output: [2, 4, 6, 8, 10]</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Reduce</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Reduce function: applies a function cumulatively to items in a sequence</h1>
+from functools import reduce  # Import reduce from functools module<p>numbers = [1, 2, 3, 4, 5]                           # Input list
+sum_all = reduce(lambda x, y: x + y, numbers)       # Cumulatively add all numbers
+print(sum_all)                                      # Output: 15 (1+2+3+4+5)</code></pre>
+</div></p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Function Decorators</h2>
+
+<h3 class="text-primary mt-3">Basic Decorator</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def timer(func):  # Decorator function that takes a function as parameter
+    def wrapper(*args, **kwargs):  # Inner function that wraps the original function
+        import time
+        start = time.time()        # Record start time before function execution
+        result = func(*args, **kwargs)  # Call the original function with all arguments
+        end = time.time()          # Record end time after function execution
+        print(f"{func.__name__} took {end - start:.4f} seconds")  # Print execution time
+        return result              # Return the original function's result
+    return wrapper                 # Return the wrapper function<p>@timer  # Decorator syntax: apply timer decorator to function
+def slow_function():
+    import time
+    time.sleep(1)  # Simulate slow operation
+    return "Done!"  # Return result</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function call demonstrating decorator functionality</h1>
+slow_function()  # Output: slow_function took 1.0000 seconds</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Decorator with Parameters</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def repeat(times):  # Decorator factory: returns a decorator function
+    def decorator(func):  # Inner decorator function
+        def wrapper(*args, **kwargs):  # Wrapper function that executes original function multiple times
+            for _ in range(times):     # Loop 'times' number of times
+                result = func(*args, **kwargs)  # Call original function
+            return result              # Return result from last execution
+        return wrapper                 # Return wrapper function
+    return decorator                   # Return decorator function<p>@repeat(3)  # Apply repeat decorator with parameter 3
+def greet(name):
+    print(f"Hello, {name}!")  # Function to be repeated</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function call demonstrating decorator with parameters</h1>
+greet("Alice")  # Output: "Hello, Alice!" printed 3 times</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Recursive Functions</h2>
+
+<h3 class="text-primary mt-3">Basic Recursion</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def factorial(n):  # Recursive function to calculate factorial
+    if n <= 1:     # Base case: factorial of 0 or 1 is 1
+        return 1
+    return n * factorial(n - 1)  # Recursive case: n! = n * (n-1)!
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function call demonstrating recursion</h1>
+print(factorial(5))  # Output: 120 (5! = 5 * 4 * 3 * 2 * 1)</code></pre>
+</div>
+``<code>
+
+<h3 class="text-primary mt-3">Fibonacci Sequence</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def fibonacci(n):  # Recursive function to calculate Fibonacci number
+    if n <= 1:     # Base case: F(0) = 0, F(1) = 1
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)  # Recursive case: F(n) = F(n-1) + F(n-2)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Function call demonstrating Fibonacci recursion</h1>
+print(fibonacci(10))  # Output: 55 (10th Fibonacci number)</code></pre>
+</div>
+</code>`<code>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Generator Functions</h2>
+
+<h3 class="text-primary mt-3">Basic Generator</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def count_up_to(n):  # Generator function that yields values
+    i = 1            # Initialize counter
+    while i <= n:    # Continue while counter is less than or equal to n
+        yield i      # Yield current value (pause execution here)
+        i += 1       # Increment counter
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Using the generator function</h1>
+for num in count_up_to(5):  # Iterate over generated values
+    print(num)              # Output: 1, 2, 3, 4, 5</code></pre>
+</div>
+</code>`<code>
+
+<h3 class="text-primary mt-3">Generator Expression</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Generator expression: concise way to create generators</h1>
+squares = (x**2 for x in range(5))  # Generator expression for squares
+print(list(squares))                # Convert generator to list: [0, 1, 4, 9, 16]</code></pre>
+</div>
+</code>`<code>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Common Function Patterns</h2>
+
+<h3 class="text-primary mt-3">Function as Parameter</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Higher-order function: function that takes another function as parameter</h1>
+def apply_operation(func, x, y):  # Function that accepts a function as first parameter
+    return func(x, y)             # Call the passed function with x and y<p>def add(a, b):      # Simple addition function
+    return a + b</p>def multiply(a, b): # Simple multiplication function
+    return a * b</code></pre>
+</div><p>print(apply_operation(add, 3, 4))      # 7
+print(apply_operation(multiply, 3, 4)) # 12
+</code>``</p><h3 class="text-primary mt-3">Closure</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def outer_function(x):
+    def inner_function(y):
+        return x + y
+    return inner_function<p>add_five = outer_function(5)
+print(add_five(3))  # 8</code></pre>
+</div></p>---
+
+<a href="02-control.md" target="_blank" class="text-warning">Previous Chapter</a> | <a href="04-oop.md" target="_blank" class="text-warning">Next Chapter</a>
+
+                        </div>
+                    </div>
+
+
+                <!-- Quick Access -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <i class="fas fa-bolt me-2"></i>
+                        Quick Access
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <a href="cheatsheet.html" class="btn btn-outline-warning w-100">
+                                    <i class="fas fa-clipboard-list me-1"></i>
+                                    Complete Cheat Sheet
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="11-bestpractices.html" class="btn btn-outline-info w-100">
+                                    <i class="fas fa-star me-1"></i>
+                                    Best Practices
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="16-security.html" class="btn btn-outline-danger w-100">
+                                    <i class="fas fa-shield-alt me-1"></i>
+                                    Security Guide
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 mb-2">
+                                <a href="08-testing.html" class="btn btn-outline-success w-100">
+                                    <i class="fas fa-vial me-1"></i>
+                                    Testing Guide
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="10-performance.html" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-bolt me-1"></i>
+                                    Performance Tips
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="15-deployment.html" class="btn btn-outline-secondary w-100">
+                                    <i class="fas fa-cloud me-1"></i>
+                                    Deployment Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Navigation (Bottom) -->
+                <div class="mt-5">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="14-datascience.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="04-oop.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fab fa-python me-2"></i>
+                Professional Python Cheat Sheet - Created with ❤️ for Python Developers
+            </p>
+            <small class="text-muted">
+                Enhanced with comprehensive English comments and modern web design
+            </small>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

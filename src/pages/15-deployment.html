@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment & DevOps (Docker, CI/CD, Cloud Deployment) - Professional Python Cheat Sheet</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-python me-2"></i>
+                Python Cheat Sheet
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-home me-1"></i>
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5 class="text-warning mb-3">
+                        <i class="fas fa-list me-2"></i>
+                        Complete Navigation
+                    </h5>
+                    
+                    <!-- Search in sidebar -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control search-box" id="sidebarSearch" 
+                               placeholder="🔍 Search sections...">
+                    </div>
+
+                    <!-- Main Sections -->
+                    <div class="accordion" id="sidebarAccordion">
+                        <!-- Getting Started -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="gettingStarted">
+                                <button class="accordion-button collapsed" type="button" id="btnGettingStarted" data-bs-toggle="collapse" data-bs-target="#collapseGettingStarted">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Getting Started
+                                </button>
+                            </h2>
+                            <div id="collapseGettingStarted" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="00-intro.html">
+                                            <i class="fas fa-play-circle me-2"></i>
+                                            00 - Python Introduction
+                                        </a>
+                                        <a class="nav-link" href="01-basics.html">
+                                            <i class="fas fa-cube me-2"></i>
+                                            01 - Variables & Data Types
+                                        </a>
+                                        <a class="nav-link" href="02-control.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            02 - Control Structures
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Programming -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="coreProgramming">
+                                <button class="accordion-button collapsed" type="button" id="btnCoreProgramming" data-bs-toggle="collapse" data-bs-target="#collapseCoreProgramming">
+                                    <i class="fas fa-code me-2"></i>
+                                    Core Programming
+                                </button>
+                            </h2>
+                            <div id="collapseCoreProgramming" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="03-functions.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            03 - Functions & Decorators
+                                        </a>
+                                        <a class="nav-link" href="04-oop.html">
+                                            <i class="fas fa-cubes me-2"></i>
+                                            04 - Classes & OOP
+                                        </a>
+                                        <a class="nav-link" href="05-libraries.html">
+                                            <i class="fas fa-boxes me-2"></i>
+                                            05 - Popular Libraries
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File & Web Development -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="fileWeb">
+                                <button class="accordion-button collapsed" type="button" id="btnFileWeb" data-bs-toggle="collapse" data-bs-target="#collapseFileWeb">
+                                    <i class="fas fa-file-code me-2"></i>
+                                    File & Web Development
+                                </button>
+                            </h2>
+                            <div id="collapseFileWeb" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="06-files.html">
+                                            <i class="fas fa-file-alt me-2"></i>
+                                            06 - File Handling
+                                        </a>
+                                        <a class="nav-link" href="07-web.html">
+                                            <i class="fas fa-globe me-2"></i>
+                                            07 - Web Development
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testing & Debugging -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="testingDebugging">
+                                <button class="accordion-button collapsed" type="button" id="btnTestingDebugging" data-bs-toggle="collapse" data-bs-target="#collapseTestingDebugging">
+                                    <i class="fas fa-bug me-2"></i>
+                                    Testing & Debugging
+                                </button>
+                            </h2>
+                            <div id="collapseTestingDebugging" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="08-testing.html">
+                                            <i class="fas fa-vial me-2"></i>
+                                            08 - Testing
+                                        </a>
+                                        <a class="nav-link" href="09-debugging.html">
+                                            <i class="fas fa-search me-2"></i>
+                                            09 - Debugging
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance & Best Practices -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="performanceBestPractices">
+                                <button class="accordion-button collapsed" type="button" id="btnPerformanceBestPractices" data-bs-toggle="collapse" data-bs-target="#collapsePerformanceBestPractices">
+                                    <i class="fas fa-tachometer-alt me-2"></i>
+                                    Performance & Best Practices
+                                </button>
+                            </h2>
+                            <div id="collapsePerformanceBestPractices" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="10-performance.html">
+                                            <i class="fas fa-bolt me-2"></i>
+                                            10 - Performance
+                                        </a>
+                                        <a class="nav-link" href="11-bestpractices.html">
+                                            <i class="fas fa-star me-2"></i>
+                                            11 - Best Practices
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Topics -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="advancedTopics">
+                                <button class="accordion-button collapsed" type="button" id="btnAdvancedTopics" data-bs-toggle="collapse" data-bs-target="#collapseAdvancedTopics">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Advanced Topics
+                                </button>
+                            </h2>
+                            <div id="collapseAdvancedTopics" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="12-advanced.html">
+                                            <i class="fas fa-magic me-2"></i>
+                                            12 - Advanced Python
+                                        </a>
+                                        <a class="nav-link" href="13-concurrency.html">
+                                            <i class="fas fa-sync-alt me-2"></i>
+                                            13 - Concurrency
+                                        </a>
+                                        <a class="nav-link" href="14-datascience.html">
+                                            <i class="fas fa-chart-bar me-2"></i>
+                                            14 - Data Science
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deployment & Security -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="deploymentSecurity">
+                                <button class="accordion-button collapsed" type="button" id="btnDeploymentSecurity" data-bs-toggle="collapse" data-bs-target="#collapseDeploymentSecurity">
+                                    <i class="fas fa-shield-alt me-2"></i>
+                                    Deployment & Security
+                                </button>
+                            </h2>
+                            <div id="collapseDeploymentSecurity" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="15-deployment.html">
+                                            <i class="fas fa-cloud me-2"></i>
+                                            15 - Deployment
+                                        </a>
+                                        <a class="nav-link" href="16-security.html">
+                                            <i class="fas fa-lock me-2"></i>
+                                            16 - Security
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Reference -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="quickReference">
+                                <button class="accordion-button collapsed" type="button" id="btnQuickReference" data-bs-toggle="collapse" data-bs-target="#collapseQuickReference">
+                                    <i class="fas fa-bookmark me-2"></i>
+                                    Quick Reference
+                                </button>
+                            </h2>
+                            <div id="collapseQuickReference" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="cheatsheet.html">
+                                            <i class="fas fa-clipboard-list me-2"></i>
+                                            Complete Cheat Sheet
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="mt-4 p-3 bg-dark rounded">
+                        <h6 class="text-warning mb-2">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Project Stats
+                        </h6>
+                        <div class="small text-muted">
+                            <div><i class="fas fa-file-code me-1"></i> 18 HTML Pages</div>
+                            <div><i class="fas fa-code me-1"></i> 16+ Python Topics</div>
+                            <div><i class="fas fa-comments me-1"></i> Detailed Comments</div>
+                            <div><i class="fas fa-mobile-alt me-1"></i> Mobile Responsive</div>
+                            <div class="text-success mt-2"><i class="fas fa-circle me-1"></i> Online !</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Page Navigation -->
+                <div class="mb-4">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="05-libraries.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="16-security.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Content Placeholder -->
+                
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-book me-2"></i>
+                            Deployment & DevOps (Docker, CI/CD, Cloud Deployment)
+                        </div>
+                        <div class="card-body">
+                            <h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Deployment & DevOps (Docker, CI/CD, Cloud Deployment)</h1>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Docker for Python Applications</h2>
+
+<h3 class="text-primary mt-3">Basic Dockerfile</h3>
+``<code>dockerfile
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Use official Python runtime as base image for consistent environment</h1>
+FROM python:3.11-slim
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Set working directory in container for application files</h1>
+WORKDIR /app
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Set environment variables for Python optimization and configuration</h1>
+ENV PYTHONDONTWRITEBYTECODE=1 \    # Prevent Python from writing .pyc files
+    PYTHONUNBUFFERED=1 \           # Force Python to run in unbuffered mode
+    PYTHONPATH=/app                # Set Python path to include application directory
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Install system dependencies required for Python packages</h1>
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        gcc \                      # C compiler for building native extensions
+        g++ \                      # C++ compiler for building native extensions
+        libpq-dev \                # PostgreSQL development libraries
+    && rm -rf /var/lib/apt/lists/* # Clean up package cache to reduce image size
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Copy requirements first for better Docker layer caching</h1>
+COPY requirements.txt .
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Install Python dependencies with no cache to reduce image size</h1>
+RUN pip install --no-cache-dir -r requirements.txt
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Copy application code to container</h1>
+COPY . .
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Create non-root user for security (follow principle of least privilege)</h1>
+RUN adduser --disabled-password --gecos '' appuser \
+    && chown -R appuser:appuser /app  # Change ownership of app directory
+USER appuser  # Switch to non-root user
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Expose port for web application</h1>
+EXPOSE 8000
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Health check to monitor application status</h1>
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1  # Check health endpoint
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Run application with Python interpreter</h1>
+CMD ["python", "app.py"]
+</code>`<code>
+
+<h3 class="text-primary mt-3">Multi-stage Dockerfile</h3>
+</code>`<code>dockerfile
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Multi-stage build for production: separate build and runtime environments</h1>
+FROM python:3.11-slim as builder  # Build stage with all build dependencies
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Set working directory for build stage</h1>
+WORKDIR /app
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Install build dependencies required for compiling Python packages</h1>
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        gcc \                      # C compiler for native extensions
+        g++ \                      # C++ compiler for native extensions
+        libpq-dev \                # PostgreSQL development libraries
+    && rm -rf /var/lib/apt/lists/* # Clean up package cache
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Copy requirements file for dependency installation</h1>
+COPY requirements.txt .
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Install dependencies in isolated virtual environment</h1>
+RUN python -m venv /opt/venv       # Create virtual environment
+ENV PATH="/opt/venv/bin:$PATH"     # Add virtual environment to PATH
+RUN pip install --no-cache-dir -r requirements.txt  # Install Python packages
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Production stage: minimal runtime image</h1>
+FROM python:3.11-slim as production  # Runtime stage without build tools
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Copy virtual environment from builder stage (contains all installed packages)</h1>
+COPY --from=builder /opt/venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"     # Set PATH to use virtual environment
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Set working directory for application</h1>
+WORKDIR /app
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Create non-root user for security</h1>
+RUN adduser --disabled-password --gecos '' appuser
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Copy application code with proper ownership</h1>
+COPY --chown=appuser:appuser . .   # Copy files and set ownership
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Switch to non-root user for security</h1>
+USER appuser
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Expose port for web application</h1>
+EXPOSE 8000
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Run application using Python from virtual environment</h1>
+CMD ["python", "app.py"]
+</code>`<code>
+
+<h3 class="text-primary mt-3">Docker Compose for Development</h3>
+</code>`<code>yaml
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>docker-compose.yml - Multi-service application orchestration</h1>
+version: '3.8'  # Docker Compose file format version<p>services:
+  web:  # Main Python web application service
+    build: .                    # Build from local Dockerfile
+    ports:
+      - "8000:8000"            # Map host port 8000 to container port 8000
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/myapp  # Database connection string
+      - REDIS_URL=redis://redis:6379/0                         # Redis connection string
+      - DEBUG=True                                             # Enable debug mode for development
+    volumes:
+      - .:/app                 # Mount current directory for live code reloading
+      - /app/__pycache__       # Exclude Python cache from volume mount
+    depends_on:
+      - db                     # Ensure database starts before web service
+      - redis                  # Ensure Redis starts before web service
+    command: python app.py     # Override default command for development
+    restart: unless-stopped    # Restart policy for service recovery</p>  db:  # PostgreSQL database service
+    image: postgres:15         # Use official PostgreSQL 15 image
+    environment:
+      - POSTGRES_DB=myapp      # Database name
+      - POSTGRES_USER=user     # Database user
+      - POSTGRES_PASSWORD=password  # Database password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persist database data
+    ports:
+      - "5432:5432"            # Expose PostgreSQL port for external access
+    restart: unless-stopped    # Restart policy for database service<p>  redis:  # Redis cache service
+    image: redis:7-alpine      # Use lightweight Alpine-based Redis image
+    ports:
+      - "6379:6379"            # Expose Redis port for external access
+    volumes:
+      - redis_data:/data       # Persist Redis data
+    restart: unless-stopped    # Restart policy for Redis service</p>  nginx:  # Reverse proxy and load balancer
+    image: nginx:alpine        # Use lightweight Alpine-based Nginx image
+    ports:
+      - "80:80"                # HTTP port
+      - "443:443"              # HTTPS port
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf  # Mount custom Nginx configuration
+      - ./ssl:/etc/nginx/ssl                # Mount SSL certificates
+    depends_on:
+      - web                    # Ensure web service starts before Nginx
+    restart: unless-stopped    # Restart policy for Nginx service<p>volumes:  # Named volumes for data persistence
+  postgres_data:               # Volume for PostgreSQL data persistence
+  redis_data:                  # Volume for Redis data persistence
+</code>`<code></p><h3 class="text-primary mt-3">Docker Best Practices</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>requirements.txt - Production dependencies with version pinning</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Production dependencies: core application requirements</h1>
+Flask==2.3.3          # Web framework for Python applications
+gunicorn==21.2.0      # WSGI HTTP server for production deployment
+psycopg2-binary==2.9.7  # PostgreSQL adapter for Python
+redis==4.6.0          # Redis client for caching and message queuing
+celery==5.3.1         # Distributed task queue for background jobs
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Development dependencies (optional): tools for development and testing</h1>
+pytest==7.4.0         # Testing framework for Python
+black==23.7.0         # Code formatter for consistent code style
+flake8==6.0.0         # Linter for code quality and style checking
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>.dockerignore - Files to exclude from Docker build context</h1>
+__pycache__           # Python bytecode cache directories
+*.pyc                 # Compiled Python files
+*.pyo                 # Optimized Python files
+*.pyd                 # Python extension modules
+.Python               # Python executable
+env                   # Virtual environment directories
+pip-log.txt           # Pip installation logs
+pip-delete-this-directory.txt  # Pip temporary files
+.tox                  # Tox testing environment
+.coverage             # Coverage reports
+.coverage.*           # Coverage report variants
+.cache                # Cache directories
+nosetests.xml         # Nose test results
+coverage.xml          # Coverage XML reports
+*.cover               # Coverage files
+*.log                 # Log files
+.git                  # Git repository
+.mypy_cache           # MyPy type checker cache
+.pytest_cache         # Pytest cache
+.hypothesis           # Hypothesis testing cache
+.DS_Store             # macOS system files
+.env                  # Environment variables
+.venv                 # Virtual environment
+venv/                 # Virtual environment
+ENV/                  # Virtual environment
+env/                  # Virtual environment
+.idea/                # PyCharm IDE files
+.vscode/              # VS Code IDE files
+*.swp                 # Vim swap files
+*.swo                 # Vim swap files
+*~                    # Backup files
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Docker health check script</h1>
+#!/bin/bash
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>healthcheck.sh - Health check for Docker containers</h1>
+curl -f http://localhost:8000/health || exit 1  # Check application health endpoint</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>CI/CD with GitHub Actions</h2>
+
+<h3 class="text-primary mt-3">Basic Python CI/CD Pipeline</h3>
+</code>`<code>yaml
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>.github/workflows/ci-cd.yml - Continuous Integration and Deployment pipeline</h1>
+name: CI/CD Pipeline<p>on:
+  push:
+    branches: [ main, develop ]  # Trigger on pushes to main and develop branches
+  pull_request:
+    branches: [ main ]           # Trigger on pull requests to main branch</p>jobs:
+  test:  # Testing job with matrix strategy for multiple Python versions
+    runs-on: ubuntu-latest       # Use latest Ubuntu runner
+    strategy:
+      matrix:
+        python-version: [3.9, 3.10, 3.11]  # Test against multiple Python versions<p>    steps:
+    - uses: actions/checkout@v4   # Check out repository code
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4  # Install specified Python version
+      with:
+        python-version: ${{ matrix.python-version }}  # Use matrix variable
+    
+    - name: Cache pip dependencies
+      uses: actions/cache@v3      # Cache pip dependencies for faster builds
+      with:
+        path: ~/.cache/pip        # Cache pip cache directory
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}  # Cache key based on requirements
+        restore-keys: |
+          ${{ runner.os }}-pip-   # Fallback cache key
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip  # Upgrade pip to latest version
+        pip install -r requirements.txt      # Install production dependencies
+        pip install -r requirements-dev.txt  # Install development dependencies
+    
+    - name: Run linting
+      run: |
+        flake8 .                  # Run code linting with flake8
+        black --check .           # Check code formatting with black
+        isort --check-only .      # Check import sorting with isort
+    
+    - name: Run type checking
+      run: |
+        mypy .                    # Run static type checking with mypy
+    
+    - name: Run tests
+      run: |
+        pytest --cov=app --cov-report=xml  # Run tests with coverage reporting
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3  # Upload coverage reports to Codecov
+      with:
+        file: ./coverage.xml       # Coverage report file
+        flags: unittests           # Coverage flags for categorization
+        name: codecov-umbrella     # Coverage report name</p>  security:  # Security scanning job
+    runs-on: ubuntu-latest        # Use latest Ubuntu runner
+    steps:
+    - uses: actions/checkout@v4   # Check out repository code
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4  # Install Python 3.11
+      with:
+        python-version: 3.11      # Use Python 3.11 for security checks
+    
+    - name: Run security checks
+      run: |
+        pip install bandit safety  # Install security scanning tools
+        bandit -r app/            # Run security linting on application code
+        safety check              # Check for known security vulnerabilities<p>  build-and-push:  # Docker build and push job
+    needs: [test, security]       # Wait for test and security jobs to complete
+    runs-on: ubuntu-latest        # Use latest Ubuntu runner
+    if: github.ref == 'refs/heads/main'  # Only run on main branch
+    
+    steps:
+    - uses: actions/checkout@v4   # Check out repository code
+    
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3  # Set up Docker Buildx for multi-platform builds
+    
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3  # Authenticate with Docker Hub
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}  # Docker Hub username from secrets
+        password: ${{ secrets.DOCKER_PASSWORD }}  # Docker Hub password from secrets
+    
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5  # Build and push Docker image
+      with:
+        context: .                # Build context (current directory)
+        push: true                # Push image to registry
+        tags: |
+          myapp:latest           # Image tags for registry
+</code>`<code>
+          myapp:${{ github.sha }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max</p>  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Deploy to production
+      run: |
+        echo "Deploying to production..."
+        # Add your deployment commands here
+</code>`<code>
+
+<h3 class="text-primary mt-3">Advanced CI/CD with Multiple Environments</h3>
+</code>`<code>yaml
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>.github/workflows/advanced-ci-cd.yml - Advanced CI/CD with multiple environments</h1>
+name: Advanced CI/CD<p>on:
+  push:
+    branches: [ main, develop, staging ]  # Trigger on pushes to multiple branches
+  pull_request:
+    branches: [ main ]                    # Trigger on pull requests to main branch</p>env:
+  REGISTRY: ghcr.io                      # GitHub Container Registry
+  IMAGE_NAME: ${{ github.repository }}   # Image name based on repository<p>jobs:
+  test:  # Comprehensive testing job with matrix strategy
+    runs-on: ubuntu-latest               # Use latest Ubuntu runner
+    strategy:
+      matrix:
+        python-version: [3.9, 3.10, 3.11]  # Test against multiple Python versions
+        os: [ubuntu-latest, windows-latest] # Test against multiple operating systems</p>    steps:
+    - uses: actions/checkout@v4           # Check out repository code
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4      # Install specified Python version
+      with:
+        python-version: ${{ matrix.python-version }}  # Use matrix variable
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip  # Upgrade pip to latest version
+        pip install -r requirements.txt      # Install production dependencies
+        pip install -r requirements-dev.txt  # Install development dependencies
+    
+    - name: Run tests with coverage
+      run: |
+        pytest --cov=app --cov-report=xml --cov-report=html  # Run tests with multiple coverage formats
+    
+    - name: Upload coverage reports
+      uses: codecov/codecov-action@v3    # Upload coverage reports to Codecov
+      with:
+        file: ./coverage.xml             # XML coverage report
+        directory: ./htmlcov             # HTML coverage report directory
+        flags: unittests                 # Coverage flags for categorization
+        name: codecov-umbrella           # Coverage report name<p>  integration-tests:  # Integration testing with database services
+    runs-on: ubuntu-latest              # Use latest Ubuntu runner
+    needs: test                         # Wait for test job to complete
+    services:
+      postgres:  # PostgreSQL service for integration tests
+        image: postgres:15              # Use PostgreSQL 15
+        env:
+          POSTGRES_PASSWORD: postgres   # Database password
+          POSTGRES_DB: test_db          # Test database name
+        options: >-                     # Health check configuration
+          --health-cmd pg_isready       # Health check command
+          --health-interval 10s         # Health check interval
+          --health-timeout 5s           # Health check timeout
+          --health-retries 5            # Health check retries
+        ports:
+          - 5432:5432                   # Expose PostgreSQL port
+</code>`<code>
+      
+      redis:
+        image: redis:7
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379</p>    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install -r requirements-test.txt
+    
+    - name: Run integration tests
+      env:
+        DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_db
+        REDIS_URL: redis://localhost:6379/0
+      run: |
+        pytest tests/integration/ -v<p>  build:
+    runs-on: ubuntu-latest
+    needs: [test, integration-tests]
+    outputs:
+      image-tag: ${{ steps.meta.outputs.tags }}
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+    
+    - name: Docker meta
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        tags: |
+          type=ref,event=branch
+          type=ref,event=pr
+          type=semver,pattern={{version}}
+          type=semver,pattern={{major}}.{{minor}}
+          type=sha
+    
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        platforms: linux/amd64,linux/arm64
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max</p>  deploy-staging:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/develop'
+    environment: staging
+    
+    steps:
+    - name: Deploy to staging
+      run: |
+        echo "Deploying to staging environment..."
+        # Add staging deployment commands<p>  deploy-production:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    
+    steps:
+    - name: Deploy to production
+      run: |
+        echo "Deploying to production environment..."
+        # Add production deployment commands
+</code>`<code></p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Cloud Deployment</h2>
+
+<h3 class="text-primary mt-3">AWS Lambda Deployment</h3>
+</code>`<code>yaml
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>serverless.yml for AWS Lambda</h1>
+service: my-python-app<p>provider:
+  name: aws
+  runtime: python3.11
+  region: us-east-1
+  environment:
+    STAGE: ${opt:stage, 'dev'}
+    DATABASE_URL: ${ssm:/myapp/${opt:stage, 'dev'}/database-url}
+    REDIS_URL: ${ssm:/myapp/${opt:stage, 'dev'}/redis-url}</p>functions:
+  api:
+    handler: handler.api
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
+    environment:
+      POWERTOOLS_SERVICE_NAME: myapp
+      LOG_LEVEL: INFO
+    memorySize: 512
+    timeout: 30<p>  scheduled-task:
+    handler: handler.scheduled_task
+    events:
+      - schedule: rate(1 hour)
+    environment:
+      POWERTOOLS_SERVICE_NAME: myapp-scheduler
+    memorySize: 256
+    timeout: 60</p>plugins:
+  - serverless-python-requirements
+  - serverless-offline<p>custom:
+  pythonRequirements:
+    dockerizePip: true
+    layer:
+      name: python-deps
+      description: Python dependencies for myapp
+    noDeploy:
+      - coverage
+      - pytest
+      - black
+      - flake8
+</code>`<code></p><h3 class="text-primary mt-3">Google Cloud Run Deployment</h3>
+</code>`<code>yaml
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>cloudbuild.yaml for Google Cloud Run</h1>
+steps:
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/myapp:$COMMIT_SHA', '.']
+  
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/myapp:$COMMIT_SHA']
+  
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'myapp'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/myapp:$COMMIT_SHA'
+      - '--region'
+      - 'us-central1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--set-env-vars'
+      - 'DATABASE_URL=${_DATABASE_URL}'
+      - '--memory'
+      - '512Mi'
+      - '--cpu'
+      - '1'
+      - '--max-instances'
+      - '10'<p>images:
+  - 'gcr.io/$PROJECT_ID/myapp:$COMMIT_SHA'</p>substitutions:
+  _DATABASE_URL: 'postgresql://user:pass@host:5432/db'
+</code>`<code>
+
+<h3 class="text-primary mt-3">Heroku Deployment</h3>
+</code>`<code>toml
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Procfile for Heroku</h1>
+web: gunicorn app:app --bind 0.0.0.0:$PORT --workers 4 --worker-class gevent
+worker: celery -A app.celery worker --loglevel=info
+beat: celery -A app.celery beat --loglevel=info
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>runtime.txt</h1>
+python-3.11.5
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>app.json for Heroku</h1>
+{
+  "name": "My Python App",
+  "description": "A Python web application",
+  "repository": "https://github.com/username/myapp",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["python", "flask", "web"],
+  "env": {
+    "DATABASE_URL": {
+      "description": "PostgreSQL database URL",
+      "generator": "secret"
+    },
+    "SECRET_KEY": {
+      "description": "Secret key for the application",
+      "generator": "secret"
+    }
+  },
+  "addons": [
+    "heroku-postgresql:mini",
+    "heroku-redis:mini"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
+</code>``
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Production Best Practices</h2>
+
+<h3 class="text-primary mt-3">Application Configuration</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>config.py</h1>
+import os
+from dataclasses import dataclass
+from typing import Optional<p>@dataclass
+class Config:
+    """Application configuration."""
+    
+    # Database
+    DATABASE_URL: str = os.getenv('DATABASE_URL', 'sqlite:///app.db')
+    
+    # Redis
+    REDIS_URL: str = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
+    
+    # Security
+    SECRET_KEY: str = os.getenv('SECRET_KEY', 'dev-secret-key')
+    DEBUG: bool = os.getenv('DEBUG', 'False').lower() == 'true'
+    
+    # Logging
+    LOG_LEVEL: str = os.getenv('LOG_LEVEL', 'INFO')
+    LOG_FORMAT: str = os.getenv('LOG_FORMAT', 'json')
+    
+    # Application
+    HOST: str = os.getenv('HOST', '0.0.0.0')
+    PORT: int = int(os.getenv('PORT', '8000'))
+    WORKERS: int = int(os.getenv('WORKERS', '4'))
+    
+    # External services
+    API_KEY: Optional[str] = os.getenv('API_KEY')
+    WEBHOOK_URL: Optional[str] = os.getenv('WEBHOOK_URL')</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Environment-specific configurations</h1>
+class DevelopmentConfig(Config):
+    DEBUG = True
+    LOG_LEVEL = 'DEBUG'<p>class ProductionConfig(Config):
+    DEBUG = False
+    LOG_LEVEL = 'WARNING'</p>class TestingConfig(Config):
+    DATABASE_URL = 'sqlite:///:memory:'
+    TESTING = True
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Configuration factory</h1>
+def get_config(env: str = None) -> Config:
+    """Get configuration based on environment."""
+    if env is None:
+        env = os.getenv('FLASK_ENV', 'development')
+    
+    configs = {
+        'development': DevelopmentConfig,
+        'production': ProductionConfig,
+        'testing': TestingConfig
+    }
+    
+    return configs.get(env, DevelopmentConfig)()</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Production WSGI Application</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>app.py</h1>
+import logging
+from flask import Flask
+from gunicorn.app.base import BaseApplication
+from gunicorn.six import iteritems
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Configure logging</h1>
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)<p>def create_app(config=None):
+    """Application factory."""
+    app = Flask(__name__)
+    
+    if config:
+        app.config.from_object(config)
+    
+    # Register blueprints
+    from .routes import api_bp
+    app.register_blueprint(api_bp, url_prefix='/api')
+    
+    # Health check endpoint
+    @app.route('/health')
+    def health_check():
+        return {'status': 'healthy'}, 200
+    
+    return app</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Gunicorn application class</h1>
+class StandaloneApplication(BaseApplication):
+    def __init__(self, app, options=None):
+        self.options = options or {}
+        self.application = app
+        super(StandaloneApplication, self).__init__()<p>    def load_config(self):
+        config = dict([(key, value) for key, value in iteritems(self.options)
+                      if key in self.cfg.settings and value is not None])
+        for key, value in iteritems(config):
+            self.cfg.set(key.lower(), value)</p>    def load(self):
+        return self.application<p>if __name__ == '__main__':
+    from config import get_config
+    
+    config = get_config()
+    app = create_app(config)
+    
+    options = {
+        'bind': f'{config.HOST}:{config.PORT}',
+        'workers': config.WORKERS,
+        'worker_class': 'gevent',
+        'worker_connections': 1000,
+        'max_requests': 1000,
+        'max_requests_jitter': 100,
+        'timeout': 30,
+        'keepalive': 2,
+        'preload_app': True,
+        'access_log_format': '%(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s" %(D)s',
+    }
+    
+    StandaloneApplication(app, options).run()</code></pre>
+</div></p><h3 class="text-primary mt-3">Monitoring and Observability</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>monitoring.py</h1>
+import logging
+import time
+from functools import wraps
+from prometheus_client import Counter, Histogram, Gauge
+from opentelemetry import trace
+from opentelemetry.exporter.jaeger.thrift import JaegerExporter
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Prometheus metrics</h1>
+REQUEST_COUNT = Counter('http_requests_total', 'Total HTTP requests', ['method', 'endpoint', 'status'])
+REQUEST_DURATION = Histogram('http_request_duration_seconds', 'HTTP request duration')
+ACTIVE_REQUESTS = Gauge('http_requests_active', 'Active HTTP requests')
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>OpenTelemetry setup</h1>
+def setup_tracing():
+    """Setup OpenTelemetry tracing."""
+    trace.set_tracer_provider(TracerProvider())
+    jaeger_exporter = JaegerExporter(
+        agent_host_name="localhost",
+        agent_port=6831,
+    )
+    span_processor = BatchSpanProcessor(jaeger_exporter)
+    trace.get_tracer_provider().add_span_processor(span_processor)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Decorators for monitoring</h1>
+def monitor_request(func):
+    """Decorator to monitor HTTP requests."""
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        ACTIVE_REQUESTS.inc()
+        
+        try:
+            result = func(*args, <strong>kwargs)
+            REQUEST_COUNT.labels(
+                method='GET',  # Adjust based on your framework
+                endpoint=func.__name__,
+                status=200
+            ).inc()
+            return result
+        except Exception as e:
+            REQUEST_COUNT.labels(
+                method='GET',
+                endpoint=func.__name__,
+                status=500
+            ).inc()
+            raise
+        finally:
+            duration = time.time() - start_time
+            REQUEST_DURATION.observe(duration)
+            ACTIVE_REQUESTS.dec()
+    
+    return wrapper
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Structured logging</h1>
+class StructuredLogger:
+    """Structured logging for production."""
+    
+    def __init__(self, name: str):
+        self.logger = logging.getLogger(name)
+        self.logger.setLevel(logging.INFO)
+        
+        # JSON formatter for production
+        if os.getenv('LOG_FORMAT') == 'json':
+            import json_logging
+            handler = logging.StreamHandler()
+            handler.setFormatter(json_logging.JSONRequestLogFormatter())
+            self.logger.addHandler(handler)
+    
+    def info(self, message: str, </strong>kwargs):
+        self.logger.info(message, extra=kwargs)
+    
+    def error(self, message: str, <strong>kwargs):
+        self.logger.error(message, extra=kwargs)
+    
+    def warning(self, message: str, </strong>kwargs):
+        self.logger.warning(message, extra=kwargs)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+logger = StructuredLogger(__name__)</code></pre>
+</div><p>---</p><a href="14-datascience.md" target="_blank" class="text-warning">Previous Chapter</a> | <a href="16-security.md" target="_blank" class="text-warning">Next Chapter</a>
+
+                        </div>
+                    </div>
+
+
+                <!-- Quick Access -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <i class="fas fa-bolt me-2"></i>
+                        Quick Access
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <a href="cheatsheet.html" class="btn btn-outline-warning w-100">
+                                    <i class="fas fa-clipboard-list me-1"></i>
+                                    Complete Cheat Sheet
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="11-bestpractices.html" class="btn btn-outline-info w-100">
+                                    <i class="fas fa-star me-1"></i>
+                                    Best Practices
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="16-security.html" class="btn btn-outline-danger w-100">
+                                    <i class="fas fa-shield-alt me-1"></i>
+                                    Security Guide
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 mb-2">
+                                <a href="08-testing.html" class="btn btn-outline-success w-100">
+                                    <i class="fas fa-vial me-1"></i>
+                                    Testing Guide
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="10-performance.html" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-bolt me-1"></i>
+                                    Performance Tips
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="15-deployment.html" class="btn btn-outline-secondary w-100">
+                                    <i class="fas fa-cloud me-1"></i>
+                                    Deployment Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Navigation (Bottom) -->
+                <div class="mt-5">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="05-libraries.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="16-security.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fab fa-python me-2"></i>
+                Professional Python Cheat Sheet - Created with ❤️ for Python Developers
+            </p>
+            <small class="text-muted">
+                Enhanced with comprehensive English comments and modern web design
+            </small>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

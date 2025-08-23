@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development (Flask / FastAPI & API Best Practices) - Professional Python Cheat Sheet</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-python me-2"></i>
+                Python Cheat Sheet
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-home me-1"></i>
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5 class="text-warning mb-3">
+                        <i class="fas fa-list me-2"></i>
+                        Complete Navigation
+                    </h5>
+                    
+                    <!-- Search in sidebar -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control search-box" id="sidebarSearch" 
+                               placeholder="🔍 Search sections...">
+                    </div>
+
+                    <!-- Main Sections -->
+                    <div class="accordion" id="sidebarAccordion">
+                        <!-- Getting Started -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="gettingStarted">
+                                <button class="accordion-button collapsed" type="button" id="btnGettingStarted" data-bs-toggle="collapse" data-bs-target="#collapseGettingStarted">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Getting Started
+                                </button>
+                            </h2>
+                            <div id="collapseGettingStarted" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="00-intro.html">
+                                            <i class="fas fa-play-circle me-2"></i>
+                                            00 - Python Introduction
+                                        </a>
+                                        <a class="nav-link" href="01-basics.html">
+                                            <i class="fas fa-cube me-2"></i>
+                                            01 - Variables & Data Types
+                                        </a>
+                                        <a class="nav-link" href="02-control.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            02 - Control Structures
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Programming -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="coreProgramming">
+                                <button class="accordion-button collapsed" type="button" id="btnCoreProgramming" data-bs-toggle="collapse" data-bs-target="#collapseCoreProgramming">
+                                    <i class="fas fa-code me-2"></i>
+                                    Core Programming
+                                </button>
+                            </h2>
+                            <div id="collapseCoreProgramming" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="03-functions.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            03 - Functions & Decorators
+                                        </a>
+                                        <a class="nav-link" href="04-oop.html">
+                                            <i class="fas fa-cubes me-2"></i>
+                                            04 - Classes & OOP
+                                        </a>
+                                        <a class="nav-link" href="05-libraries.html">
+                                            <i class="fas fa-boxes me-2"></i>
+                                            05 - Popular Libraries
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File & Web Development -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="fileWeb">
+                                <button class="accordion-button collapsed" type="button" id="btnFileWeb" data-bs-toggle="collapse" data-bs-target="#collapseFileWeb">
+                                    <i class="fas fa-file-code me-2"></i>
+                                    File & Web Development
+                                </button>
+                            </h2>
+                            <div id="collapseFileWeb" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="06-files.html">
+                                            <i class="fas fa-file-alt me-2"></i>
+                                            06 - File Handling
+                                        </a>
+                                        <a class="nav-link" href="07-web.html">
+                                            <i class="fas fa-globe me-2"></i>
+                                            07 - Web Development
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testing & Debugging -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="testingDebugging">
+                                <button class="accordion-button collapsed" type="button" id="btnTestingDebugging" data-bs-toggle="collapse" data-bs-target="#collapseTestingDebugging">
+                                    <i class="fas fa-bug me-2"></i>
+                                    Testing & Debugging
+                                </button>
+                            </h2>
+                            <div id="collapseTestingDebugging" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="08-testing.html">
+                                            <i class="fas fa-vial me-2"></i>
+                                            08 - Testing
+                                        </a>
+                                        <a class="nav-link" href="09-debugging.html">
+                                            <i class="fas fa-search me-2"></i>
+                                            09 - Debugging
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance & Best Practices -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="performanceBestPractices">
+                                <button class="accordion-button collapsed" type="button" id="btnPerformanceBestPractices" data-bs-toggle="collapse" data-bs-target="#collapsePerformanceBestPractices">
+                                    <i class="fas fa-tachometer-alt me-2"></i>
+                                    Performance & Best Practices
+                                </button>
+                            </h2>
+                            <div id="collapsePerformanceBestPractices" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="10-performance.html">
+                                            <i class="fas fa-bolt me-2"></i>
+                                            10 - Performance
+                                        </a>
+                                        <a class="nav-link" href="11-bestpractices.html">
+                                            <i class="fas fa-star me-2"></i>
+                                            11 - Best Practices
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Topics -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="advancedTopics">
+                                <button class="accordion-button collapsed" type="button" id="btnAdvancedTopics" data-bs-toggle="collapse" data-bs-target="#collapseAdvancedTopics">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Advanced Topics
+                                </button>
+                            </h2>
+                            <div id="collapseAdvancedTopics" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="12-advanced.html">
+                                            <i class="fas fa-magic me-2"></i>
+                                            12 - Advanced Python
+                                        </a>
+                                        <a class="nav-link" href="13-concurrency.html">
+                                            <i class="fas fa-sync-alt me-2"></i>
+                                            13 - Concurrency
+                                        </a>
+                                        <a class="nav-link" href="14-datascience.html">
+                                            <i class="fas fa-chart-bar me-2"></i>
+                                            14 - Data Science
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deployment & Security -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="deploymentSecurity">
+                                <button class="accordion-button collapsed" type="button" id="btnDeploymentSecurity" data-bs-toggle="collapse" data-bs-target="#collapseDeploymentSecurity">
+                                    <i class="fas fa-shield-alt me-2"></i>
+                                    Deployment & Security
+                                </button>
+                            </h2>
+                            <div id="collapseDeploymentSecurity" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="15-deployment.html">
+                                            <i class="fas fa-cloud me-2"></i>
+                                            15 - Deployment
+                                        </a>
+                                        <a class="nav-link" href="16-security.html">
+                                            <i class="fas fa-lock me-2"></i>
+                                            16 - Security
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Reference -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="quickReference">
+                                <button class="accordion-button collapsed" type="button" id="btnQuickReference" data-bs-toggle="collapse" data-bs-target="#collapseQuickReference">
+                                    <i class="fas fa-bookmark me-2"></i>
+                                    Quick Reference
+                                </button>
+                            </h2>
+                            <div id="collapseQuickReference" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="cheatsheet.html">
+                                            <i class="fas fa-clipboard-list me-2"></i>
+                                            Complete Cheat Sheet
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="mt-4 p-3 bg-dark rounded">
+                        <h6 class="text-warning mb-2">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Project Stats
+                        </h6>
+                        <div class="small text-muted">
+                            <div><i class="fas fa-file-code me-1"></i> 18 HTML Pages</div>
+                            <div><i class="fas fa-code me-1"></i> 16+ Python Topics</div>
+                            <div><i class="fas fa-comments me-1"></i> Detailed Comments</div>
+                            <div><i class="fas fa-mobile-alt me-1"></i> Mobile Responsive</div>
+                            <div class="text-success mt-2"><i class="fas fa-circle me-1"></i> Online !</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Page Navigation -->
+                <div class="mb-4">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="06-files.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="00-intro.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Content Placeholder -->
+                
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-book me-2"></i>
+                            Web Development (Flask / FastAPI & API Best Practices)
+                        </div>
+                        <div class="card-body">
+                            <h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Web Development (Flask / FastAPI & API Best Practices)</h1>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Flask</h2>
+
+<h3 class="text-primary mt-3">Installation</h3>
+``<code>bash
+pip install flask
+</code>`<code>
+
+<h3 class="text-primary mt-3">Basic Flask App</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Basic Flask application with multiple routes and HTTP methods</h1>
+from flask import Flask, request, jsonify  # Import Flask core components for web development<p>app = Flask(__name__)  # Create Flask application instance with current module name</p>@app.route('/')  # Route decorator: maps URL path to function (root endpoint)
+def hello():
+    return 'Hello, World!'  # Return simple text response for root URL<p>@app.route('/api/users', methods=['GET'])  # Route with specific HTTP method (GET only)
+def get_users():
+    # Mock data: in real app, this would come from database
+    users = [
+        {'id': 1, 'name': 'Alice'},  # User object with id and name fields
+        {'id': 2, 'name': 'Bob'}     # Second user object in the list
+    ]
+    return jsonify(users)  # Convert Python dict to JSON response with proper headers</p>@app.route('/api/users/<int:user_id>', methods=['GET'])  # Route with URL parameter (converted to integer)
+def get_user(user_id):
+    # Simulate database lookup using the user_id parameter from URL
+    user = {'id': user_id, 'name': f'User {user_id}'}  # Create user object dynamically based on ID
+    return jsonify(user)  # Return JSON response with user data<p>if __name__ == '__main__':  # Standard Python idiom for script execution (only run if file is executed directly)
+    app.run(debug=True)     # Start Flask development server with debug mode enabled</code></pre>
+</div></p><h3 class="text-primary mt-3">Request Handling</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Flask request handling: processing different HTTP methods and request data</h1>
+from flask import Flask, request, jsonify  # Import Flask components for request handling<p>app = Flask(__name__)  # Create Flask application instance</p>@app.route('/api/users', methods=['POST'])  # Route for creating new users (POST method)
+def create_user():
+    data = request.get_json()  # Parse JSON data from request body into Python dict
+    
+    # Input validation: check if required data is present in request
+    if not data or 'name' not in data:
+        return jsonify({'error': 'Name is required'}), 400  # Return error response with 400 Bad Request status
+    
+    # Process user creation: build user object from validated request data
+    user = {
+        'id': 123,                    # Mock user ID (in real app, generate unique ID from database)
+        'name': data['name'],         # Required field from request (validated above)
+        'email': data.get('email', '') # Optional field with default empty string if not provided
+    }
+    
+    return jsonify(user), 201  # Return created user with 201 Created status code<p>@app.route('/api/users/<int:user_id>', methods=['PUT'])  # Route for updating existing users (PUT method)
+def update_user(user_id):
+    data = request.get_json()  # Parse JSON data from request body into Python dict
+    
+    # Update user logic: create updated user object with provided data
+    user = {
+        'id': user_id,                # Use provided user ID from URL parameter
+        'name': data.get('name', ''), # Update name if provided, otherwise keep empty string
+        'email': data.get('email', '') # Update email if provided, otherwise keep empty string
+    }
+    
+    return jsonify(user)  # Return updated user object as JSON response</p>@app.route('/api/users/<int:user_id>', methods=['DELETE'])  # Route for deleting users (DELETE method)
+def delete_user(user_id):
+    # Delete user logic: in real app, remove user from database using user_id
+    return '', 204  # Return empty response with 204 No Content status (successful deletion)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Templates and Static Files</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from flask import Flask, render_template, url_for  # Import Flask components for template rendering<p>app = Flask(__name__)  # Create Flask application instance</p>@app.route('/')  # Route for homepage
+def index():
+    users = [
+        {'name': 'Alice', 'email': 'alice@example.com'},  # User data for template rendering
+        {'name': 'Bob', 'email': 'bob@example.com'}       # Second user data
+    ]
+    return render_template('index.html', users=users)  # Render HTML template with user data<p>@app.route('/user/<name>')  # Route with dynamic parameter for user profiles
+def user_profile(name):
+    return render_template('user.html', name=name)  # Render user profile template with name parameter</code></pre>
+</div></p><h3 class="text-primary mt-3">Flask Configuration</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from flask import Flask  # Import Flask for web application framework
+import os  # Import os for environment variable access<p>app = Flask(__name__)  # Create Flask application instance</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Configuration: set application settings from environment variables</h1>
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-key')  # Secret key for sessions (use env var or default)
+app.config['DATABASE_URL'] = os.environ.get('DATABASE_URL')  # Database connection string from environment
+app.config['DEBUG'] = os.environ.get('FLASK_ENV') == 'development'  # Enable debug mode in development
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Alternative configuration class: organized configuration management</h1>
+class Config:
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard-to-guess-string'  # Secret key with fallback
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')  # Database URI for SQLAlchemy
+    SQLALCHEMY_TRACK_MODIFICATIONS = False  # Disable SQLAlchemy modification tracking for performance<p>class DevelopmentConfig(Config):
+    DEBUG = True  # Enable debug mode for development environment</p>class ProductionConfig(Config):
+    DEBUG = False  # Disable debug mode for production security
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Using configuration: apply configuration class to Flask app</h1>
+app.config.from_object(DevelopmentConfig)  # Load development configuration settings</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>FastAPI</h2>
+
+<h3 class="text-primary mt-3">Installation</h3>
+</code>`<code>bash
+pip install fastapi uvicorn
+</code>``
+
+<h3 class="text-primary mt-3">Basic FastAPI App</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from fastapi import FastAPI, HTTPException  # Import FastAPI framework and exception handling
+from pydantic import BaseModel  # Import Pydantic for data validation and serialization
+from typing import List, Optional  # Import type hints for better code documentation<p>app = FastAPI(title="My API", version="1.0.0")  # Create FastAPI application with metadata</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Pydantic models: define data structures with automatic validation</h1>
+class User(BaseModel):
+    id: Optional[int] = None  # Optional user ID (None for new users)
+    name: str  # Required user name (string)
+    email: str  # Required user email (string)
+    age: Optional[int] = None  # Optional user age (integer or None)<p>class UserCreate(BaseModel):
+    name: str  # Required user name for creation
+    email: str  # Required user email for creation
+    age: Optional[int] = None  # Optional user age for creation</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Sample data: in-memory storage for demonstration (use database in production)</h1>
+users = [
+    User(id=1, name="Alice", email="alice@example.com", age=30),  # First user
+    User(id=2, name="Bob", email="bob@example.com", age=25)       # Second user
+]<p>@app.get("/")  # Root endpoint (GET method)
+def read_root():
+    return {"message": "Hello World"}  # Return simple JSON response</p>@app.get("/users", response_model=List[User])  # Get all users endpoint
+def get_users():
+    return users  # Return list of all users (automatically serialized to JSON)<p>@app.get("/users/{user_id}", response_model=User)  # Get specific user endpoint with path parameter
+def get_user(user_id: int):  # Path parameter automatically converted to integer
+    for user in users:  # Search through users list
+        if user.id == user_id:  # Check if user ID matches
+            return user  # Return found user (automatically serialized)
+    raise HTTPException(status_code=404, detail="User not found")  # Raise 404 if user not found</p>@app.post("/users", response_model=User, status_code=201)  # Create user endpoint (POST method)
+def create_user(user: UserCreate):  # Request body automatically validated against UserCreate model
+    new_user = User(  # Create new User instance
+        id=len(users) + 1,  # Generate new ID (simple increment)
+        name=user.name,     # Copy name from request
+        email=user.email,   # Copy email from request
+        age=user.age        # Copy age from request (can be None)
+    )
+    users.append(new_user)  # Add new user to storage
+    return new_user  # Return created user (automatically serialized with 201 status)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">FastAPI with Dependencies</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from fastapi import FastAPI, Depends, HTTPException, status  # Import FastAPI components for dependency injection
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials  # Import security components for authentication
+from typing import Optional  # Import type hints<p>app = FastAPI()  # Create FastAPI application instance
+security = HTTPBearer()  # Create HTTP Bearer token security scheme</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Dependency for authentication: validate JWT tokens and extract user information</h1>
+def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(security)):  # Dependency injection for auth
+    token = credentials.credentials  # Extract token from Authorization header
+    # Validate token logic here  # Placeholder for JWT validation logic
+    if token != "valid-token":  # Simple token validation (use proper JWT validation in production)
+        raise HTTPException(  # Raise HTTP exception for invalid authentication
+            status_code=status.HTTP_401_UNAUTHORIZED,  # 401 Unauthorized status code
+            detail="Invalid authentication credentials"  # Error message for client
+        )
+    return {"user_id": 123, "username": "alice"}  # Return user information if token is valid<p>@app.get("/protected")  # Protected endpoint requiring authentication
+def protected_route(current_user = Depends(get_current_user)):  # Inject current user from dependency
+    return {"message": "This is protected", "user": current_user}  # Return protected data with user info</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Database dependency: manage database connections with proper cleanup</h1>
+def get_db():  # Database connection dependency
+    # Database connection logic  # Placeholder for database connection setup
+    db = "database_connection"  # Mock database connection object
+    try:
+        yield db  # Provide database connection to endpoint
+    finally:
+        # Close database connection  # Cleanup code that always runs
+        pass  # Placeholder for connection cleanup<p>@app.get("/users")  # Endpoint that uses database dependency
+def get_users(db = Depends(get_db)):  # Inject database connection from dependency
+    # Use database connection  # Placeholder for database query logic
+    return {"users": []}  # Return empty users list (replace with actual database query)</code></pre>
+</div></p><h3 class="text-primary mt-3">FastAPI with SQLAlchemy</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from fastapi import FastAPI, Depends, HTTPException  # Import FastAPI components for web framework
+from sqlalchemy import create_engine, Column, Integer, String  # Import SQLAlchemy for database ORM
+from sqlalchemy.ext.declarative import declarative_base  # Import declarative base for model definitions
+from sqlalchemy.orm import sessionmaker, Session  # Import session management for database operations
+from pydantic import BaseModel  # Import Pydantic for data validation
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Database setup: configure SQLAlchemy connection and session management</h1>
+SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"  # SQLite database URL (use PostgreSQL/MySQL in production)
+engine = create_engine(SQLALCHEMY_DATABASE_URL)  # Create database engine for connection management
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)  # Create session factory
+Base = declarative_base()  # Create declarative base class for model definitions
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>SQLAlchemy model: define database table structure</h1>
+class User(Base):
+    __tablename__ = "users"  # Database table name
+    id = Column(Integer, primary_key=True, index=True)  # Primary key with index for fast lookups
+    name = Column(String, index=True)  # User name with index for search optimization
+    email = Column(String, unique=True, index=True)  # Unique email with index for fast lookups<p>Base.metadata.create_all(bind=engine)  # Create database tables based on model definitions</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Pydantic model: define API request/response schemas with validation</h1>
+class UserCreate(BaseModel):
+    name: str  # Required user name for creation
+    email: str  # Required user email for creation<p>class UserResponse(BaseModel):
+    id: int  # User ID from database
+    name: str  # User name from database
+    email: str  # User email from database</p>    class Config:
+        orm_mode = True  # Enable ORM mode for automatic SQLAlchemy model conversion<p>app = FastAPI()  # Create FastAPI application instance</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Dependency: manage database sessions with proper cleanup</h1>
+def get_db():  # Database session dependency
+    db = SessionLocal()  # Create new database session
+    try:
+        yield db  # Provide session to endpoint
+    finally:
+        db.close()  # Always close session to prevent connection leaks<p>@app.post("/users", response_model=UserResponse)  # Create user endpoint with response model
+def create_user(user: UserCreate, db: Session = Depends(get_db)):  # Inject database session
+    db_user = User(name=user.name, email=user.email)  # Create SQLAlchemy model instance
+    db.add(db_user)  # Add user to database session
+    db.commit()  # Commit transaction to database
+    db.refresh(db_user)  # Refresh object to get auto-generated ID
+    return db_user  # Return user object (automatically converted to response model)</code></pre>
+</div></p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>API Best Practices</h2>
+
+<h3 class="text-primary mt-3">Error Handling</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from flask import Flask, jsonify
+from werkzeug.exceptions import HTTPException<p>app = Flask(__name__)</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Global error handler</h1>
+@app.errorhandler(HTTPException)
+def handle_exception(e):
+    response = {
+        "error": {
+            "code": e.code,
+            "name": e.name,
+            "description": e.description,
+        }
+    }
+    return jsonify(response), e.code<p>@app.errorhandler(404)
+def not_found(error):
+    return jsonify({'error': 'Resource not found'}), 404</p>@app.errorhandler(500)
+def internal_error(error):
+    return jsonify({'error': 'Internal server error'}), 500</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Request Validation</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from flask import Flask, request, jsonify
+from marshmallow import Schema, fields, ValidationError<p>app = Flask(__name__)</p>class UserSchema(Schema):
+    name = fields.Str(required=True, validate=lambda x: len(x) > 0)
+    email = fields.Email(required=True)
+    age = fields.Int(validate=lambda x: 0 <= x <= 150)<p>user_schema = UserSchema()</p>@app.route('/api/users', methods=['POST'])
+def create_user():
+    try:
+        data = user_schema.load(request.get_json())
+        # Process valid data
+        return jsonify(data), 201
+    except ValidationError as e:
+        return jsonify({'errors': e.messages}), 400</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Rate Limiting</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from flask import Flask, request, jsonify
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address<p>app = Flask(__name__)
+limiter = Limiter(
+    app,
+    key_func=get_remote_address,
+    default_limits=["200 per day", "50 per hour"]
+)</p>@app.route('/api/users')
+@limiter.limit("10 per minute")
+def get_users():
+    return jsonify({'users': []})<p>@app.route('/api/users/<int:user_id>')
+@limiter.limit("5 per minute")
+def get_user(user_id):
+    return jsonify({'user_id': user_id})</code></pre>
+</div></p><h3 class="text-primary mt-3">CORS Handling</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from flask import Flask
+from flask_cors import CORS<p>app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Or configure specific origins</h1>
+CORS(app, origins=["http://localhost:3000", "https://myapp.com"])</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Logging</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import logging
+from flask import Flask, request
+import time<p>app = Flask(__name__)</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Configure logging</h1>
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)<p>@app.before_request
+def log_request_info():
+    logger.info('Headers: %s', dict(request.headers))
+    logger.info('Body: %s', request.get_data())</p>@app.after_request
+def log_response_info(response):
+    logger.info('Response: %s', response.get_data())
+    return response<p>@app.route('/api/users')
+def get_users():
+    logger.info('Fetching users')
+    return {'users': []}</code></pre>
+</div></p><h3 class="text-primary mt-3">API Documentation</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from fastapi import FastAPI
+from pydantic import BaseModel<p>app = FastAPI(
+    title="User Management API",
+    description="A simple API for managing users",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc"
+)</p>class User(BaseModel):
+    id: int
+    name: str
+    email: str
+    
+    class Config:
+        schema_extra = {
+            "example": {
+                "id": 1,
+                "name": "John Doe",
+                "email": "john@example.com"
+            }
+        }<p>@app.get("/users/{user_id}", 
+         response_model=User,
+         summary="Get a user by ID",
+         description="Retrieve a user by their unique identifier")
+def get_user(user_id: int):
+    """
+    Get a user by ID.
+    
+    - <strong>user_id</strong>: The unique identifier of the user
+    
+    Returns the user information if found.
+    """
+    return {"id": user_id, "name": "John Doe", "email": "john@example.com"}</code></pre>
+</div></p><h3 class="text-primary mt-3">Testing APIs</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import pytest
+from fastapi.testclient import TestClient
+from app import app<p>client = TestClient(app)</p>def test_read_main():
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"message": "Hello World"}<p>def test_create_user():
+    user_data = {"name": "Alice", "email": "alice@example.com"}
+    response = client.post("/users", json=user_data)
+    assert response.status_code == 201
+    assert response.json()["name"] == "Alice"</p>def test_get_user_not_found():
+    response = client.get("/users/999")
+    assert response.status_code == 404</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Environment Configuration</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import os
+from dotenv import load_dotenv<p>load_dotenv()</p>class Config:
+    SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key')
+    DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:///app.db')
+    DEBUG = os.getenv('FLASK_ENV') == 'development'
+    CORS_ORIGINS = os.getenv('CORS_ORIGINS', '').split(',')</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Production Deployment</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>gunicorn configuration</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>gunicorn.conf.py</h1>
+bind = "0.0.0.0:8000"
+workers = 4
+worker_class = "uvicorn.workers.UvicornWorker"
+timeout = 120
+keepalive = 2
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Docker example</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Dockerfile</h1>
+FROM python:3.9-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["gunicorn", "app:app", "-c", "gunicorn.conf.py"]</code></pre>
+</div><p>---</p><a href="06-files.md" target="_blank" class="text-warning">Previous Chapter</a> | <a href="08-testing.md" target="_blank" class="text-warning">Next Chapter</a>
+
+                        </div>
+                    </div>
+
+
+                <!-- Quick Access -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <i class="fas fa-bolt me-2"></i>
+                        Quick Access
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <a href="cheatsheet.html" class="btn btn-outline-warning w-100">
+                                    <i class="fas fa-clipboard-list me-1"></i>
+                                    Complete Cheat Sheet
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="11-bestpractices.html" class="btn btn-outline-info w-100">
+                                    <i class="fas fa-star me-1"></i>
+                                    Best Practices
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="16-security.html" class="btn btn-outline-danger w-100">
+                                    <i class="fas fa-shield-alt me-1"></i>
+                                    Security Guide
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 mb-2">
+                                <a href="08-testing.html" class="btn btn-outline-success w-100">
+                                    <i class="fas fa-vial me-1"></i>
+                                    Testing Guide
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="10-performance.html" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-bolt me-1"></i>
+                                    Performance Tips
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="15-deployment.html" class="btn btn-outline-secondary w-100">
+                                    <i class="fas fa-cloud me-1"></i>
+                                    Deployment Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Navigation (Bottom) -->
+                <div class="mt-5">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="06-files.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="00-intro.html">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fab fa-python me-2"></i>
+                Professional Python Cheat Sheet - Created with ❤️ for Python Developers
+            </p>
+            <small class="text-muted">
+                Enhanced with comprehensive English comments and modern web design
+            </small>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

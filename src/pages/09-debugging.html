@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debugging (Logging, Exceptions, pdb) - Professional Python Cheat Sheet</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-python me-2"></i>
+                Python Cheat Sheet
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-home me-1"></i>
+                    Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5 class="text-warning mb-3">
+                        <i class="fas fa-list me-2"></i>
+                        Complete Navigation
+                    </h5>
+                    
+                    <!-- Search in sidebar -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control search-box" id="sidebarSearch" 
+                               placeholder="🔍 Search sections...">
+                    </div>
+
+                    <!-- Main Sections -->
+                    <div class="accordion" id="sidebarAccordion">
+                        <!-- Getting Started -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="gettingStarted">
+                                <button class="accordion-button collapsed" type="button" id="btnGettingStarted" data-bs-toggle="collapse" data-bs-target="#collapseGettingStarted">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Getting Started
+                                </button>
+                            </h2>
+                            <div id="collapseGettingStarted" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="00-intro.html">
+                                            <i class="fas fa-play-circle me-2"></i>
+                                            00 - Python Introduction
+                                        </a>
+                                        <a class="nav-link" href="01-basics.html">
+                                            <i class="fas fa-cube me-2"></i>
+                                            01 - Variables & Data Types
+                                        </a>
+                                        <a class="nav-link" href="02-control.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            02 - Control Structures
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Programming -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="coreProgramming">
+                                <button class="accordion-button collapsed" type="button" id="btnCoreProgramming" data-bs-toggle="collapse" data-bs-target="#collapseCoreProgramming">
+                                    <i class="fas fa-code me-2"></i>
+                                    Core Programming
+                                </button>
+                            </h2>
+                            <div id="collapseCoreProgramming" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="03-functions.html">
+                                            <i class="fas fa-code-branch me-2"></i>
+                                            03 - Functions & Decorators
+                                        </a>
+                                        <a class="nav-link" href="04-oop.html">
+                                            <i class="fas fa-cubes me-2"></i>
+                                            04 - Classes & OOP
+                                        </a>
+                                        <a class="nav-link" href="05-libraries.html">
+                                            <i class="fas fa-boxes me-2"></i>
+                                            05 - Popular Libraries
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File & Web Development -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="fileWeb">
+                                <button class="accordion-button collapsed" type="button" id="btnFileWeb" data-bs-toggle="collapse" data-bs-target="#collapseFileWeb">
+                                    <i class="fas fa-file-code me-2"></i>
+                                    File & Web Development
+                                </button>
+                            </h2>
+                            <div id="collapseFileWeb" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="06-files.html">
+                                            <i class="fas fa-file-alt me-2"></i>
+                                            06 - File Handling
+                                        </a>
+                                        <a class="nav-link" href="07-web.html">
+                                            <i class="fas fa-globe me-2"></i>
+                                            07 - Web Development
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testing & Debugging -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="testingDebugging">
+                                <button class="accordion-button collapsed" type="button" id="btnTestingDebugging" data-bs-toggle="collapse" data-bs-target="#collapseTestingDebugging">
+                                    <i class="fas fa-bug me-2"></i>
+                                    Testing & Debugging
+                                </button>
+                            </h2>
+                            <div id="collapseTestingDebugging" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="08-testing.html">
+                                            <i class="fas fa-vial me-2"></i>
+                                            08 - Testing
+                                        </a>
+                                        <a class="nav-link" href="09-debugging.html">
+                                            <i class="fas fa-search me-2"></i>
+                                            09 - Debugging
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance & Best Practices -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="performanceBestPractices">
+                                <button class="accordion-button collapsed" type="button" id="btnPerformanceBestPractices" data-bs-toggle="collapse" data-bs-target="#collapsePerformanceBestPractices">
+                                    <i class="fas fa-tachometer-alt me-2"></i>
+                                    Performance & Best Practices
+                                </button>
+                            </h2>
+                            <div id="collapsePerformanceBestPractices" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="10-performance.html">
+                                            <i class="fas fa-bolt me-2"></i>
+                                            10 - Performance
+                                        </a>
+                                        <a class="nav-link" href="11-bestpractices.html">
+                                            <i class="fas fa-star me-2"></i>
+                                            11 - Best Practices
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Topics -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="advancedTopics">
+                                <button class="accordion-button collapsed" type="button" id="btnAdvancedTopics" data-bs-toggle="collapse" data-bs-target="#collapseAdvancedTopics">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Advanced Topics
+                                </button>
+                            </h2>
+                            <div id="collapseAdvancedTopics" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="12-advanced.html">
+                                            <i class="fas fa-magic me-2"></i>
+                                            12 - Advanced Python
+                                        </a>
+                                        <a class="nav-link" href="13-concurrency.html">
+                                            <i class="fas fa-sync-alt me-2"></i>
+                                            13 - Concurrency
+                                        </a>
+                                        <a class="nav-link" href="14-datascience.html">
+                                            <i class="fas fa-chart-bar me-2"></i>
+                                            14 - Data Science
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deployment & Security -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="deploymentSecurity">
+                                <button class="accordion-button collapsed" type="button" id="btnDeploymentSecurity" data-bs-toggle="collapse" data-bs-target="#collapseDeploymentSecurity">
+                                    <i class="fas fa-shield-alt me-2"></i>
+                                    Deployment & Security
+                                </button>
+                            </h2>
+                            <div id="collapseDeploymentSecurity" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="15-deployment.html">
+                                            <i class="fas fa-cloud me-2"></i>
+                                            15 - Deployment
+                                        </a>
+                                        <a class="nav-link" href="16-security.html">
+                                            <i class="fas fa-lock me-2"></i>
+                                            16 - Security
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Reference -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="quickReference">
+                                <button class="accordion-button collapsed" type="button" id="btnQuickReference" data-bs-toggle="collapse" data-bs-target="#collapseQuickReference">
+                                    <i class="fas fa-bookmark me-2"></i>
+                                    Quick Reference
+                                </button>
+                            </h2>
+                            <div id="collapseQuickReference" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body p-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="cheatsheet.html">
+                                            <i class="fas fa-clipboard-list me-2"></i>
+                                            Complete Cheat Sheet
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="mt-4 p-3 bg-dark rounded">
+                        <h6 class="text-warning mb-2">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Project Stats
+                        </h6>
+                        <div class="small text-muted">
+                            <div><i class="fas fa-file-code me-1"></i> 18 HTML Pages</div>
+                            <div><i class="fas fa-code me-1"></i> 16+ Python Topics</div>
+                            <div><i class="fas fa-comments me-1"></i> Detailed Comments</div>
+                            <div><i class="fas fa-mobile-alt me-1"></i> Mobile Responsive</div>
+                            <div class="text-success mt-2"><i class="fas fa-circle me-1"></i> Online !</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Page Navigation -->
+                <div class="mb-4">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="08-testing.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Content Placeholder -->
+                
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-book me-2"></i>
+                            Debugging (Logging, Exceptions, pdb)
+                        </div>
+                        <div class="card-body">
+                            <h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Debugging (Logging, Exceptions, pdb)</h1>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Logging</h2>
+
+<h3 class="text-primary mt-3">Basic Logging Setup</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import logging  # Import logging module for application logging
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Basic configuration: set up logging with file and console output</h1>
+logging.basicConfig(
+    level=logging.INFO,  # Set minimum log level (INFO and above will be logged)
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',  # Define log message format
+    handlers=[
+        logging.FileHandler('app.log'),  # Log to file (persistent storage)
+        logging.StreamHandler()          # Log to console (stdout)
+    ]
+)<p>logger = logging.getLogger(__name__)  # Create logger for current module</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: different log levels for different types of messages</h1>
+logger.debug("Debug message")    # Detailed information for debugging (not shown with INFO level)
+logger.info("Info message")      # General information about program execution
+logger.warning("Warning message")  # Warning about potential issues
+logger.error("Error message")    # Error that doesn't stop the program
+logger.critical("Critical message")  # Critical error that may cause program failure</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Advanced Logging Configuration</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import logging  # Import logging module for application logging
+from logging.handlers import RotatingFileHandler, TimedRotatingFileHandler  # Import advanced handlers
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Create logger: set up named logger for application</h1>
+logger = logging.getLogger('myapp')  # Create logger with specific name
+logger.setLevel(logging.DEBUG)  # Set minimum log level (DEBUG and above will be logged)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Create formatters: define detailed log message format</h1>
+formatter = logging.Formatter(
+    '%(asctime)s - %(name)s - %(levelname)s - %(funcName)s:%(lineno)d - %(message)s'  # Include function name and line number
+)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>File handler with rotation: prevent log files from growing too large</h1>
+file_handler = RotatingFileHandler(
+    'app.log', 
+    maxBytes=1024*1024,  # 1MB maximum file size before rotation
+    backupCount=5        # Keep 5 backup files (app.log.1, app.log.2, etc.)
+)
+file_handler.setLevel(logging.INFO)  # Set file handler level (INFO and above)
+file_handler.setFormatter(formatter)  # Apply formatter to file handler
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Console handler: output logs to console for development</h1>
+console_handler = logging.StreamHandler()  # Create console output handler
+console_handler.setLevel(logging.DEBUG)  # Set console handler level (DEBUG and above)
+console_handler.setFormatter(formatter)  # Apply formatter to console handler
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Add handlers to logger: register handlers with logger</h1>
+logger.addHandler(file_handler)  # Add file handler to logger
+logger.addHandler(console_handler)  # Add console handler to logger</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Structured Logging</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import logging  # Import logging module for application logging
+import json     # Import json module for JSON formatting
+from datetime import datetime  # Import datetime for timestamp formatting<p>class JSONFormatter(logging.Formatter):
+    """Custom formatter that outputs logs in JSON format for structured logging."""
+    def format(self, record):
+        # Create structured log entry with standard fields
+        log_entry = {
+            'timestamp': datetime.utcnow().isoformat(),  # ISO format timestamp in UTC
+            'level': record.levelname,                   # Log level (INFO, ERROR, etc.)
+            'logger': record.name,                       # Logger name
+            'message': record.getMessage(),              # Log message
+            'module': record.module,                     # Module name
+            'function': record.funcName,                 # Function name
+            'line': record.lineno                        # Line number
+        }
+        
+        # Add extra fields if present (custom context data)
+        if hasattr(record, 'user_id'):  # Check if user_id was provided
+            log_entry['user_id'] = record.user_id  # Add user ID to log entry
+        if hasattr(record, 'request_id'):  # Check if request_id was provided
+            log_entry['request_id'] = record.request_id  # Add request ID to log entry
+            
+        return json.dumps(log_entry)  # Convert to JSON string</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Setup JSON logging: configure logger with JSON formatter</h1>
+logger = logging.getLogger('api')  # Create logger for API module
+handler = logging.StreamHandler()  # Create console handler
+handler.setFormatter(JSONFormatter())  # Apply JSON formatter to handler
+logger.addHandler(handler)  # Add handler to logger
+logger.setLevel(logging.INFO)  # Set log level
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage with extra context: include additional data in log messages</h1>
+logger.info("User login", extra={'user_id': 123, 'request_id': 'req-456'})  # Log with context data</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Logging Best Practices</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import logging  # Import logging module for application logging
+import functools  # Import functools for decorator utilities
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Create logger for each module: follow the one-logger-per-module pattern</h1>
+logger = logging.getLogger(__name__)  # Create logger for current module<p>def log_function_call(func):
+    """Decorator to log function calls with automatic error handling."""
+    @functools.wraps(func)  # Preserve function metadata (name, docstring, etc.)
+    def wrapper(*args, **kwargs):
+        logger.debug(f"Calling {func.__name__} with args={args}, kwargs={kwargs}")  # Log function entry
+        try:
+            result = func(*args, <strong>kwargs)  # Execute the original function
+            logger.debug(f"{func.__name__} returned {result}")  # Log successful return
+            return result  # Return the function result
+        except Exception as e:  # Catch any exception
+            logger.error(f"{func.__name__} failed with error: {e}", exc_info=True)  # Log error with stack trace
+            raise  # Re-raise the exception (preserve original behavior)
+    return wrapper  # Return the wrapped function</p>@log_function_call  # Apply the logging decorator
+def process_data(data):
+    # Function implementation
+    return data.upper()  # Convert string to uppercase
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Context manager for logging: automatically log start and end of operations</h1>
+class LogContext:
+    def __init__(self, logger, context):
+        self.logger = logger  # Logger instance to use
+        self.context = context  # Context description for logging
+    
+    def __enter__(self):
+        self.logger.info(f"Starting: {self.context}")  # Log operation start
+        return self  # Return self for context manager
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if exc_type:  # Check if an exception occurred
+            self.logger.error(f"Error in {self.context}: {exc_val}", exc_info=True)  # Log error with stack trace
+        else:
+            self.logger.info(f"Completed: {self.context}")  # Log successful completion
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate logging decorator and context manager</h1>
+with LogContext(logger, "data processing"):  # Use context manager for operation logging
+    process_data("test")  # Call decorated function</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Exception Handling</h2>
+
+<h3 class="text-primary mt-3">Basic Exception Handling</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">try:
+    result = 10 / 0  # This will raise a ZeroDivisionError
+except ZeroDivisionError as e:  # Catch specific division by zero error
+    print(f"Division by zero: {e}")  # Handle division by zero specifically
+except ValueError as e:  # Catch value errors (won't be reached in this example)
+    print(f"Value error: {e}")  # Handle value errors
+except Exception as e:  # Catch any other unexpected exceptions
+    print(f"Unexpected error: {e}")  # Handle unexpected errors
+else:
+    print("No exceptions occurred")  # Execute only if no exception was raised
+finally:
+    print("This always executes")  # Always execute (cleanup code)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Custom Exceptions</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">class ValidationError(Exception):
+    """Custom exception for validation errors with field context."""
+    def __init__(self, message, field=None):
+        self.message = message  # Error message
+        self.field = field      # Field name that failed validation
+        super().__init__(self.message)  # Call parent constructor<p>class DatabaseError(Exception):
+    """Custom exception for database errors with query context."""
+    def __init__(self, message, query=None):
+        self.message = message  # Error message
+        self.query = query      # SQL query that caused the error
+        super().__init__(self.message)  # Call parent constructor</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate custom exception handling</h1>
+def validate_age(age):
+    if not isinstance(age, int):  # Check if age is an integer
+        raise ValidationError("Age must be an integer", "age")  # Raise custom exception with field context
+    if age < 0 or age > 150:  # Check if age is within valid range
+        raise ValidationError("Age must be between 0 and 150", "age")  # Raise custom exception with field context
+    return age  # Return valid age<p>try:
+    validate_age("invalid")  # This will raise ValidationError
+except ValidationError as e:  # Catch custom validation error
+    print(f"Validation error in field '{e.field}': {e.message}")  # Print field-specific error message</code></pre>
+</div></p><h3 class="text-primary mt-3">Exception Chaining</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def process_file(filename):
+    try:
+        with open(filename, 'r') as f:  # Try to open and read file
+            return f.read()  # Return file contents
+    except FileNotFoundError as e:  # Catch file not found error
+        raise RuntimeError(f"Could not process file {filename}") from e  # Chain exception with original cause
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate exception chaining</h1>
+try:
+    content = process_file("nonexistent.txt")  # This will raise RuntimeError
+except RuntimeError as e:  # Catch the chained exception
+    print(f"Error: {e}")  # Print the new exception message
+    print(f"Original error: {e.__cause__}")  # Print the original exception that caused it</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Context Managers for Exception Handling</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">from contextlib import contextmanager  # Import contextmanager decorator<p>@contextmanager
+def error_handler(logger, operation_name):
+    """Context manager for consistent error handling and logging."""
+    try:
+        yield  # Execute the code block within the context manager
+    except Exception as e:  # Catch any exception that occurs
+        logger.error(f"Error in {operation_name}: {e}", exc_info=True)  # Log error with stack trace
+        raise  # Re-raise the exception (preserve original behavior)</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate error handling context manager</h1>
+with error_handler(logger, "data processing"):  # Use context manager for automatic error logging
+    process_data()  # Execute code that might raise exceptions</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Assertions</h2>
+
+<h3 class="text-primary mt-3">Basic Assertions</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def divide(a, b):
+    assert b != 0, "Division by zero is not allowed"  # Assertion with custom error message
+    return a / b  # Safe division (assertion ensures b is not zero)<p>def validate_age(age):
+    assert isinstance(age, int), "Age must be an integer"  # Assertion for type checking
+    assert 0 <= age <= 150, "Age must be between 0 and 150"  # Assertion for range validation
+    return age  # Return valid age</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Assertions with custom messages: validate function preconditions</h1>
+def process_list(items):
+    assert len(items) > 0, "List cannot be empty"  # Assertion for non-empty list
+    assert all(isinstance(item, str) for item in items), "All items must be strings"  # Assertion for type consistency
+    return [item.upper() for item in items]  # Process list (assertions ensure valid input)</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Debug Assertions</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import sys  # Import sys module for system-specific parameters<p>def debug_assert(condition, message=""):
+    """Assertion that only runs in debug mode (when __debug__ is True)."""
+    if __debug__:  # Check if Python is running in debug mode
+        assert condition, message  # Only execute assertion in debug mode</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage: demonstrate debug-only assertions</h1>
+def calculate_square_root(n):
+    debug_assert(n >= 0, "Cannot calculate square root of negative number")  # Debug-only validation
+    return n </strong> 0.5  # Calculate square root (assertion ensures non-negative input)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Disable assertions (not recommended in production)</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>python -O script.py  # Run with optimization flag to disable assertions</h1></code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Python Debugger (pdb)</h2>
+
+<h3 class="text-primary mt-3">Basic pdb Usage</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import pdb  # Import Python debugger module<p>def complex_function(x, y):
+    result = x + y  # Calculate sum
+    pdb.set_trace()  # Debugger will stop here (interactive debugging session starts)
+    result *= 2  # Multiply result by 2
+    return result  # Return final result</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Alternative using breakpoint() (Python 3.7+)</h1>
+def another_function():
+    x = 1  # Initialize x
+    y = 2  # Initialize y
+    breakpoint()  # Same as pdb.set_trace() (modern Python syntax)
+    return x + y  # Return sum</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">pdb Commands</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python"><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Common pdb commands:</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>h(elp) - Show help</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>n(ext) - Execute the next line</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>s(tep) - Step into function calls</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>c(ontinue) - Continue execution</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>l(ist) - Show current location in code</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>p <variable> - Print variable value</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>pp <variable> - Pretty print variable</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>w(here) - Show call stack</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>u(p) - Move up in call stack</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>d(own) - Move down in call stack</h1>
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>q(uit) - Quit debugger</h1><p>def debug_example():
+    x = 10
+    y = 20
+    breakpoint()  # Debugger stops here
+    z = x + y
+    print(f"Result: {z}")
+    return z</code></pre>
+</div></p><h3 class="text-primary mt-3">Advanced pdb Usage</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import pdb<p>class MyDebugger(pdb.Pdb):
+    def user_line(self, frame):
+        """Custom behavior when stopping at a line"""
+        print(f"Stopped at line {frame.f_lineno}")
+        print(f"Local variables: {frame.f_locals}")
+        super().user_line(frame)</p>def debug_with_custom_pdb():
+    x = [1, 2, 3, 4, 5]
+    y = sum(x)
+    
+    debugger = MyDebugger()
+    debugger.set_trace()
+    
+    result = y * 2
+    return result</code></pre>
+</div>
+
+<h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Debugging Tools and Techniques</h2>
+
+<h3 class="text-primary mt-3">Print Debugging</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">def debug_with_print():
+    x = 10
+    print(f"DEBUG: x = {x}")  # Simple print debugging
+    
+    y = x * 2
+    print(f"DEBUG: y = {y}")
+    
+    result = y + 5
+    print(f"DEBUG: result = {result}")
+    return result
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Better print debugging with context</h1>
+def debug_with_context():
+    import inspect
+    
+    def debug_print(message, *args):
+        frame = inspect.currentframe().f_back
+        filename = frame.f_code.co_filename
+        line_no = frame.f_lineno
+        func_name = frame.f_code.co_name
+        
+        print(f"DEBUG [{filename}:{line_no} in {func_name}] {message}")
+        if args:
+            print(f"  Values: {args}")
+    
+    x = 10
+    debug_print("Processing x", x)
+    
+    y = x * 2
+    debug_print("Calculated y", y)
+    
+    return y</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Using sys.settrace for Advanced Debugging</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import sys<p>def trace_function(frame, event, arg):
+    """Custom trace function for debugging"""
+    if event == 'line':
+        filename = frame.f_code.co_filename
+        line_no = frame.f_lineno
+        func_name = frame.f_code.co_name
+        
+        print(f"Line {line_no} in {func_name} ({filename})")
+        
+        # Print local variables
+        locals_dict = frame.f_locals
+        if locals_dict:
+            print(f"  Locals: {locals_dict}")
+    
+    return trace_function</p>def debug_with_trace():
+    sys.settrace(trace_function)
+    
+    x = 10
+    y = x * 2
+    result = y + 5
+    
+    sys.settrace(None)  # Stop tracing
+    return result</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Memory Debugging</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import sys
+import gc
+import tracemalloc<p>def debug_memory():
+    # Start memory tracking
+    tracemalloc.start()
+    
+    # Your code here
+    data = [i for i in range(1000000)]
+    
+    # Get memory snapshot
+    snapshot = tracemalloc.take_snapshot()
+    
+    # Show top memory users
+    top_stats = snapshot.statistics('lineno')
+    print("Top 10 memory users:")
+    for stat in top_stats[:10]:
+        print(stat)
+    
+    # Stop tracking
+    tracemalloc.stop()</p>def get_object_size(obj):
+    """Get the size of an object in bytes"""
+    import sys
+    return sys.getsizeof(obj)
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+large_list = [i for i in range(100000)]
+print(f"Size of large_list: {get_object_size(large_list)} bytes")</code></pre>
+</div>
+
+<h3 class="text-primary mt-3">Performance Debugging</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import time
+import cProfile
+import pstats
+from functools import wraps<p>def timing_decorator(func):
+    """Decorator to measure function execution time"""
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        print(f"{func.__name__} took {end_time - start_time:.4f} seconds")
+        return result
+    return wrapper</p>@timing_decorator
+def slow_function():
+    time.sleep(1)
+    return "Done"<p>def profile_function(func, *args, **kwargs):
+    """Profile a function using cProfile"""
+    profiler = cProfile.Profile()
+    profiler.enable()
+    
+    result = func(*args, **kwargs)
+    
+    profiler.disable()
+    stats = pstats.Stats(profiler)
+    stats.sort_stats('cumulative')
+    stats.print_stats(10)  # Show top 10 functions
+    
+    return result</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+def example_function():
+    result = 0
+    for i in range(1000000):
+        result += i
+    return result<p>profile_function(example_function)</code></pre>
+</div></p><h2 class="text-warning mt-4"><i class="fas fa-star me-2"></i>Debugging Best Practices</h2>
+
+<h3 class="text-primary mt-3">Error Context and Information</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import logging
+import traceback
+from datetime import datetime<p>def log_error_with_context(error, context=None):
+    """Log error with full context information"""
+    logger = logging.getLogger(__name__)
+    
+    error_info = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'error_type': type(error).__name__,
+        'error_message': str(error),
+        'traceback': traceback.format_exc(),
+        'context': context or {}
+    }
+    
+    logger.error(f"Error occurred: {error_info}")</p>def safe_execute(func, *args, **kwargs):
+    """Safely execute a function with error logging"""
+    try:
+        return func(*args, **kwargs)
+    except Exception as e:
+        context = {
+            'function': func.__name__,
+            'args': args,
+            'kwargs': kwargs
+        }
+        log_error_with_context(e, context)
+        raise
+
+<h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+def risky_function(x, y):
+    return x / y<p>result = safe_execute(risky_function, 10, 0)</code></pre>
+</div></p><h3 class="text-primary mt-3">Debug Configuration</h3>
+<div class="code-container">
+<button class="copy-btn" onclick="copyCode(this)">
+<i class="fas fa-copy"></i> Copy
+</button>
+<pre class="line-numbers"><code class="language-python">import os
+import logging<p>class DebugConfig:
+    """Configuration class for debugging settings"""
+    
+    def __init__(self):
+        self.debug_mode = os.getenv('DEBUG', 'False').lower() == 'true'
+        self.log_level = os.getenv('LOG_LEVEL', 'INFO')
+        self.enable_profiling = os.getenv('ENABLE_PROFILING', 'False').lower() == 'true'
+    
+    def setup_logging(self):
+        """Setup logging based on configuration"""
+        level = getattr(logging, self.log_level.upper())
+        
+        if self.debug_mode:
+            logging.basicConfig(
+                level=level,
+                format='%(asctime)s - %(name)s - %(levelname)s - %(funcName)s:%(lineno)d - %(message)s'
+            )
+        else:
+            logging.basicConfig(
+                level=level,
+                format='%(asctime)s - %(levelname)s - %(message)s'
+            )</p><h1 class="section-title"><i class="fas fa-play-circle me-2"></i>Usage</h1>
+config = DebugConfig()
+config.setup_logging()</code></pre>
+</div><p>---</p><a href="08-testing.md" target="_blank" class="text-warning">Previous Chapter</a> | <a href="10-performance.md" target="_blank" class="text-warning">Next Chapter</a>
+
+                        </div>
+                    </div>
+
+
+                <!-- Quick Access -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <i class="fas fa-bolt me-2"></i>
+                        Quick Access
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <a href="cheatsheet.html" class="btn btn-outline-warning w-100">
+                                    <i class="fas fa-clipboard-list me-1"></i>
+                                    Complete Cheat Sheet
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="11-bestpractices.html" class="btn btn-outline-info w-100">
+                                    <i class="fas fa-star me-1"></i>
+                                    Best Practices
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="16-security.html" class="btn btn-outline-danger w-100">
+                                    <i class="fas fa-shield-alt me-1"></i>
+                                    Security Guide
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 mb-2">
+                                <a href="08-testing.html" class="btn btn-outline-success w-100">
+                                    <i class="fas fa-vial me-1"></i>
+                                    Testing Guide
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="10-performance.html" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-bolt me-1"></i>
+                                    Performance Tips
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <a href="15-deployment.html" class="btn btn-outline-secondary w-100">
+                                    <i class="fas fa-cloud me-1"></i>
+                                    Deployment Guide
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Navigation (Bottom) -->
+                <div class="mt-5">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="08-testing.html">
+                                    <i class="fas fa-chevron-left me-1"></i>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="index.html">
+                                    <i class="fas fa-home me-1"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    Next
+                                    <i class="fas fa-chevron-right ms-1"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fab fa-python me-2"></i>
+                Professional Python Cheat Sheet - Created with ❤️ for Python Developers
+            </p>
+            <small class="text-muted">
+                Enhanced with comprehensive English comments and modern web design
+            </small>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

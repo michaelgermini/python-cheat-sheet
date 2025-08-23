@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  python-cheat-sheet:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./content:/app/content:ro
+      - ./src:/app/src:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Add a reverse proxy for production
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./src/pages:/usr/share/nginx/html:ro
+    depends_on:
+      - python-cheat-sheet
+    restart: unless-stopped
+    profiles:
+      - production
+
+volumes:
+  content:
+  src:
